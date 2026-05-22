@@ -107,6 +107,56 @@
       "seo_keywords": ["IELTS Writing Task 2", "space exploration", "government spending", "priorities", "IELTS essay"],
       "difficulty": "intermediate",
       "done": false
+    },
+    {
+      "id": 13,
+      "theme": "IELTS 2026 Format Change",
+      "question": "The IELTS exam has been updated in 2026. Do you think standardised tests like IELTS accurately measure a person's ability to communicate in English? To what extent do you agree or disagree?",
+      "essay_type": "Opinion",
+      "seo_keywords": ["IELTS 2026 変更", "IELTS 新形式", "IELTSライティング最新", "IELTS Writing Task 2"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research"
+    },
+    {
+      "id": 14,
+      "theme": "Band Score Improvement",
+      "question": "Some people believe that language learning ability is innate and cannot be significantly improved through study, while others think that dedicated practice is the key to achieving high scores in language tests. Discuss both views and give your own opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTSライティング 7.0", "IELTS band 7 コツ", "IELTS スコアアップ", "IELTS Writing Task 2"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research"
+    },
+    {
+      "id": 15,
+      "theme": "Artificial Intelligence & Society",
+      "question": "Artificial intelligence is increasingly being used in many areas of life, including education, healthcare and the workplace. Do the advantages of AI outweigh the disadvantages?",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTS AI essay", "artificial intelligence IELTS", "テクノロジー Task 2", "IELTS Writing Task 2"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research"
+    },
+    {
+      "id": 16,
+      "theme": "Immigration & Cultural Diversity",
+      "question": "Some people think that immigration has a positive effect on a country's economy and culture, while others believe it creates social problems. Discuss both views and give your own opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTS immigration essay", "多文化社会", "cultural diversity IELTS", "IELTS Writing Task 2"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research"
+    },
+    {
+      "id": 17,
+      "theme": "Social Media & Mental Health",
+      "question": "The rise of social media has had a significant impact on people's mental health. What are the causes of this and what can be done to address the problem?",
+      "essay_type": "Cause-Effect",
+      "seo_keywords": ["IELTS social media essay", "SNS 精神的影響", "mental health IELTS", "IELTS Writing Task 2"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research"
     }
   ]
 }
