@@ -29,6 +29,7 @@ import anthropic
 
 TOPICS_FILE = Path(__file__).parent / "topics.json"
 SCRIPTS_DIR = Path(__file__).parent / "scripts"
+RESEARCH_DIR = Path(__file__).parent / "research"
 
 
 def load_topics():
@@ -65,11 +66,34 @@ def select_topic(data, topic_id=None):
     sys.exit(0)
 
 
-def build_prompt(topic):
+def load_latest_research() -> str | None:
+    """Return the text of the most recent SEO research report, if any."""
+    if not RESEARCH_DIR.exists():
+        return None
+    reports = sorted(RESEARCH_DIR.glob("*_seo_report.md"), reverse=True)
+    if not reports:
+        return None
+    return reports[0].read_text(encoding="utf-8")
+
+
+def build_prompt(topic, research_text: str | None = None):
+    seo_context = ""
+    if research_text:
+        # extract the recommendations section to keep the prompt concise
+        marker = "## 4. 勝てる動画タイトル・フォーマット"
+        if marker in research_text:
+            seo_context = f"""
+## SEOリサーチ情報（最新レポートより）
+以下のリサーチ結果を参考に、タイトル・説明文・タグ・サムネイルをSEO最適化してください。
+
+{research_text[research_text.index(marker):]}
+
+---
+"""
     return f"""あなたはIELTS指導のプロで、YouTubeチャンネル「IELTSゆうこ」の台本ライターです。
 以下のIELTS Writing Task 2のトピックについて、中級者（スコア5.5〜6.5を目指す学習者）向けの
 YouTubeスクリプトを日本語で作成してください。
-
+{seo_context}
 **動画の条件**
 - 長さ: 15〜20分（読み上げ速度で約3,000〜4,000文字のナレーション）
 - 対象: 中級者（Band 5.5〜6.5目標）
@@ -161,18 +185,20 @@ YouTubeスクリプトを日本語で作成してください。
 """
 
 
-def generate_script(topic):
+def generate_script(topic, research_text: str | None = None):
     client = anthropic.Anthropic()
 
     print(f"\nGenerating script for: [{topic['theme']}] {topic['essay_type']}")
     print(f"Topic ID: {topic['id']}")
+    if research_text:
+        print("SEO research context: loaded")
     print("Calling Claude API...\n")
 
     message = client.messages.create(
         model="claude-opus-4-5",
         max_tokens=8096,
         messages=[
-            {"role": "user", "content": build_prompt(topic)}
+            {"role": "user", "content": build_prompt(topic, research_text)}
         ]
     )
 
@@ -205,6 +231,10 @@ def main():
     parser.add_argument("--id", type=int, help="Specify topic ID")
     parser.add_argument("--list", action="store_true", help="List all topics")
     parser.add_argument("--reset", action="store_true", help="Reset all topics to undone")
+    parser.add_argument("--research", metavar="FILE",
+                        help="SEO research report to use (default: latest in research/)")
+    parser.add_argument("--no-research", action="store_true",
+                        help="Ignore SEO research even if a report exists")
     args = parser.parse_args()
 
     data = load_topics()
@@ -220,6 +250,22 @@ def main():
         print("All topics have been reset.")
         return
 
+    # load SEO research context
+    research_text = None
+    if not args.no_research:
+        if args.research:
+            research_path = Path(args.research)
+            if research_path.exists():
+                research_text = research_path.read_text(encoding="utf-8")
+                print(f"SEO research: {research_path}")
+            else:
+                print(f"Warning: research file not found: {args.research}")
+        else:
+            research_text = load_latest_research()
+            if research_text:
+                reports = sorted(RESEARCH_DIR.glob("*_seo_report.md"), reverse=True)
+                print(f"SEO research: {reports[0]} (latest)")
+
     topic = select_topic(data, args.id)
     print(f"\n--- Selected Topic ---")
     print(f"ID     : {topic['id']}")
@@ -227,7 +273,7 @@ def main():
     print(f"Type   : {topic['essay_type']}")
     print(f"Question: {topic['question'][:80]}...")
 
-    script = generate_script(topic)
+    script = generate_script(topic, research_text)
     filepath = save_script(topic, script)
 
     # mark as done
