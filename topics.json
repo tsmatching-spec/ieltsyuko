@@ -157,6 +157,72 @@
       "difficulty": "intermediate",
       "done": false,
       "source": "seo_research"
+    },
+    {
+      "id": 18,
+      "theme": "Essay Correction: Common Japanese Mistakes",
+      "question": "Some people argue that individuals are responsible for their own health and should pay for their own medical treatment, while others believe that governments should provide free healthcare for all citizens. Discuss both views and give your own opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTSライティング 添削", "IELTS essay 添削 youtube", "日本人 IELTS ライティング 間違い"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research",
+      "note": "添削視点での解説動画として制作。日本人特有ミス（結論繰り返し・汎用表現・リンク語乱用）を明示的に指摘する台本にする"
+    },
+    {
+      "id": 19,
+      "theme": "Japanese Learner NG Phrases",
+      "question": "In many countries, young people are choosing to live alone rather than with their families. What are the reasons for this trend and what are the effects on individuals and society?",
+      "essay_type": "Cause-Effect",
+      "seo_keywords": ["IELTSライティング 日本人 間違い", "IELTS よくある間違い", "IELTS NG表現"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research",
+      "note": "日本人がやりがちなNG表現（a lot of, many countries, things, moreover の乱用など）を10個列挙して解説"
+    },
+    {
+      "id": 20,
+      "theme": "Task Response: How to Read the Question",
+      "question": "Some people believe that the best way to improve public health is to increase the number of sports facilities. Others, however, believe that this would have little effect on public health and that other measures are required. Discuss both views and give your own opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTS Task Response", "IELTSライティング 設問 読み方", "IELTS task achievement"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research",
+      "note": "設問を分解して正確に読む技術を解説。Band 6で詰まる層への直接訴求"
+    },
+    {
+      "id": 21,
+      "theme": "Using Japan-Specific Examples",
+      "question": "Many governments are now spending large amounts of money encouraging people to have more children in order to deal with the problem of an ageing population. Do you think this is the best way to deal with the problem of an ageing population?",
+      "essay_type": "Opinion",
+      "seo_keywords": ["IELTS 具体例 書き方", "IELTS example 日本", "IELTSライティング 具体例"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research",
+      "note": "日本固有の話題（少子化、過労、受験競争）を英語の具体例として使う技術を解説"
+    },
+    {
+      "id": 22,
+      "theme": "Band 6 vs Band 7 Essay Comparison",
+      "question": "In some countries, owning a home rather than renting one is very important to people. Why might this be the case? Do you think this is a positive or negative situation?",
+      "essay_type": "Opinion",
+      "seo_keywords": ["IELTS band 6 7 違い", "IELTSライティング スコアアップ", "IELTS band 7 書き方"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research",
+      "note": "同テーマのBand 6エッセイとBand 7エッセイを並べて差分を解説。視覚的・高エンゲージメント"
+    },
+    {
+      "id": 23,
+      "theme": "Opinion Essay: Taking a Clear Stance",
+      "question": "Some people think that it is better to live in a country where the four seasons are distinct. Others think that it is better to live in a country that has the same weather all year round. Discuss both views and give your own opinion.",
+      "essay_type": "Opinion",
+      "seo_keywords": ["IELTS opinion essay", "IELTSライティング 意見 書き方", "IELTS agree disagree"],
+      "difficulty": "intermediate",
+      "done": false,
+      "source": "seo_research",
+      "note": "日本人が曖昧な意見を書きがちな理由とIELTSでの減点リスクを解説。明確な立場を取る技術"
     }
   ]
 }
