@@ -1,0 +1,112 @@
+{
+  "topics": [
+    {
+      "id": 1,
+      "theme": "Education",
+      "question": "Some people think that universities should focus on providing academic knowledge, while others believe they should prepare students for the working world. Discuss both views and give your own opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "university education", "academic vs practical", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 2,
+      "theme": "Technology",
+      "question": "Advances in technology have changed the way people communicate. Some people believe this has had a negative effect on social interaction. To what extent do you agree or disagree?",
+      "essay_type": "Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "technology communication", "social media", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 3,
+      "theme": "Environment",
+      "question": "Many people believe that individuals cannot do anything to solve environmental problems and that it is up to governments and large companies to take action. To what extent do you agree or disagree?",
+      "essay_type": "Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "environment", "climate change", "individual vs government", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 4,
+      "theme": "Health",
+      "question": "The increasing rate of obesity in many countries is a serious problem. What are the causes of this problem and what measures could be taken to solve it?",
+      "essay_type": "Problem-Solution",
+      "seo_keywords": ["IELTS Writing Task 2", "obesity", "health", "problem solution essay", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 5,
+      "theme": "Work & Career",
+      "question": "In many countries, people are working longer hours and have less free time. What are the reasons for this trend and what are the effects on individuals and society?",
+      "essay_type": "Cause-Effect",
+      "seo_keywords": ["IELTS Writing Task 2", "work-life balance", "overwork", "cause effect essay", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 6,
+      "theme": "Crime & Society",
+      "question": "Some people think that the best way to reduce crime is to give longer prison sentences. Others, however, believe there are better alternative ways of reducing crime. Discuss both views and give your own opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "crime", "prison sentences", "crime prevention", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 7,
+      "theme": "Globalization",
+      "question": "Some people believe that globalization has brought many benefits to the world, while others think it has caused serious problems. Discuss both views and give your opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "globalization", "global economy", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 8,
+      "theme": "Media & Advertising",
+      "question": "Advertising has a powerful influence on people's lives. Some people argue that this is a positive development, while others believe it is negative. Discuss both views and give your opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "advertising", "media influence", "consumer culture", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 9,
+      "theme": "Family & Society",
+      "question": "In many countries, women are now able to pursue careers that were previously only available to men. Some people believe this has had a negative effect on the family unit. To what extent do you agree or disagree?",
+      "essay_type": "Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "gender equality", "women in workforce", "family", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 10,
+      "theme": "Transportation & Urban Life",
+      "question": "Traffic congestion in cities is a major problem in many countries. What are the causes of this problem and what measures can be taken to reduce it?",
+      "essay_type": "Problem-Solution",
+      "seo_keywords": ["IELTS Writing Task 2", "traffic congestion", "urban transport", "problem solution", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 11,
+      "theme": "Education",
+      "question": "Some people think that children should begin their formal education at a very early age. Others believe that they should not start school until they are older. Discuss both views and give your opinion.",
+      "essay_type": "Discussion + Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "early childhood education", "school age", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    },
+    {
+      "id": 12,
+      "theme": "Science & Space",
+      "question": "Some people think that space exploration is a waste of money and that these resources should be used to solve problems on Earth. To what extent do you agree or disagree?",
+      "essay_type": "Opinion",
+      "seo_keywords": ["IELTS Writing Task 2", "space exploration", "government spending", "priorities", "IELTS essay"],
+      "difficulty": "intermediate",
+      "done": false
+    }
+  ]
+}
