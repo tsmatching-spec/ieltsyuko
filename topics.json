@@ -340,6 +340,38 @@
       "done": false,
       "source": "seo_research",
       "note": "日本人が曖昧な意見を書きがちな理由とIELTSでの減点リスクを解説。明確な立場を取る技術"
+    },
+    {
+      "id": 24,
+      "theme": "UK大学院スコア別ガイド",
+      "question": "What IELTS score do you need to get into UK universities? (Score-based guide for Japanese learners)",
+      "essay_type": "N/A（情報解説型動画）",
+      "seo_keywords": [
+        "IELTS スコア イギリス大学院",
+        "IELTS 6.5 大学院",
+        "UCL IELTS 要件",
+        "イギリス大学院 ランキング"
+      ],
+      "difficulty": "all",
+      "done": true,
+      "source": "seo_research",
+      "note": "パターン①スコアフック型。スコア帯（6.0/6.5/7.0/7.5）別に入れる大学院を図解で紹介。Writing要件の罠も解説。"
+    },
+    {
+      "id": 25,
+      "theme": "イギリス大学院 12ヶ月ロードマップ",
+      "question": "When should you start IELTS preparation to get into a UK graduate school? (12-month roadmap)",
+      "essay_type": "N/A（情報解説型動画）",
+      "seo_keywords": [
+        "イギリス大学院 出願 いつ",
+        "IELTS いつから",
+        "大学院留学 スケジュール",
+        "IELTS 勉強 スケジュール"
+      ],
+      "difficulty": "all",
+      "done": true,
+      "source": "seo_research",
+      "note": "危機感フック型。出願12ヶ月前からの月別スケジュールと失敗パターン3つを解説。企画A（ID24）との相互リンク推奨。"
     }
   ]
 }
