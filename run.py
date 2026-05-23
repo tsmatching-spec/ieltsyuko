@@ -4,17 +4,22 @@ IELTSゆうこ 動画制作ツール
 起動: python run.py
 """
 
-import os
-import sys
 import json
+import os
+import re
+import sys
+from datetime import datetime
 from pathlib import Path
 
-ENV_FILE = Path(__file__).parent / ".env"
-TOPICS_FILE = Path(__file__).parent / "topics.json"
+BASE_DIR    = Path(__file__).parent
+ENV_FILE    = BASE_DIR / ".env"
+TOPICS_FILE = BASE_DIR / "topics.json"
+RESEARCH_DIR = BASE_DIR / "research"
+SCRIPTS_DIR  = BASE_DIR / "scripts"
 
 
 # -----------------------------------------------------------------
-# .env ローダー（モジュールインポート前に実行する必要がある）
+# .env ローダー
 # -----------------------------------------------------------------
 
 def load_env_file() -> None:
@@ -27,42 +32,26 @@ def load_env_file() -> None:
             os.environ.setdefault(k.strip(), v.strip())
 
 
-def check_or_setup_api_key() -> bool:
+# -----------------------------------------------------------------
+# APIキー確認（必要な機能だけで呼ぶ）
+# -----------------------------------------------------------------
+
+def ensure_api_key() -> bool:
     key = os.environ.get("ANTHROPIC_API_KEY", "")
     if key and not key.startswith("sk-ant-xxx"):
         return True
 
     print()
-    print("=" * 50)
-    print("  初回セットアップ: Anthropic APIキーの設定")
-    print("=" * 50)
+    print("  この機能には Anthropic APIキーが必要です。")
+    print("  取得: https://console.anthropic.com/ → API Keys")
     print()
-    print("このツールを使うには Anthropic の APIキーが必要です。")
-    print()
-    print("取得方法:")
-    print("  1. https://console.anthropic.com/ にアクセス")
-    print("  2. ログイン後、「API Keys」からキーを発行")
-    print("  3. 「sk-ant-」で始まる文字列をコピー")
-    print()
+    key = input("  APIキーを貼り付けてください（スキップは Enter）: ").strip()
+    if not key:
+        return False
 
-    while True:
-        key = input("APIキーを貼り付けてください: ").strip()
-        if not key:
-            print("  APIキーを入力してください。")
-            continue
-        if not key.startswith("sk-ant-"):
-            print("  ※ APIキーは「sk-ant-」で始まります。もう一度確認してください。")
-            cont = input("  このまま続けますか？ (y/n): ").strip().lower()
-            if cont != "y":
-                continue
-        break
-
-    # .env に書き込む
-    env_content = f"ANTHROPIC_API_KEY={key}\n"
-    ENV_FILE.write_text(env_content, encoding="utf-8")
+    ENV_FILE.write_text(f"ANTHROPIC_API_KEY={key}\n", encoding="utf-8")
     os.environ["ANTHROPIC_API_KEY"] = key
-    print()
-    print("  APIキーを .env に保存しました。次回から自動で読み込まれます。")
+    print("  .env に保存しました。\n")
     return True
 
 
@@ -72,172 +61,232 @@ def check_or_setup_api_key() -> bool:
 
 def show_main_menu() -> str:
     print()
-    print("=" * 40)
+    print("=" * 46)
     print("  IELTSゆうこ 動画制作ツール")
-    print("=" * 40)
+    print("=" * 46)
     print()
-    print("  1. SEOリサーチを実行する（月1回）")
-    print("  2. 台本を1本生成する")
-    print("  3. 残りのトピック一覧を見る")
-    print("  4. 終了")
+    print("  ── Claude Code チャット連携（追加料金なし）──")
+    print("  1. 添削台本を作る")
+    print("  2. SEOリサーチ結果を保存する")
+    print()
+    print("  ── スタンドアロン実行（APIキー必要）──────")
+    print("  3. SEOリサーチを自動実行する")
+    print("  4. 通常台本を自動生成する")
+    print()
+    print("  5. トピック一覧を見る")
+    print("  6. 終了")
     print()
     while True:
-        choice = input("番号を入力してください (1〜4): ").strip()
-        if choice in ("1", "2", "3", "4"):
+        choice = input("番号を入力してください (1〜6): ").strip()
+        if choice in ("1", "2", "3", "4", "5", "6"):
             return choice
-        print("  有効な番号を入力してください（1〜4）")
+        print("  1〜6 の番号を入力してください")
 
 
 # -----------------------------------------------------------------
-# メニュー1: SEOリサーチ
+# メニュー1: 添削台本を作る（チャット連携）
 # -----------------------------------------------------------------
 
-def run_seo_research() -> None:
-    import research_seo
+def run_correction_workflow() -> None:
+    import correction_workflow
+    correction_workflow.main()
 
+
+# -----------------------------------------------------------------
+# メニュー2: SEOリサーチ結果を保存する（チャット連携）
+# -----------------------------------------------------------------
+
+def save_seo_research() -> None:
     print()
-    print("【SEOリサーチ】")
-    print("YouTubeでIELTSライティングの検索需要・競合を分析し、")
-    print("次に作るべき動画の企画をレポートにまとめます。")
+    print("【SEOリサーチ結果を保存】")
+    print()
+    print("Claude Code チャットで「SEOリサーチして」を実行した後に使います。")
     print()
 
-    add = input("完了後、おすすめ企画を topics.json に自動追加しますか？ (y/n): ").strip().lower()
-    add_topics = add == "y"
+    # レポートテキストを貼り付けてもらう
+    print("チャットで生成されたレポートのテキストを貼り付けてください。")
+    print("（終わったら空行のあとに --- とだけ入力してEnterを押す）")
+    lines = []
+    while True:
+        try:
+            line = input()
+        except EOFError:
+            break
+        if line.strip() == "---":
+            break
+        lines.append(line)
+    report_text = "\n".join(lines).strip()
 
-    import anthropic
-    try:
-        client = anthropic.Anthropic()
-    except Exception as e:
-        print(f"\nエラー: APIクライアントの初期化に失敗しました。\n{e}")
+    if not report_text:
+        print("テキストが入力されませんでした。")
         return
 
+    # research/ に保存
+    RESEARCH_DIR.mkdir(exist_ok=True)
+    date_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_path = RESEARCH_DIR / f"seo_report_{date_str}.md"
+    report_path.write_text(report_text, encoding="utf-8")
+    print(f"\nレポートを保存しました: research/seo_report_{date_str}.md")
+
+    # topics.json に企画を追加するか確認
+    add = input("\nチャットで提案された企画を topics.json に追加しますか？ (y/n): ").strip().lower()
+    if add != "y":
+        print("完了しました。")
+        return
+
+    print()
+    print("追加したいトピックを入力してください（複数入力可）。")
+    print("入力が終わったら空のテーマ名でEnterを押す。")
+    print()
+
+    if not TOPICS_FILE.exists():
+        print("エラー: topics.json が見つかりません。")
+        return
+
+    with open(TOPICS_FILE, encoding="utf-8") as f:
+        data = json.load(f)
+
+    next_id = max((t["id"] for t in data["topics"]), default=0) + 1
+    added = 0
+
+    while True:
+        theme = input(f"  テーマ名 (ID {next_id}、空でEnterなら終了): ").strip()
+        if not theme:
+            break
+        question = input(f"  問題文 (英語): ").strip()
+        essay_type = input(f"  タイプ (Discussion+Opinion / Opinion / Problem-Solution / Cause-Effect): ").strip()
+        if not essay_type:
+            essay_type = "Discussion + Opinion"
+
+        data["topics"].append({
+            "id": next_id,
+            "theme": theme,
+            "question": question,
+            "essay_type": essay_type,
+            "seo_keywords": ["IELTSライティング", "IELTS Writing Task 2"],
+            "difficulty": "intermediate",
+            "done": False,
+            "source": "seo_research",
+        })
+        next_id += 1
+        added += 1
+        print(f"  → 追加しました。\n")
+
+    with open(TOPICS_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+    print(f"{added} 件の企画を topics.json に追加しました。")
+
+
+# -----------------------------------------------------------------
+# メニュー3: SEOリサーチ自動実行（APIキー必要）
+# -----------------------------------------------------------------
+
+def run_seo_research_auto() -> None:
+    if not ensure_api_key():
+        print("APIキーが設定されていないため、この機能は使えません。")
+        print("メニュー「2」を使ってチャットでリサーチを実行してください。")
+        return
+
+    try:
+        import research_seo
+        import anthropic
+    except ImportError as e:
+        print(f"エラー: {e}")
+        print("pip install anthropic を実行してください。")
+        return
+
+    add = input("完了後、企画を topics.json に自動追加しますか？ (y/n): ").strip().lower()
+    add_topics = add == "y"
+
+    client = anthropic.Anthropic()
     queries = research_seo.SEARCH_QUERIES + research_seo.COMPETITOR_QUERIES
     print(f"\n検索を開始します（{len(queries)} 件）...\n")
 
     try:
         search_results = research_seo.run_web_searches(client, queries)
-    except Exception as e:
-        print(f"\nエラー: 検索中に問題が発生しました。\n{e}")
-        return
-
-    print("\nレポートを生成中...")
-    try:
         report_text = research_seo.synthesize_report(client, search_results)
         report_path = research_seo.save_report(report_text)
+        print(f"レポートを保存しました: {report_path.relative_to(BASE_DIR)}")
     except Exception as e:
-        print(f"\nエラー: レポート生成に失敗しました。\n{e}")
+        print(f"\nエラー: {e}")
         return
 
-    print(f"\nレポートを保存しました: {report_path.relative_to(Path(__file__).parent)}")
-
     if add_topics:
-        print("\n企画を topics.json に追加中...")
         try:
             existing_ids = research_seo.get_existing_ids()
             new_topics = research_seo.extract_topics_from_report(client, report_text, existing_ids)
             added = research_seo.add_topics_to_json(new_topics)
             print(f"{added} 件の企画を topics.json に追加しました。")
         except Exception as e:
-            print(f"※ 自動追加に失敗しました（手動でレポートを確認してください）: {e}")
-
-    print("\n次のステップ: メニュー「2」で台本を生成してください。")
+            print(f"自動追加に失敗しました: {e}")
 
 
 # -----------------------------------------------------------------
-# メニュー2: 台本生成
+# メニュー4: 通常台本を自動生成（APIキー必要）
 # -----------------------------------------------------------------
 
-def run_generate_script() -> None:
-    import generate_script
-
-    print()
-    print("【台本生成】")
-
-    # 未完了トピックを取得
-    try:
-        data = generate_script.load_topics()
-    except FileNotFoundError:
-        print("エラー: topics.json が見つかりません。")
+def run_generate_script_auto() -> None:
+    if not ensure_api_key():
+        print("APIキーが設定されていないため、この機能は使えません。")
         return
 
+    try:
+        import generate_script
+    except ImportError as e:
+        print(f"エラー: {e}")
+        return
+
+    data = generate_script.load_topics()
     pending = [t for t in data["topics"] if not t["done"]]
 
     if not pending:
         print("すべてのトピックが完了しています。")
-        print("メニュー「1」でSEOリサーチを実行して新しい企画を追加するか、")
-        done_reset = input("リセットして最初からやり直しますか？ (y/n): ").strip().lower()
-        if done_reset == "y":
-            for t in data["topics"]:
-                t["done"] = False
-            generate_script.save_topics(data)
-            print("リセットしました。もう一度「2」を選んでください。")
         return
 
-    # トピック一覧表示
     print()
     print("未完了のトピック:")
     for t in pending[:6]:
-        print(f"  [{t['id']:2d}] {t['theme']:<25} {t['essay_type']}")
+        print(f"  [{t['id']:2d}] {t['theme']:<30} {t['essay_type']}")
     if len(pending) > 6:
         print(f"  ... 他 {len(pending) - 6} 件")
 
-    # トピック選択
     next_topic = pending[0]
-    print()
-    print(f"次のトピック → ID {next_topic['id']}: {next_topic['theme']} ({next_topic['essay_type']})")
+    print(f"\n次のトピック → ID {next_topic['id']}: {next_topic['theme']}")
     choice = input("Enterでこのまま生成 / 別のIDを指定する場合は番号を入力: ").strip()
 
-    if choice:
-        if choice.isdigit():
-            topic_id = int(choice)
-            matched = [t for t in data["topics"] if t["id"] == topic_id]
-            if matched:
-                next_topic = matched[0]
-            else:
-                print(f"  ID {topic_id} は見つかりません。最初のトピックを使います。")
-        else:
-            print("  数字以外が入力されました。最初のトピックを使います。")
+    if choice.isdigit():
+        matched = [t for t in data["topics"] if t["id"] == int(choice)]
+        if matched:
+            next_topic = matched[0]
 
-    print(f"\nトピック「{next_topic['theme']}」で台本を生成します...")
-
-    # SEOコンテキスト読み込み
     research_text = generate_script.load_latest_research()
-    if research_text:
-        print("  SEOリサーチ情報: 読み込み済み")
-    else:
-        print("  SEOリサーチ情報: なし（先にメニュー「1」を実行するとSEO最適化されます）")
-
     print("\nClaude APIに接続中...")
     try:
         script_text = generate_script.generate_script(next_topic, research_text)
         filepath = generate_script.save_script(next_topic, script_text)
     except Exception as e:
-        print(f"\nエラー: 台本生成に失敗しました。\n{e}")
+        print(f"\nエラー: {e}")
         return
 
-    # 完了フラグを保存
     for t in data["topics"]:
         if t["id"] == next_topic["id"]:
             t["done"] = True
     generate_script.save_topics(data)
-
-    rel_path = filepath.relative_to(Path(__file__).parent)
-    print(f"\n台本を保存しました: {rel_path}")
-    print("テキストエディタやメモ帳で開いて内容を確認してください。")
+    print(f"\n台本を保存しました: {filepath.relative_to(BASE_DIR)}")
 
 
 # -----------------------------------------------------------------
-# メニュー3: トピック一覧
+# メニュー5: トピック一覧
 # -----------------------------------------------------------------
 
 def show_topics_list() -> None:
-    import generate_script
-
-    try:
-        data = generate_script.load_topics()
-    except FileNotFoundError:
+    if not TOPICS_FILE.exists():
         print("エラー: topics.json が見つかりません。")
         return
+
+    with open(TOPICS_FILE, encoding="utf-8") as f:
+        data = json.load(f)
 
     topics = data["topics"]
     done_count = sum(1 for t in topics if t["done"])
@@ -247,8 +296,12 @@ def show_topics_list() -> None:
     print()
     for t in topics:
         mark = "✓" if t["done"] else "○"
-        src = " [SEO]" if t.get("source") == "seo_research" else ""
-        print(f"  [{mark}] ID {t['id']:2d} | {t['theme']:<25} | {t['essay_type']}{src}")
+        tag = ""
+        if t.get("source") == "seo_research":
+            tag = " [SEO]"
+        elif t.get("source") == "correction_video":
+            tag = " [添削]"
+        print(f"  [{mark}] ID {t['id']:2d} | {t['theme']:<30} | {t['essay_type']}{tag}")
     print()
 
 
@@ -257,29 +310,21 @@ def show_topics_list() -> None:
 # -----------------------------------------------------------------
 
 def main() -> None:
-    # .env を読み込んでからモジュールをインポートする
     load_env_file()
-
-    try:
-        import anthropic  # noqa: F401
-    except ImportError:
-        print("エラー: anthropic ライブラリがインストールされていません。")
-        print("以下のコマンドを実行してください:")
-        print("  pip install anthropic")
-        sys.exit(1)
-
-    if not check_or_setup_api_key():
-        sys.exit(1)
 
     while True:
         choice = show_main_menu()
         if choice == "1":
-            run_seo_research()
+            run_correction_workflow()
         elif choice == "2":
-            run_generate_script()
+            save_seo_research()
         elif choice == "3":
-            show_topics_list()
+            run_seo_research_auto()
         elif choice == "4":
+            run_generate_script_auto()
+        elif choice == "5":
+            show_topics_list()
+        elif choice == "6":
             print("\n終了します。\n")
             break
 
