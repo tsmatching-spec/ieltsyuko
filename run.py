@@ -14,6 +14,7 @@ from pathlib import Path
 BASE_DIR    = Path(__file__).parent
 ENV_FILE    = BASE_DIR / ".env"
 TOPICS_FILE = BASE_DIR / "topics.json"
+SPEAKING_TOPICS_FILE = BASE_DIR / "speaking_topics.json"
 RESEARCH_DIR = BASE_DIR / "research"
 SCRIPTS_DIR  = BASE_DIR / "scripts"
 
@@ -72,15 +73,16 @@ def show_main_menu() -> str:
     print("  ── スタンドアロン実行（APIキー必要）──────")
     print("  3. SEOリサーチを自動実行する")
     print("  4. 通常台本を自動生成する")
+    print("  5. スピーキングショート動画台本を生成する")
     print()
-    print("  5. トピック一覧を見る")
-    print("  6. 終了")
+    print("  6. トピック一覧を見る")
+    print("  7. 終了")
     print()
     while True:
-        choice = input("番号を入力してください (1〜6): ").strip()
-        if choice in ("1", "2", "3", "4", "5", "6"):
+        choice = input("番号を入力してください (1〜7): ").strip()
+        if choice in ("1", "2", "3", "4", "5", "6", "7"):
             return choice
-        print("  1〜6 の番号を入力してください")
+        print("  1〜7 の番号を入力してください")
 
 
 # -----------------------------------------------------------------
@@ -277,7 +279,91 @@ def run_generate_script_auto() -> None:
 
 
 # -----------------------------------------------------------------
-# メニュー5: トピック一覧
+# メニュー5: スピーキングショート動画台本生成（APIキー必要）
+# -----------------------------------------------------------------
+
+def run_generate_speaking_short() -> None:
+    if not ensure_api_key():
+        print("APIキーが設定されていないため、この機能は使えません。")
+        return
+
+    try:
+        import generate_speaking_short
+    except ImportError as e:
+        print(f"エラー: {e}")
+        return
+
+    print()
+    print("【スピーキングショート動画台本生成】")
+    print("採点官・受験生・コーチの3視点で構成されるショート動画台本を生成します。")
+    print()
+
+    data = generate_speaking_short.load_topics()
+    pending = [t for t in data["topics"] if not t["done"]]
+
+    if not pending:
+        print("すべてのスピーキングトピックが完了しています。")
+        reset = input("リセットしますか？ (y/n): ").strip().lower()
+        if reset == "y":
+            for t in data["topics"]:
+                t["done"] = False
+            generate_speaking_short.save_topics(data)
+            pending = data["topics"]
+        else:
+            return
+
+    print("未完了のスピーキングトピック:")
+    for t in pending[:6]:
+        print(f"  [{t['id']:2d}] Part {t['part']} | {t['theme']:<20} | {t['question'][:45]}...")
+    if len(pending) > 6:
+        print(f"  ... 他 {len(pending) - 6} 件")
+
+    print()
+    print("c. カスタム質問を入力する")
+    choice = input("Enterで次のトピック / IDを指定 / c でカスタム: ").strip()
+
+    if choice.lower() == "c":
+        question = input("スピーキングの質問を入力してください: ").strip()
+        if not question:
+            print("キャンセルしました。")
+            return
+        part_str = input("Part番号 (1/2/3、デフォルト1): ").strip()
+        part = int(part_str) if part_str.isdigit() else 1
+        grammar = input("文法フォーカス（空でデフォルト）: ").strip()
+        topic = {
+            "id": "custom",
+            "part": part,
+            "theme": "Custom",
+            "question": question,
+            "grammar_focus": grammar or "Mixed Conditional / Advanced vocabulary",
+            "done": False,
+        }
+    else:
+        if choice.isdigit():
+            matched = [t for t in data["topics"] if t["id"] == int(choice)]
+            topic = matched[0] if matched else pending[0]
+        else:
+            topic = pending[0]
+
+    print("\nClaude APIに接続中...")
+    try:
+        script_text = generate_speaking_short.generate_script(topic)
+        filepath = generate_speaking_short.save_script(topic, script_text)
+    except Exception as e:
+        print(f"\nエラー: {e}")
+        return
+
+    if topic["id"] != "custom":
+        for t in data["topics"]:
+            if t["id"] == topic["id"]:
+                t["done"] = True
+        generate_speaking_short.save_topics(data)
+
+    print(f"\n台本を保存しました: {filepath.relative_to(BASE_DIR)}")
+
+
+# -----------------------------------------------------------------
+# メニュー6: トピック一覧
 # -----------------------------------------------------------------
 
 def show_topics_list() -> None:
@@ -323,8 +409,10 @@ def main() -> None:
         elif choice == "4":
             run_generate_script_auto()
         elif choice == "5":
-            show_topics_list()
+            run_generate_speaking_short()
         elif choice == "6":
+            show_topics_list()
+        elif choice == "7":
             print("\n終了します。\n")
             break
 

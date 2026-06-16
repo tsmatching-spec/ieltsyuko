@@ -1,0 +1,84 @@
+{
+  "topics": [
+    {
+      "id": 1,
+      "part": 1,
+      "theme": "Study Habits",
+      "question": "Do you prefer to study alone or with others?",
+      "grammar_focus": "Mixed Conditional / if + would",
+      "done": false
+    },
+    {
+      "id": 2,
+      "part": 1,
+      "theme": "Daily Routine",
+      "question": "Are you a morning person or a night owl?",
+      "grammar_focus": "Comparatives / tend to",
+      "done": false
+    },
+    {
+      "id": 3,
+      "part": 1,
+      "theme": "Hometown",
+      "question": "What do you like most about where you grew up?",
+      "grammar_focus": "Present Perfect / used to",
+      "done": false
+    },
+    {
+      "id": 4,
+      "part": 1,
+      "theme": "Technology",
+      "question": "How often do you use social media?",
+      "grammar_focus": "Adverbs of frequency / be + adjective",
+      "done": false
+    },
+    {
+      "id": 5,
+      "part": 1,
+      "theme": "Food",
+      "question": "Do you prefer eating at home or at restaurants?",
+      "grammar_focus": "Gerunds as subjects / Mixed Conditional",
+      "done": false
+    },
+    {
+      "id": 6,
+      "part": 2,
+      "theme": "Person",
+      "question": "Describe a person who has had a big influence on your life. You should say: who this person is, how you know them, what they are like, and explain why they have influenced you so much.",
+      "grammar_focus": "Relative clauses / Past Perfect",
+      "done": false
+    },
+    {
+      "id": 7,
+      "part": 2,
+      "theme": "Place",
+      "question": "Describe a place you have visited that you would like to return to. You should say: where it is, when you went there, what you did there, and explain why you would like to go back.",
+      "grammar_focus": "Would + infinitive / Wish + Past Perfect",
+      "done": false
+    },
+    {
+      "id": 8,
+      "part": 3,
+      "theme": "Education",
+      "question": "Do you think children today have too much pressure at school?",
+      "grammar_focus": "Modal verbs for opinion / Passive voice",
+      "done": false
+    },
+    {
+      "id": 9,
+      "part": 3,
+      "theme": "Technology",
+      "question": "How has technology changed the way people communicate?",
+      "grammar_focus": "Present Perfect + Past Simple contrast / It could be argued that",
+      "done": false
+    },
+    {
+      "id": 10,
+      "part": 3,
+      "theme": "Environment",
+      "question": "Should individuals or governments be responsible for protecting the environment?",
+      "grammar_focus": "Obligation modals / Conditional Type 2",
+      "done": false
+    }
+  ]
+}
