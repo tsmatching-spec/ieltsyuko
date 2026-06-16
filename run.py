@@ -75,15 +75,16 @@ def show_main_menu() -> str:
     print("  4. 通常台本を自動生成する")
     print("  5. スピーキングショート動画台本を生成する")
     print("  6. 音源からショート台本を生成する（コーチング録音）")
+    print("  7. フレーズ言い換えショート台本を生成する")
     print()
-    print("  7. トピック一覧を見る")
-    print("  8. 終了")
+    print("  8. トピック一覧を見る")
+    print("  9. 終了")
     print()
     while True:
-        choice = input("番号を入力してください (1〜8): ").strip()
-        if choice in ("1", "2", "3", "4", "5", "6", "7", "8"):
+        choice = input("番号を入力してください (1〜9): ").strip()
+        if choice in ("1", "2", "3", "4", "5", "6", "7", "8", "9"):
             return choice
-        print("  1〜8 の番号を入力してください")
+        print("  1〜9 の番号を入力してください")
 
 
 # -----------------------------------------------------------------
@@ -418,7 +419,42 @@ def run_analyze_speaking_audio() -> None:
 
 
 # -----------------------------------------------------------------
-# メニュー7: トピック一覧
+# メニュー7: フレーズ言い換えショート台本
+# -----------------------------------------------------------------
+
+def run_generate_phrase_short() -> None:
+    if not ensure_api_key():
+        print("APIキーが設定されていないため、この機能は使えません。")
+        return
+
+    try:
+        import generate_phrase_short
+    except ImportError as e:
+        print(f"エラー: {e}")
+        return
+
+    print()
+    print("【フレーズ言い換えショート台本生成】")
+    print("① NG例 → ② 問題提起 → ③ 代替表現リスト → ④ 使い方ヒント の構成で生成します。")
+    print()
+    ng_phrase = input("NG表現を入力してください（例: That's an interesting question）: ").strip().strip('"')
+    if not ng_phrase:
+        print("キャンセルしました。")
+        return
+    context = input("追加コンテキスト（なければEnter）: ").strip()
+
+    try:
+        script_text = generate_phrase_short.generate_script(ng_phrase, context)
+        filepath = generate_phrase_short.save_script(script_text, ng_phrase)
+    except Exception as e:
+        print(f"\nエラー: {e}")
+        return
+
+    print(f"\n台本を保存しました: {filepath.relative_to(BASE_DIR)}")
+
+
+# -----------------------------------------------------------------
+# メニュー8: トピック一覧
 # -----------------------------------------------------------------
 
 def show_topics_list() -> None:
@@ -468,8 +504,10 @@ def main() -> None:
         elif choice == "6":
             run_analyze_speaking_audio()
         elif choice == "7":
-            show_topics_list()
+            run_generate_phrase_short()
         elif choice == "8":
+            show_topics_list()
+        elif choice == "9":
             print("\n終了します。\n")
             break
 
