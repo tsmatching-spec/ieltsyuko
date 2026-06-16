@@ -74,15 +74,16 @@ def show_main_menu() -> str:
     print("  3. SEOリサーチを自動実行する")
     print("  4. 通常台本を自動生成する")
     print("  5. スピーキングショート動画台本を生成する")
+    print("  6. 音源からショート台本を生成する（コーチング録音）")
     print()
-    print("  6. トピック一覧を見る")
-    print("  7. 終了")
+    print("  7. トピック一覧を見る")
+    print("  8. 終了")
     print()
     while True:
-        choice = input("番号を入力してください (1〜7): ").strip()
-        if choice in ("1", "2", "3", "4", "5", "6", "7"):
+        choice = input("番号を入力してください (1〜8): ").strip()
+        if choice in ("1", "2", "3", "4", "5", "6", "7", "8"):
             return choice
-        print("  1〜7 の番号を入力してください")
+        print("  1〜8 の番号を入力してください")
 
 
 # -----------------------------------------------------------------
@@ -363,7 +364,61 @@ def run_generate_speaking_short() -> None:
 
 
 # -----------------------------------------------------------------
-# メニュー6: トピック一覧
+# メニュー6: 音源からショート台本を生成
+# -----------------------------------------------------------------
+
+def run_analyze_speaking_audio() -> None:
+    if not ensure_api_key():
+        print("APIキーが設定されていないため、この機能は使えません。")
+        return
+
+    try:
+        import analyze_speaking_audio
+    except ImportError as e:
+        print(f"エラー: {e}")
+        return
+
+    print()
+    print("【音源からショート台本を生成】")
+    print("コーチング録音（生徒の回答＋FB）からショート動画台本を作ります。")
+    print()
+    print("1. 音声ファイルを指定する（Whisper文字起こし・要OpenAI APIキー）")
+    print("2. 文字起こしテキストを貼り付ける")
+    print()
+    mode = input("選択 (1/2): ").strip()
+
+    if mode == "1":
+        audio_input = input("音声ファイルのパス（mp3/mp4/m4a）: ").strip().strip('"')
+        from pathlib import Path as _Path
+        audio_path = _Path(audio_input)
+        if not audio_path.exists():
+            print(f"エラー: ファイルが見つかりません: {audio_input}")
+            return
+        transcript = analyze_speaking_audio.transcribe_with_whisper(audio_path)
+        source_name = audio_path.name
+        print(f"\n--- 文字起こし（先頭300文字）---\n{transcript[:300]}...\n")
+    else:
+        transcript = analyze_speaking_audio.get_transcript_from_paste()
+        source_name = "manual_transcript"
+        if not transcript:
+            print("テキストが入力されませんでした。")
+            return
+
+    part_input = input("Part番号 (1/2/3、デフォルト1): ").strip()
+    part = int(part_input) if part_input in ("1", "2", "3") else 1
+
+    try:
+        script_text = analyze_speaking_audio.generate_script_from_transcript(transcript, part)
+        filepath = analyze_speaking_audio.save_script(script_text, source_name, part)
+    except Exception as e:
+        print(f"\nエラー: {e}")
+        return
+
+    print(f"\n台本を保存しました: {filepath.relative_to(BASE_DIR)}")
+
+
+# -----------------------------------------------------------------
+# メニュー7: トピック一覧
 # -----------------------------------------------------------------
 
 def show_topics_list() -> None:
@@ -411,8 +466,10 @@ def main() -> None:
         elif choice == "5":
             run_generate_speaking_short()
         elif choice == "6":
-            show_topics_list()
+            run_analyze_speaking_audio()
         elif choice == "7":
+            show_topics_list()
+        elif choice == "8":
             print("\n終了します。\n")
             break
 
