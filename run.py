@@ -74,13 +74,14 @@ def show_main_menu() -> str:
     print("  4. 通常台本を自動生成する")
     print()
     print("  5. トピック一覧を見る")
-    print("  6. 終了")
+    print("  6. 個別相談トラッカー（顧客管理・Excel出力）")
+    print("  7. 終了")
     print()
     while True:
-        choice = input("番号を入力してください (1〜6): ").strip()
-        if choice in ("1", "2", "3", "4", "5", "6"):
+        choice = input("番号を入力してください (1〜7): ").strip()
+        if choice in ("1", "2", "3", "4", "5", "6", "7"):
             return choice
-        print("  1〜6 の番号を入力してください")
+        print("  1〜7 の番号を入力してください")
 
 
 # -----------------------------------------------------------------
@@ -277,6 +278,15 @@ def run_generate_script_auto() -> None:
 
 
 # -----------------------------------------------------------------
+# メニュー6: 個別相談トラッカー
+# -----------------------------------------------------------------
+
+def run_consultation_tracker() -> None:
+    import consultation_tracker
+    consultation_tracker.main()
+
+
+# -----------------------------------------------------------------
 # メニュー5: トピック一覧
 # -----------------------------------------------------------------
 
@@ -325,6 +335,8 @@ def main() -> None:
         elif choice == "5":
             show_topics_list()
         elif choice == "6":
+            run_consultation_tracker()
+        elif choice == "7":
             print("\n終了します。\n")
             break
 
