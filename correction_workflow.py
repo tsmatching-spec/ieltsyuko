@@ -18,6 +18,8 @@ import zipfile
 from datetime import datetime
 from pathlib import Path
 
+from mentor_feedback import load_feedback_points
+
 TOPICS_FILE = Path(__file__).parent / "topics.json"
 SCRIPTS_DIR = Path(__file__).parent / "scripts"
 
@@ -41,6 +43,15 @@ def extract_docx(path: Path) -> str:
 # -----------------------------------------------------------------
 
 def build_chat_prompt(essay_text: str, feedback_text: str) -> str:
+    mentor_points = load_feedback_points()
+    mentor_context = ""
+    if mentor_points:
+        mentor_context = f"""
+【メンターちひろさんからのフィードバック（気をつけるポイント）】
+過去の添削で指摘された以下のポイントを守って台本を作成してください。
+
+{mentor_points}
+"""
     return f"""以下の添削済みエッセイをもとに、パターン①（スコアフック型）の動画台本を日本語で作成してください。
 
 【エッセイファイル（学習者の提出物）】
@@ -48,7 +59,7 @@ def build_chat_prompt(essay_text: str, feedback_text: str) -> str:
 
 【フィードバックファイル（添削済み）】
 {feedback_text}
-
+{mentor_context}
 台本の構成（パターン①スコアフック型）:
 - 0:00  スコア発表フック（想定スコアを冒頭10秒で発表し「でも〇か所直した」と続ける）
 - 0:45  問題文確認・採点基準（TR/CC/LR/GR）の紹介と各スコア

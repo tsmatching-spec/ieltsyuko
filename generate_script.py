@@ -27,6 +27,8 @@ if _env_file.exists():
 
 import anthropic
 
+from mentor_feedback import load_feedback_points
+
 TOPICS_FILE = Path(__file__).parent / "topics.json"
 SCRIPTS_DIR = Path(__file__).parent / "scripts"
 RESEARCH_DIR = Path(__file__).parent / "research"
@@ -76,7 +78,7 @@ def load_latest_research() -> str | None:
     return reports[0].read_text(encoding="utf-8")
 
 
-def build_prompt(topic, research_text: str | None = None):
+def build_prompt(topic, research_text: str | None = None, feedback_points: str | None = None):
     seo_context = ""
     if research_text:
         # extract the recommendations section to keep the prompt concise
@@ -90,10 +92,20 @@ def build_prompt(topic, research_text: str | None = None):
 
 ---
 """
+    feedback_context = ""
+    if feedback_points:
+        feedback_context = f"""
+## メンターちひろさんからのフィードバック（気をつけるポイント）
+過去の添削で指摘された以下のポイントを守って台本を作成してください。
+
+{feedback_points}
+
+---
+"""
     return f"""あなたはIELTS指導のプロで、YouTubeチャンネル「IELTSゆうこ」の台本ライターです。
 以下のIELTS Writing Task 2のトピックについて、中級者（スコア5.5〜6.5を目指す学習者）向けの
 YouTubeスクリプトを日本語で作成してください。
-{seo_context}
+{seo_context}{feedback_context}
 **動画の条件**
 - 長さ: 15〜20分（読み上げ速度で約3,000〜4,000文字のナレーション）
 - 対象: 中級者（Band 5.5〜6.5目標）
@@ -185,20 +197,22 @@ YouTubeスクリプトを日本語で作成してください。
 """
 
 
-def generate_script(topic, research_text: str | None = None):
+def generate_script(topic, research_text: str | None = None, feedback_points: str | None = None):
     client = anthropic.Anthropic()
 
     print(f"\nGenerating script for: [{topic['theme']}] {topic['essay_type']}")
     print(f"Topic ID: {topic['id']}")
     if research_text:
         print("SEO research context: loaded")
+    if feedback_points:
+        print("Mentor feedback checklist: loaded")
     print("Calling Claude API...\n")
 
     message = client.messages.create(
         model="claude-opus-4-5",
         max_tokens=8096,
         messages=[
-            {"role": "user", "content": build_prompt(topic, research_text)}
+            {"role": "user", "content": build_prompt(topic, research_text, feedback_points)}
         ]
     )
 
@@ -273,7 +287,8 @@ def main():
     print(f"Type   : {topic['essay_type']}")
     print(f"Question: {topic['question'][:80]}...")
 
-    script = generate_script(topic, research_text)
+    feedback_points = load_feedback_points()
+    script = generate_script(topic, research_text, feedback_points)
     filepath = save_script(topic, script)
 
     # mark as done
