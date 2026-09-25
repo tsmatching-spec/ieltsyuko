@@ -295,7 +295,7 @@ for r in range(7, 17):
     style(j, align=CENTER)
     ws.row_dimensions[r].height = 36
 add_list_validation(ws, '"1,2,3,4,5"', "F7:H16")
-add_list_validation(ws, "='03_動画レシピ'!$C$6:$E$6", "C7:C16")
+add_list_validation(ws, "'03_動画レシピ'!$C$6:$E$6", "C7:C16")
 ws.conditional_formatting.add("I7:I16", CellIsRule(operator=">=", formula=["11"], fill=PatternFill("solid", fgColor="C6EFCE")))
 ws.conditional_formatting.add("H7:H16", CellIsRule(operator="<=", formula=["2"], fill=PatternFill("solid", fgColor="FFC7CE")))
 ws["A18"] = "基準の問い"
@@ -344,7 +344,7 @@ for r in range(7, 15):
     ws.row_dimensions[r].height = 36
 add_list_validation(ws, '"未着手,企画,台本,撮影,編集,公開済"', "G7:G14")
 add_list_validation(ws, '"✔"', "I7:K14")
-add_list_validation(ws, "='03_動画レシピ'!$C$6:$E$6", "C7:C14")
+add_list_validation(ws, "'03_動画レシピ'!$C$6:$E$6", "C7:C14")
 ws.conditional_formatting.add("G7:G14", CellIsRule(operator="equal", formula=['"公開済"'], fill=PatternFill("solid", fgColor="C6EFCE")))
 ws.conditional_formatting.add("H7:H14", CellIsRule(operator=">", formula=["0"], font=Font(name=FONT, color="C00000", bold=True)))
 
@@ -464,19 +464,19 @@ for r in range(7, 17):
     ws.cell(row=r, column=11).number_format = "0.0%"
     ws.cell(row=r, column=12).number_format = "0.0%"
     ws.row_dimensions[r].height = 48
-add_list_validation(ws, "='03_動画レシピ'!$C$6:$E$6", "C7:C16")
+add_list_validation(ws, "'03_動画レシピ'!$C$6:$E$6", "C7:C16")
 add_list_validation(ws, '"1,2,3,4,5"', "N7:N16")
 ws.cell(row=5, column=10, value="CTR・視聴率は小数で（5.2%→0.052）").font = F_SUB
 
-section(ws, 18, "レシピ別の平均（自動）", 15)
+section(ws, 18, "レシピ別の平均（スプリント8本・自動）", 15)
 header(ws, 19, ["", "レシピ", "本数", "平均再生数", "平均CTR", "平均視聴率", "平均登録者増", "平均感覚評価"])
 for i in range(3):
     r = 20 + i
     col = "CDE"[i]
     style(ws.cell(row=r, column=2, value=f"=IF('03_動画レシピ'!{col}6=\"\",\"\",'03_動画レシピ'!{col}6)"), font=F_BOLD)
-    style(ws.cell(row=r, column=3, value=f'=IF(B{r}="","",COUNTIF($C$7:$C$16,B{r}))'), align=CENTER)
+    style(ws.cell(row=r, column=3, value=f'=IF(B{r}="","",COUNTIF($C$7:$C$15,B{r}))'), align=CENTER)
     for c, src in zip(range(4, 9), "JKLMN"):
-        f = f'=IF(B{r}="","",IFERROR(AVERAGEIF($C$7:$C$16,B{r},${src}$7:${src}$16),"-"))'
+        f = f'=IF(B{r}="","",IFERROR(AVERAGEIF($C$7:$C$15,B{r},${src}$7:${src}$15),"-"))'
         cell = ws.cell(row=r, column=c, value=f)
         style(cell, align=CENTER)
         cell.number_format = {"J": "#,##0", "K": "0.0%", "L": "0.0%", "M": "0.0", "N": "0.0"}[src]
@@ -610,5 +610,31 @@ ws.cell(row=4, column=3, value=f'=COUNTIF(E6:E{5 + len(qlist)},"✔")&" / {len(q
 ws.freeze_panes = "A6"
 
 out = "youtube_90day/YouTube90日チャレンジ_ワークブック.xlsx"
+wb.save(out)
+print("saved", out)
+
+# =====================================================================
+# 記入例入り版：全シートに例を入れて別ファイルで保存
+# =====================================================================
+import datetime as dt
+
+from examples import EXAMPLES
+
+
+def put(ws, ref, value):
+    cell = ws[ref]
+    cell.value = value
+    cell.font = F_EX
+    cell.fill = FILL_EX
+    if isinstance(value, dt.date):
+        cell.number_format = "yyyy/mm/dd"
+
+
+for sheet, cells in EXAMPLES.items():
+    for ref, value in cells.items():
+        put(wb[sheet], ref, value)
+for name in wb.sheetnames:
+    wb[name]["A3"] = "記入例入り版：灰色の斜体＝記入例です。自分の内容に上書きしてください（空欄版は別ファイル）"
+out = "youtube_90day/YouTube90日チャレンジ_記入例入り.xlsx"
 wb.save(out)
 print("saved", out)
