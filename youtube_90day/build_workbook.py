@@ -152,7 +152,7 @@ ws["A25"] = "進捗ダッシュボード（自動）"
 ws["A25"].font = F_SEC
 dash = [
     ("完了した週", "=COUNTIF(H6:H17,\"✔\")&\" / 12\""),
-    ("スワイプファイル件数（目標30）", "=COUNTA('02_スワイプファイル'!B7:B106)"),
+    ("スワイプファイル件数（目標30）", "=COUNTA('02_スワイプファイル'!B7:B46)"),
     ("動画レシピ数（目標1〜3）", "=COUNTA('03_動画レシピ'!C6:E6)"),
     ("アイデア数（目標8）", "=COUNTA('04_アイデア8本'!B7:B16)"),
     ("スプリント公開本数（目標8）", "='05_スプリント管理'!C4"),
@@ -203,7 +203,7 @@ setup(ws, "W2 審美眼を広げる：動画研究＆スワイプファイル",
       [5, 30, 18, 14, 14, 30, 30, 30, 30, 26, 26, 30, 10])
 ws["F4"] = "研究本数："
 ws["F4"].font = F_BOLD
-ws["G4"] = "=COUNTA(B7:B106)&\" / 30本\""
+ws["G4"] = "=COUNTA(B7:B46)&\" / 30本\""
 ws["G4"].font = F_BOLD
 cols = ["No", "動画タイトル / URL", "チャンネル", "フォーマット", "ニッチ内/外",
         "なぜクリックした？（タイトル・サムネ）", "30秒後も見続けた理由（フック）",
@@ -215,13 +215,13 @@ example = ["https://youtube.com/... 「3ヶ月で英語が話せた方法」", "
            "数字＋ビフォーアフター。サムネの表情が強い", "冒頭で結果を見せてから過程を約束",
            "静かなLo-fiで落ち着く、自然光で親近感", "中盤の機材説明（3:40）で離脱しそうに",
            "結果→過程の順で見せる冒頭構成", "IELTSスコア公開から始める", "親しみ・前向き", 5]
-input_block(ws, 7, 100, range(2, 14), example)
-for r in range(7, 107):
+input_block(ws, 7, 40, range(2, 14), example)
+for r in range(7, 47):
     c = ws.cell(row=r, column=1, value=r - 6)
     style(c, align=CENTER)
-add_list_validation(ws, FORMATS, "D7:D106")
-add_list_validation(ws, '"ニッチ内,ニッチ外"', "E7:E106")
-add_list_validation(ws, '"1,2,3,4,5"', "M7:M106")
+add_list_validation(ws, FORMATS, "D7:D46")
+add_list_validation(ws, '"ニッチ内,ニッチ外"', "E7:E46")
+add_list_validation(ws, '"1,2,3,4,5"', "M7:M46")
 ws.freeze_panes = "C7"
 
 # =====================================================================
@@ -638,3 +638,26 @@ for name in wb.sheetnames:
 out = "youtube_90day/YouTube90日チャレンジ_記入例入り.xlsx"
 wb.save(out)
 print("saved", out)
+
+# =====================================================================
+# Googleドライブ用：準備編・制作編の2ファイルに分割（アップロードサイズ対策）
+# =====================================================================
+from openpyxl import load_workbook
+
+PARTS = {
+    "準備編": ["00_ロードマップ", "01_決意表明", "02_スワイプファイル", "03_動画レシピ", "04_アイデア8本", "10_考えることリスト"],
+    "制作編": ["03_動画レシピ", "05_スプリント管理", "06_制作シート", "07_投稿後振り返り", "08_渾身の1本", "09_最終振り返り"],
+}
+for part, keep in PARTS.items():
+    wbp = load_workbook(out)
+    for name in wbp.sheetnames:
+        if name not in keep:
+            wbp.remove(wbp[name])
+    if part == "準備編":
+        ws = wbp["00_ロードマップ"]
+        for r in (30, 31):
+            ws.cell(row=r, column=3, value="→ 制作編ファイルで確認")
+    else:
+        wbp["03_動画レシピ"]["A2"] = "準備編で作ったレシピをここにも書き写してください（05〜08のプルダウンに使います）"
+    wbp.save(f"youtube_90day/YouTube90日チャレンジ_{part}.xlsx")
+    print("saved", part)
