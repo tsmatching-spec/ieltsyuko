@@ -51,7 +51,7 @@ seo_target_keywords:
 A. The population reached 5million.
 B. 25 percentage of students walked to school.
 C. Sales were $5 million dollars.
-D. The rate rose from 20% to 30%, an increase of 10 percentage points.
+D. The rate rose from 40% to 50%, an increase of 10 percentage points.
 ```
 
 「いきなりですが、クイズです。」
@@ -163,9 +163,9 @@ million、billion、thousand は「単語」です。単語と単語の間には
 「では、ここでクイズです。どれが正しいでしょう？」
 
 ```
-A. Five millions cars were sold.
-B. Five million of cars were sold.
-C. Five million cars were sold.
+A. Three millions passengers used the airport.
+B. Three million of passengers used the airport.
+C. Three million passengers used the airport.
 ```
 
 （間を2秒置く）
@@ -181,7 +181,7 @@ C. Five million cars were sold.
 | 5 million people | 5 millions people |
 | 5 million people | 5 million of people |
 | 200 students | 200s students |
-| 15 thousand tourists | 15 thousands tourists |
+| 60 thousand visitors | 60 thousands visitors |
 
 数字の後ろの million、thousand、hundred は、形容詞のような働きをします。だから s もつかないし、of もいりません。
 
@@ -257,9 +257,9 @@ IELTS の語数は、一般的にこのように数えると言われていま�
 
 （テロップ表示）
 ```
-$10        → 1語
-25%        → 1語
-25 percent → 2語
+$20        → 1語
+40%        → 1語
+40 percent → 2語
 ```
 
 ※公式に細かい数え方が公開されているわけではないので、あくまで目安です。
@@ -338,36 +338,36 @@ percentage は「量」ではなく「割合の大きさ」なので、many や 
 
 さて、ここが今日一番お伝えしたいところです。
 
-（画面にグラフ：ある国の失業率が 20% → 30% に上昇）
+（画面にグラフ：ある国の大学進学率が 40% → 50% に上昇）
 
-「失業率が 20% から 30% に上がりました。何% 上がったでしょう？」
+「大学進学率が 40% から 50% に上がりました。何% 上がったでしょう？」
 
 （間を2秒置く）
 
 「10%」と答えた方、多いと思います。
 
-でも英語で「The unemployment rate rose by 10%」と書くと、意味が変わってしまいます。
+でも英語で「The university enrolment rate rose by 10%」と書くと、意味が変わってしまいます。
 
 （スライド表示）
 ```
-rose by 10%                 → 元の数字（20%）の10%分 上がった
-                             → 20% × 1.1 = 22%
-rose by 10 percentage points → 20% から 30% に上がった
+rose by 10%                 → 元の数字（40%）の10%分 上がった
+                             → 40% × 1.1 = 44%
+rose by 10 percentage points → 40% から 50% に上がった
 ```
 
-「by 10%」は「元の値の 10% 分」という意味です。20% の 10% は 2 なので、22% になったという意味になってしまいます。
+「by 10%」は「元の値の 10% 分」という意味です。40% の 10% は 4 なので、44% になったという意味になってしまいます。
 
 % で表された数字同士の「差」を言うときは、**percentage points** を使います。
 
 ```
-○ The unemployment rate rose from 20% to 30%, an increase of 10 percentage points.
-○ The unemployment rate rose by 10 percentage points.
+○ The university enrolment rate rose from 40% to 50%, an increase of 10 percentage points.
+○ The university enrolment rate rose by 10 percentage points.
 ```
 
-ちなみに、20% から 30% への変化を「元の値に対して何%増えたか」で言うと、50% の増加です。
+ちなみに、40% から 50% への変化を「元の値に対して何%増えたか」で言うと、25% の増加です。
 
 ```
-○ The unemployment rate rose by half, from 20% to 30%.
+○ The university enrolment rate rose by a quarter, from 40% to 50%.
 ```
 
 （テロップ：% の差は percentage points）
@@ -377,7 +377,7 @@ rose by 10 percentage points → 20% から 30% に上がった
 実は一番安全なのは、**from 〜 to 〜 で両方の数字を書いてしまうこと**です。
 
 ```
-○ The unemployment rate rose from 20% to 30%.
+○ The university enrolment rate rose from 40% to 50%.
 ```
 
 これなら誤解の余地がありません。Task 1 では、変化の量よりも「どこからどこへ」を書いたほうが具体的で伝わりやすいことも多いです。
@@ -737,7 +737,7 @@ majority は「過半数」です。一番多くても 50% を超えていない
 - **オープニングクイズ**: 4つの英文を縦に並べ、「一時停止して考えてみてください」のテロップを2秒表示してから答え合わせ。A・B・C に順番に赤×、D に緑○
 - **○×表**: 全章で「左が○（緑）、右が×（赤）」に統一する
 - **全角・半角の比較**: 全角文字を赤い枠で囲み、違いが一目でわかるようにする
-- **percentage points の説明**: 20% → 30% の棒グラフを使い、「+10 percentage points」と「+10% = 22%」を2本の矢印で比較するアニメーション（今回の目玉なので丁寧に）
+- **percentage points の説明**: 40% → 50% の棒グラフを使い、「+10 percentage points」と「+10% = 44%」を2本の矢印で比較するアニメーション（今回の目玉なので丁寧に）
 - **第4章の5語の表**: 1語ずつ表示し、最後に全体の表で振り返る。ratio / ration の綴りの差は n の文字だけを赤くする
 - **第5章 TOP7**: 各ミスの冒頭に「ミス①」などの大きな番号を出し、テンポよく切り替える。1つあたり30秒前後を目安にする
 - **第6章の軸の単位**: グラフの「(in thousands)」部分をズームして赤丸で囲む演出
