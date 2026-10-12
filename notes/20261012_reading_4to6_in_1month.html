@@ -1,0 +1,340 @@
+<title>リーディング4.0→6.0 note原稿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1 class="page">1ヶ月でリーディング4.0→6.0｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書きはそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを入れる</h2></div>
+      <p class="hint">入れたURLは下の本文に自動で差し込まれます。空欄のままでもコピーできます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" placeholder="https://www.youtube.com/watch?v=...">
+      </div>
+      <div>
+        <label for="course">無料動画講座の登録ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルを選んでコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。</p>
+      <div class="row title-opt"><span class="text">【実例】1ヶ月でIELTSリーディング4.0→6.0｜受講生さんが「やめたこと」と「続けたこと」</span><button type="button" data-copy-text>コピー</button></div>
+      <div class="row title-opt"><span class="text">IELTSリーディング4.0から抜け出せない人へ。公式問題集の「解きっぱなし」をやめたら1ヶ月で6.0になった話</span><button type="button" data-copy-text>コピー</button></div>
+      <div class="row title-opt"><span class="text">IELTSリーディングが1ヶ月で+2.0｜語彙・間違い分析・音読の3つでスコアが変わった理由</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags" id="tags">#IELTS #IELTSリーディング #英語学習 #イギリス留学 #大学院留学 #海外大学院 #IELTS対策 #英語勉強法</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>「公式問題集を何回も解いているのに、リーディングのスコアが4.0前後から全然動かない…」<br>「60分じゃとても解き終わらないし、読んでいるというより、ただ文字を目で追っているだけ…」</p>
+    <p>こんな経験、ありませんか？</p>
+    <p>先日、私のIELTSコーチングの受講生さんが、<strong>わずか1ヶ月でリーディングを4.0から6.0にスコアアップ</strong>されました。</p>
+    <p>このnoteでは、その受講生さんが実際に何をやめて、代わりに何を続けたのか。その学習法を惜しみなくシェアします。</p>
+    <p>リーディングが4.0あたりから伸び悩んでいる方、短期間でスコアを上げたい方に、ぜひ読んでいただきたい内容です。</p>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>今回の受講生さんとは、まずヒアリングをして目標を明確にし、そのための学習戦略を一緒に立てていきました。</p>
+    <p>それだけではなく、決めたことがちゃんと進められているかを確認するために、日報を出していただいたり、週に1回話し合ったりしながら進捗を確認していきました。</p>
+    <p>そのなかで、私がいちばん大切だと感じたことがあります。</p>
+    <p>それは、<strong>学習の基本は「自分の課題に自分で気がつくこと」</strong>だということです。</p>
+    <p>「あ、私いつもこのパターンで間違えるな」と気づけば、その間違いを繰り返さないような行動に変わっていきます。</p>
+    <p>自分で課題を理解して、解決策を考える。このプロセスこそが、いちばんのスコアアップの鍵になるんです。</p>
+    <p>ここからは、受講生さんが1ヶ月で+2.0を達成するまでに取り組んだことを、順番にお話ししていきます。</p>
+
+    <h2>リーディングが伸びない人の共通点</h2>
+    <p>本題に入る前に、まず知っていただきたいことがあります。</p>
+    <p>IELTSのリーディングで悩んでいる方から、私はこれまで数え切れないほど相談を受けてきました。私自身も実際に経験しています。</p>
+    <p>そして、こうしたお悩みを抱えている方には、ある共通点があったんです。</p>
+    <p>それは、<strong>解答を「なんとなく」選んでいる</strong>ということです。</p>
+
+    <h3>公式問題集の「解きっぱなし」が危ない理由</h3>
+    <p>学習法についても、公式問題集を解きっぱなしにしている方がとても多いことが分かりました。</p>
+    <p>必死に時間を計って解いて、答え合わせをして一喜一憂。そしてまた次の問題へ。</p>
+    <p>これ、すごく勉強している気になりますよね。</p>
+    <p>でも、語彙力や文法の知識が足りない状態でこれを繰り返すのは、実は<strong>最も効率の悪い勉強法</strong>なんです。</p>
+    <p>なぜなら、それは単に<strong>今の自分の実力を繰り返し測っているだけ</strong>になってしまうからです。</p>
+    <p>ダイエットをしたいのに、体重計に乗っているだけでは体重は減りませんよね。</p>
+    <p>公式問題集を解くだけでは、リーディングの本質的な力は上がっていきません。それどころか「またダメだった」と自信を失い、モチベーションが下がる原因にもなってしまいます。</p>
+
+    <h3>受講生さんも「負のスパイラル」の中にいた</h3>
+    <p>今回の受講生さんも、まさにこのループにはまっていました。</p>
+    <p>問題を解くだけで、何が原因で間違えたのか、なぜ正解できたのかが分かっておらず、なんとなく解答してしまっている状況。</p>
+    <p>そこから「何を勉強したらいいか分からない」というスパイラルに入ってしまい、学習相談に来てくださったんです。</p>
+    <p>この負のスパイラルから一歩抜け出すことが、スコアアップのとても重要な最初の一歩でした。</p>
+
+    <h3>「量をこなす学習」から「質を極める学習」へ</h3>
+    <p>コーチングを始めて、私が最初にお願いしたこと。それは、<strong>公式問題集の解きっぱなしをやめること</strong>です。</p>
+    <p>新しい問題をどんどん解いて、やり直しをせずに進めるのは、自分のできないことを再確認して自信を失うだけ。そうではなくて、自分の弱点を一つずつ見つけて向き合うことが大切だとお伝えしました。</p>
+    <p>問題を解くのは、いわば<strong>自分の弱点を知るための健康診断</strong>です。大事なのは、その診断結果をもとに治療を進めていくこと。</p>
+    <p>ここからは、私たちが実際に行った「治療法」、つまり学習法を3つご紹介します。</p>
+
+    <h2>1. 土台となる語彙力を徹底的に上げる</h2>
+    <p>受講生さんがご自身で間違い分析をしていくと、ネックになっているのは<strong>語彙</strong>だということが分かりました。</p>
+
+    <h3>4.0〜5.5の人こそ、テクニックより語彙</h3>
+    <p>IELTSのリーディングで、特に4.0〜5.5ぐらいの方は、この受講生さんと同じように、語彙力が原因で本文や選択肢の意味が分からないということがよくあります。</p>
+    <p>単語の意味が分からなければ、何を説明している文章なのかも分からないし、問題文に書いてあることも理解できません。</p>
+    <p>IELTSのリーディングは、答えが本文に隠れていて、その単語や文章のパラフレーズ（言い換え）が解答につながっていることが多いですよね。</p>
+    <p>語彙の知識が足りないと、答えが本文のどこにあるか分からないだけでなく、場所がなんとなく分かっても、<strong>意味としては30〜40%ぐらいの理解</strong>で問題を解くことになってしまいます。これが正解につながらない大きな原因なんです。</p>
+    <p>だからこそ、<strong>小手先の解答術や速読法よりも、語彙力のほうが絶対に重要</strong>だと私は確信しています。</p>
+    <p>実際、受講生さん自身が4.0から6.0を達成するまでに一番変化を感じたのも、この語彙力でした。</p>
+
+    <h3>毎日100〜200語を「高速でぐるぐる回す」</h3>
+    <p>そこで私たちは学習の軸を語彙に置き、<strong>毎日100〜200語を覚える</strong>ことを約束しました。</p>
+    <p>受講生さんはそれまで100個、200個という単位で単語を覚えたことがなかったので、覚え方もお伝えしました。ポイントは、<strong>とにかく何回も何回も繰り返すこと</strong>です。</p>
+    <p>使った単語帳はレベル別に分かれているもので、最初の目標スコアを5.5に設定していたので、<strong>5.5もしくは6.0のレベルまでは覚えきる</strong>と決めました。</p>
+    <p>そして毎日100個ずつ、とにかく高速でぐるぐる回していく。</p>
+    <p>この地味な作業こそが、受講生さんのスコアアップにつながりました。</p>
+
+    <h2>2. 解きっぱなしにしない「間違い分析」を続ける</h2>
+    <p>語彙力という土台を固めながら、もう一つ続けたのが<strong>徹底的な間違い分析</strong>です。</p>
+
+    <h3>週1回・3パッセージを分析するルール</h3>
+    <p>具体的には、<strong>1週間に1回分のテスト（3パッセージ）を解き、それを徹底的に分析する</strong>というルールにしました。</p>
+    <p>解くときのルールは、<strong>一問一問「なぜこの答えを選んだのか」という根拠を決めること</strong>です。本文に線を引いて、「〇番の答えはここにある」と後から振り返りやすいようにしておきます。</p>
+    <p>そして答え合わせのあとは、次のことをスプレッドシートにまとめていきます。</p>
+    <ul>
+      <li>なぜ間違えたのか</li>
+      <li>正解は本文のどこにあったのか</li>
+      <li>なぜそれに気づけなかったのか</li>
+    </ul>
+    <p>根拠にした箇所が本当に答えと結びついているか、問題文との言い換えができているかを、本文を理解しながら確認していくんです。</p>
+    <p>こうすることで、「なんとなくの正解」を防げますし、間違えたときも原因をはっきり分析できるようになります。</p>
+
+    <h3>「分からなかった」で終わらせない</h3>
+    <p>不正解だった理由を、「意味が分からなかった」だけで終わらせず、もっと深掘りしていきます。</p>
+    <p>そして、原因ごとに<strong>その後の行動まで決める</strong>ことで、同じ問題が出たときに間違いを防げるようになります。</p>
+    <p><strong>● 単語や熟語の意味が分からなかった</strong><br>→ 自作の単語リストにメモして、単語帳と一緒に覚える</p>
+    <p><strong>● 文の構造が複雑で読み間違えた</strong><br>→ なぜそう解釈したのかを分析し、理解できなかった文構造を文法書で確認する</p>
+    <p><strong>● 質問の意図を勘違いしていた</strong><br>→ 「Choose TWO letters」などの指示を見落としていないか、質問のキーワードを正しく捉えられていたかを確認する</p>
+    <p><strong>● True / False / Not Given の区別がついていなかった</strong><br>→ 本文と矛盾する＝False、本文にそもそも書かれていない＝Not Given、というルールを確認し直す</p>
+
+    <h3>時間はかかる。でも「解剖」レベルの分析が力になる</h3>
+    <p>この作業は、正直とても時間がかかりますし、精神的にもハードです。1つのパッセージを分析するのに数時間かかることもざらにあります。</p>
+    <p>でも、この<strong>「解剖」と言えるレベルの分析</strong>をすることで、自分の思考の癖に気づけたり、自分の得意なところと弱点を同時に深く理解できるようになるんです。</p>
+    <p>間違い分析は、単なる答え合わせではありません。<strong>一問一問を、自分の読解力を上げるための最高の教材に変える作業</strong>です。</p>
+    <p>これを繰り返すことで、同じ間違いをしなくなり、問題の傾向が分かるようになり、どうやって正解にたどり着くのかという思考回路が身についていきます。</p>
+
+    <h2>3. 読むスピードを上げる「音読」を毎日続ける</h2>
+    <p>ここまでお話しした語彙力と間違い分析、この2つだけでもスコアアップされる方はいらっしゃいます。</p>
+    <p>ただ、今回の受講生さんとはそれに加えて、<strong>音読</strong>を続けることを約束しました。読むのが遅い、時間内に解き終わらないという方には、ぜひ続けていただきたい学習です。</p>
+
+    <h3>音読の3つのメリット</h3>
+    <p><strong>① 返り読みが減って、読むスピードが上がる</strong></p>
+    <p>日本語と英語は語順が全然違いますよね。日本語を母語とする私たちは、英語を左から右へ理解するというより、行ったり来たりの「返り読み」をしながら読み進めてしまいがちです。</p>
+    <p>これが<strong>時間切れの最大の原因</strong>なんです。</p>
+    <p>音読は、英語の語順のまま前から意味を捉えていく強制的なトレーニングになります。続けていくと脳が英語の語順に慣れて、自然と速く読めるようになっていきます。</p>
+    <p><strong>② 語彙と文法の定着が飛躍的に高まる</strong></p>
+    <p>目で見るだけでなく、自分の声で発音して、それを耳で聞く。これは脳のいろいろな部分を刺激してくれます。</p>
+    <p>間違い分析で学んだ単語や文法、精読で気づいたことを声に出すことで、ただの知識が<strong>使える知識</strong>に変わっていきます。</p>
+    <p><strong>③ ライティングのスコアアップにもつながる</strong></p>
+    <p>リーディングの文章はアカデミックなテーマが多いので、使われているパラグラフの構成や単語は、ライティングでもそのまま活かすことができます。</p>
+    <p>音読でパラグラフの展開の仕方や語彙・文法をインプットすることで、ライティングでも構成力や語彙・文法の幅をアピールできるようになります。</p>
+    <p>最初は時間がかかっていた受講生さんの音読も、続けるうちに少しずつ速くなっていきました。</p>
+
+    <h3>音読のやり方</h3>
+    <ul>
+      <li><strong>1週間に1つのパッセージ</strong>を選ぶ</li>
+      <li>そのパッセージを<strong>毎日、最低5回、できれば10回</strong>音読する</li>
+      <li>1週間経ったら、新しいパッセージに切り替える</li>
+    </ul>
+    <p>1つのパッセージを毎日続けることで、自分の変化に気づきやすくなります。</p>
+    <p>そして、いちばん大事なコツは、<strong>精読と間違い分析を終えて、意味を100%理解した状態で音読すること</strong>です。</p>
+
+    <h2>おわりに｜1ヶ月で+2.0を達成した3つの学習法</h2>
+    <p>今回は、1ヶ月でリーディングを4.0から6.0に伸ばした受講生さんが、何をやめて、代わりに何を続けたのかをお話ししてきました。</p>
+    <p>まず、やめたことは<strong>公式問題集の解きっぱなし</strong>です。</p>
+    <p>そして、続けたことは次の3つでした。</p>
+    <p>1つ目は、<strong>土台となる語彙力を上げること。</strong> 毎日100〜200語を、高速で何度も繰り返す。</p>
+    <p>2つ目は、<strong>解きっぱなしにしない間違い分析。</strong> 週1回3パッセージを解き、根拠を決めて解答し、間違えた原因とその後の行動まで決める。</p>
+    <p>3つ目は、<strong>音読。</strong> 意味を100%理解したパッセージを1つ選び、毎日5〜10回。1週間ごとに新しいパッセージへ。</p>
+    <p>今回お話しした学習法は、私と受講生さんの間で約束したものですが、それをやり切れたのは、何よりご本人の努力があったからです。</p>
+    <p>続けるためには、毎日の学習管理をすること、そしてすぐに結果を求めず、まずはがむしゃらにやってみるというマインドセットが大切です。</p>
+    <p><strong>「なんとなく解く」から、「自分の課題に自分で気づく」学習へ。</strong></p>
+    <p>この意識の転換で、あなたのリーディングのスコアは変わっていきます。</p>
+    <p>このnoteが、あなたのスコアアップの一歩になれば、こんなに嬉しいことはありません。</p>
+
+    <h2>IELTSの学習に関する無料動画講座について</h2>
+    <p>これから海外留学や海外移住を目指す方、特にIELTSのスコアがまだ目標に届いていない方に向けて、リーディングを含めた4技能別の学習ステップをまとめた無料の動画講座をお配りしています。</p>
+    <p>メールアドレスをご登録いただくことで受け取れますので、ぜひご活用ください。</p>
+    <p data-slot="course"><span class="ph">【無料動画講座の登録ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【無料動画講座の登録ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
