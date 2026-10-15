@@ -1,0 +1,314 @@
+<title>IELTS達成後の落とし穴 note原稿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1 class="page">IELTS7.0達成後の落とし穴｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書きはそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを確認する</h2></div>
+      <p class="hint">YouTubeのURLは入力済みです。講座のURLを入れると、本文の最後に自動で差し込まれます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" value="https://youtu.be/ZCLg7ifEEZo" placeholder="https://www.youtube.com/watch?v=...">
+      </div>
+      <div>
+        <label for="course">無料動画講座の登録ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルをコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。</p>
+      <div class="row title-opt"><span class="text">【注意】IELTS7.0達成後に待つ“落とし穴”と分かれ道｜キャリアを止めない人の3つの鉄則</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags">#IELTS #イギリス留学 #イギリス大学院 #大学院留学 #社会人留学 #海外就職 #キャリアアップ #留学準備</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>IELTSの目標スコア達成、本当におめでとうございます。「やっと終わった…」と、心の底から安心している方も多いはずです。</p>
+    <p>でも、もしあなたがその安心感にどっぷりハマってしまっているなら、それは<strong>あなたのキャリアを停滞させてしまう最悪の罠の始まり</strong>かもしれません。</p>
+    <p>実は、イギリスの大学院に進学しても思うように学習が進められなかったり、その後イギリスで現地就職を目指しても、厳しい現実を目の当たりにして帰国したりする方も多いんです。</p>
+    <p>このnoteでは、IELTS目標達成後から大学院入学までに待っている3つの落とし穴と、それを乗り越えてキャリアアップにつなげるための、<strong>学校では教えてくれない3つの鉄則</strong>をお伝えします。</p>
+    <p>「スコアは取れたけど、この先なにをしたらいいか分からない」という方に、ぜひ読んでいただきたい内容です。</p>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>IELTSでオーバーオール6.5、7.0、7.5を達成するのは、なかなかできることではありません。</p>
+    <p>でも、イギリスの大学院進学に関して言うと、それは<strong>あくまで大学院に進学するためのスタートラインに立っただけ</strong>なんです。</p>
+    <p>実際、自分が就きたい職業に就けている人、キャリアアップできている人は、本当に一部の方々です。</p>
+    <p>その権利を本当の意味でのキャリアアップにつなげられるかどうか。海外での就職、専門性を活かした起業、あるいは日本で圧倒的な市場価値を手にできるかどうかは、<strong>IELTSスコア達成後の行動</strong>にかかっています。</p>
+    <p>IELTSのスコアを達成した「今」こそが、その後のキャリアを決める重要な分かれ道なんです。</p>
+    <p>最後まで読んでいただければ、ただのIELTSスコアホルダーではなく、自分のキャリアを戦略的に動かせるゲームチェンジャーへの一歩が踏み出せるはずです。</p>
+
+    <h2>1. 燃え尽き症候群で学習を止めてしまう</h2>
+    <p>1つ目の落とし穴は、本当に多くの人がハマってしまう<strong>燃え尽き症候群</strong>です。</p>
+    <p>IELTSに時間をかけて対策してきた分、「ちょっと休みたい」「勉強は少し置いておきたい」と思っている方もいらっしゃるかもしれません。特に独学だと、心が折れそうな瞬間がたくさんありましたよね。</p>
+    <p>それを乗り越えただけで、本当に素晴らしいことです。</p>
+    <p>でも、ここで完全に学習を止めてしまうのは、大学院での学習に遅れを取る<strong>致命的なミス</strong>になります。</p>
+
+    <h3>IELTSが証明しているのは「一般的な英語力」だけ</h3>
+    <p>なぜなら、IELTSが証明しているのは、あくまで一般的な英語力であって、<strong>議論をするための専門的な言葉の力ではない</strong>からです。</p>
+    <p>特にイギリスの1年制の修士プログラムは、想像を絶するスピードで進んでいきます。</p>
+    <p>入学してオリエンテーションがあったと思えば、次の週からはもう山のような課題が出て、試験が発表されることもあります。同時にセミナーやディスカッションも待っていて、その準備も必要です。</p>
+    <p>クラスで求められるのは、「この論文に論理的に欠けているものは何か？」「理論に基づいて、現状起きていることを分析してみましょう」といった、とても高度で専門的なことです。</p>
+    <p>私自身、大学院に入学したときは、まさにこの現実に打ちのめされたことを今でも覚えています。</p>
+    <p>正直、IELTSのスコアは全く関係ありませんでした。専門用語が分かるか、それに関連する経験があるかどうかで、議論にどれだけ貢献できるか、どれだけ学べるかが本当に変わってくるんです。</p>
+    <p>IELTSで高得点を取った人でも授業についていけない、というのはよくある話ですが、その理由はここにあります。</p>
+
+    <h3>鉄則①：専門知識のインプットを今日から加速させる</h3>
+    <p>この事態を避けるための方法は、<strong>専門知識のインプットを今日から加速させること</strong>です。</p>
+    <p>IELTSは卒業して、一般的な英語学習はもう終わり。ここからは、あなたの興味のある楽しいことに焦点を当ててインプットしていけるんです。</p>
+    <p>例えば、大学時代と専門を変える方は、これから学ぶ分野の入門書や、専門書の中でも比較的ビギナー向けの本を、日本語でも英語でもいいので読むことをおすすめします。</p>
+    <p>論文を読むのもいいと思います。そのとき私が気をつけていたのは、<strong>「なぜその本を読むのか」「読むことで何を解決したいのか」というテーマを持って読むこと</strong>です。</p>
+    <p>目的が分かっていると、じっくり読みたいところとそうでないところを選べるようになります。</p>
+    <p>この力は、大学院に入ってから膨大な課題に向き合うときにも、とても重要なスキルです。すべてに全力で取り組むのではなく、自分に必要なものとそうでないものをうまく選びながら、充実した学生生活を送れるようになります。</p>
+    <p>すべてを理解しようとするのではなく、知識を入れる目的や解決したい課題を明確にしたうえで、本や文献を選ぶようにしましょう。</p>
+    <p>今から準備を始めることで、スタートダッシュを切って、教授や仲間から一目置かれる存在になれます。</p>
+
+    <h2>2. 「キャリアは入学してから考えればいい」と思ってしまう</h2>
+    <p>2つ目の落とし穴は、<strong>「コースに入学してからキャリアを考えればいい」</strong>という考え方です。</p>
+    <p>多くの方が、大学院やMBAに進学すること自体をゴールに設定してしまっています。</p>
+    <p>そうすると、入学後の目的を見失ってしまい、本来達成したいキャリアに向けて何も動けないまま、ただ学校のコースをこなしていく日々になってしまいます。</p>
+    <p>でも、イギリスの大学院、特に1年制のコースに在学する予定の皆さん。<strong>1年は本当に短いです。</strong>正直、のんびりしている暇は1日もありません。</p>
+    <p>日本のような仕組み化された新卒一括採用はありませんし、キャリアの目的が明確な人たちは、入学した時から積極的にインターンをして、着実にキャリアを歩んでいきます。</p>
+
+    <h3>学生は2つのタイプに分かれる</h3>
+    <p>私が所属していたコースでも、学生は大きく2つのタイプに分かれていました。</p>
+    <ul>
+      <li>授業と予習・復習だけに集中して、「この修士号さえあれば、きっといいキャリアが待っているはず」と信じている人</li>
+      <li>授業はもちろんこなしつつ、修了後の自分のイメージを明確に持って、そこから逆算して行動している人</li>
+    </ul>
+    <p>後者の学生たちは、入学した時点でもう動いています。キャリアセンターに行ったり、LinkedInでコネクションを作ったり、実際に仕事を獲得している学生もいました。</p>
+    <p>特に忙しい1学期目は活動が難しくても、2学期目、3学期目の空いた時間を使って、有名な企業や学校に就職したコースメイトもいました。</p>
+    <p>先日お話しした大学院修了生の方も、入学前に「どの時期に何をするか」を明確に決めてから行動されていました。その結果、スケジュール通りにインターンを獲得し、インターンをしながら学業を進め、修士論文を書くタイミングで就職活動を始めて、見事に仕事を獲得されたんです。</p>
+
+    <h3>鉄則②：修了後の姿を決めて、逆算して今すぐ動く</h3>
+    <p>大切なのは、<strong>コース修了後のなりたい自分を決めて、そこから逆算したアクションプランを立てること</strong>です。</p>
+    <p>まずは、1年後のあなたがどんな姿（アバター）になっていたいのか、具体的に想像してみてください。</p>
+    <p><strong>● 博士課程への進学を考えているなら</strong><br>志望校の教授の論文を徹底的に読み込み、パーソナルステートメントで具体的にアピールしましょう。そうすれば、単なる学生ではなく、未来の研究パートナー候補として見てもらえます。</p>
+    <p><strong>● 留学先の国や外資系企業で働きたいなら</strong><br>今すぐLinkedInのプロフィールを英語で完璧に仕上げましょう。そして、興味のある業界の求人情報を調べて、求められているスキル（データ分析や特定のソフトのスキルなど）をリストアップします。そのスキルを、大学院の授業選びやプロジェクト、インターンを通じて計画的に身につけていくんです。</p>
+    <p><strong>● 日本市場のゲームチェンジャーになりたいなら</strong><br>修士号を武器に日本でのキャリアアップや起業を考えているなら、今すぐ自分の専門分野について情報発信を始めるのも一つです。ブログやXでもOK。留学準備のプロセスや学んだことを発信していくことで、帰国する頃には、その分野の専門家として認知されることもあるでしょう。</p>
+    <p>この逆算思考を持つかどうかが、修士号が単なる学歴で終わるのか、キャリアを飛躍させる強力なエンジンになるのかの分かれ道です。</p>
+    <p>あなたは、どのアバターを目指しますか？</p>
+
+    <h2>3. 「自分にはアカデミックな経験が足りない」という思い込み</h2>
+    <p>最後の、そして一番もったいない落とし穴は、私を含め、社会人になってから大学院留学を目指す方が陥りがちな<strong>「自分にはアカデミックな経験が足りない」という思い込み</strong>です。</p>
+    <p>大学からストレートで入ってくる学生に比べて、自分はアカデミックな世界から長く離れている。そんなふうに自分のキャリアを信じきれず、不安になってしまう方が一定数いらっしゃいます。</p>
+    <p>でも、断言します。その考えは間違っています。</p>
+    <p><strong>あなたの社会人経験こそが、他の誰にも真似できない最強の武器</strong>なんです。</p>
+    <p>大学院が求めているのは、テストの点数が高い学生だけではありません。<strong>理論と現実の架け橋になってくれる人材</strong>です。</p>
+    <p>あなたは、現場でしか得られないお客様の生の声や、組織の実際の問題を知っています。それは、教科書だけで学んできた学生にはない強力なアドバンテージなんです。</p>
+
+    <h3>美容部員から英語教育の道へ進んだ私の話</h3>
+    <p>私自身の話が、まさにその一例です。</p>
+    <p>私は日本の大学を卒業してから、大学院に行く前は美容部員として働いていました。一見すると、英語教育とは全く関係なさそうですよね。</p>
+    <p>でも、そこで私は新人教育を担当したり、セミナーで商品知識を共有したりと、<strong>「伝える」ことに特化した仕事</strong>をしていました。</p>
+    <p>習ったことを実践する難しさや、人それぞれに違う課題があることに気づき、新人教育やセミナーへの声をいただくなかで、「自分はこの分野で活躍できるかもしれない」と思えるようになったんです。</p>
+    <p>そこで教育に興味を持ち、もともと好きだった英語と掛け合わせて、英語教育という全く違う畑に入りました。</p>
+    <p>教える経験をゼロから積み上げていくなかで、教える年齢やレベル、クラスの人数や場所によって環境が大きく変わること。そして、日本語を母語とする私たちにとって「英語学習を通じて何を達成したいのか」がいかに大事で、教師がそれを示す存在でなければいけないと考えるようになりました。</p>
+    <p>こうした現場での気づきや疑問、これからどうしていきたいかという課題、そしてその解決策を考えるうちに、大学院に進学したいと思うようになったんです。</p>
+    <p>入学してからは、IELTSのコーチングをもっと強化したいという思いが広がり、在学中はコーチングで実際に使える教材を作ったり、コーチングの経験から感じた課題を解決する目的で授業に参加したりしていました。</p>
+    <p>このように、<strong>現場の課題と学術的な知見を結びつけたこと</strong>が、今の私のコーチングの土台になっています。現場を知っているからこそ受講生さんの悩みに寄り添えるし、机上の空論ではない実践的な解決策を提案できるんです。</p>
+
+    <h3>鉄則③：社会人経験を最強の武器として活かす</h3>
+    <p>この武器を最大限に活かすための鉄則は、<strong>「現場での課題意識を大学院での学びにつなげ、それをキャリアの実践で活かす」というサイクルを意図的に作ること</strong>です。</p>
+    <p>具体的なアクションプランはこちらです。</p>
+    <ol>
+      <li>これまで仕事で感じてきた一番大きな問題や、解決したい課題を<strong>3つ書き出す</strong>。それが研究テーマの核になり、あなただけの物語を語るための原石になります。</li>
+      <li>その課題意識を常に持ちながら、大学院の授業に臨む。「この理論は、自分のいた業界のあの問題に応用できないか？」「この研究手法を使えば、あの課題の原因を突き止められるかも」と、<strong>常に自分の経験と結びつけて考える</strong>。</li>
+    </ol>
+    <p>このサイクルを意識すれば、単なる知識のインプットではなく、社会に還元するアウトプットを前提とした、質の深い学びになっていきます。</p>
+    <p>そして大学院修了後、あなたは「修士号を持っている元社会人」ではなく、<strong>現場の課題を学術的な視点から解決できる、市場価値の高いプロフェッショナル</strong>として求められる存在になれるんです。</p>
+
+    <h2>おわりに｜スコア達成後こそ、キャリアの分かれ道</h2>
+    <p>今回は、IELTSの目標スコアを達成した後に待ち受ける3つの落とし穴と、その解決策についてお話ししてきました。</p>
+    <p>1つ目は、<strong>専門知識のインプットを加速させること。</strong>目的やテーマを持って、入門書や論文を読み始める。</p>
+    <p>2つ目は、<strong>修了後の姿から逆算して、今すぐ行動すること。</strong>1年後のなりたい姿を決めて、そこに向けたアクションプランを立てる。</p>
+    <p>3つ目は、<strong>社会人経験を最強の武器として活かすこと。</strong>仕事で感じた課題を3つ書き出し、大学院での学びと結びつけていく。</p>
+    <p>IELTSを達成したあと、正直なにをしたらいいか分からないと迷っている方も多いはずです。</p>
+    <p>でも、スコアを取った今この瞬間こそが、その後のキャリアを決める分かれ道です。</p>
+    <p><strong>スコアホルダーで終わるか、キャリアを動かすゲームチェンジャーになるか。</strong></p>
+    <p>このnoteが、あなたが次の一歩を踏み出すきっかけになれば、こんなに嬉しいことはありません。</p>
+
+    <h2>IELTSの学習に関する無料動画講座について</h2>
+    <p>これから海外留学や海外移住を目指す方、特にIELTSのスコアがまだ目標に届いていない方に向けて、4技能別の学習ステップをまとめた無料の動画講座をお配りしています。</p>
+    <p>メールアドレスをご登録いただくことで受け取れますので、ぜひご活用ください。</p>
+    <p data-slot="course"><span class="ph">【無料動画講座の登録ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【無料動画講座の登録ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
