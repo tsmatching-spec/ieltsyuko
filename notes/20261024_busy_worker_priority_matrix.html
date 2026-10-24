@@ -1,0 +1,353 @@
+<title>優先順位マトリックス note原稿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1 class="page">優先順位マトリックス｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書きはそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを入れる</h2></div>
+      <p class="hint">入れたURLは下の本文に自動で差し込まれます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" placeholder="https://youtu.be/...">
+      </div>
+      <div>
+        <label for="course">無料動画講座の登録ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルをコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。</p>
+      <div class="row title-opt"><span class="text">忙しい社会人のIELTS戦略：時間切れを防ぐ「優先順位マトリックス」の作り方</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags">#IELTS #IELTS対策 #社会人の勉強 #英語学習 #時間管理 #勉強法 #イギリス留学 #大学院留学</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>「仕事で忙しいのに4技能すべてを対策しようとして、結局パンクして自己嫌悪…」<br>「このやり方で本当にスコアが伸びるのかな。頑張っているのに、なかなか伸びない…」</p>
+    <p>そんな経験、ありませんか？</p>
+    <p>実はこれ、ほとんどの受験者の方がぶつかる「見えない壁」です。そして、<strong>真面目な方ほど陥りやすい「全部やろうとする罠」</strong>が原因になっていることが多いんです。</p>
+    <p>このnoteでは、忙しい社会人の方が限られた時間でスコアを伸ばすための<strong>「優先順位マトリックス」の作り方</strong>と、<strong>「やらないことリスト」</strong>、そして<strong>学習を途切れさせないコツ</strong>をお伝えします。</p>
+    <p>とにかく時間がない、働きながら限られた時間で対策を進めたいという方は、ぜひ最後まで読んでみてください。</p>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>私自身も、働きながらIELTSの対策をしていた一人です。皆さんと同じような悩みを抱えていました。</p>
+    <p>そして、これまで多くの方の学習相談に乗ってきましたが、忙しい社会人の方には<strong>共通する悩み</strong>がありました。</p>
+    <p>それは、<strong>4技能すべてを対策しようとして、結局時間切れになってしまう</strong>ということです。</p>
+    <p>限られた時間をどう使うか。これが全てなんですよね。</p>
+    <p>ここからは、その原因と解決策を順番にお話ししていきます。</p>
+
+    <h2>なぜ忙しい人ほど「時間切れ」になるのか</h2>
+
+    <h3>得意なことに時間をかけてしまっている</h3>
+    <p>例えば、こんなケースをよく見かけます。</p>
+    <ul>
+      <li>リーディングが一番スコアが高く、7.5以上取れているのに、まだ足りないと思って単語帳で語彙強化を続けている</li>
+      <li>得意なリスニングやリーディングに時間をかけて、苦手なスピーキングは週に1回しか対策できていない</li>
+      <li>文法の基礎はできているのに、「完璧じゃないといけない」と文法書でルールを確認し続け、細かいミスの修正に何時間もかけてしまう</li>
+    </ul>
+    <p>これらに共通するのは、<strong>すべて得意なものに時間をかけている</strong>ということです。</p>
+    <p>多くの方は、平均的に高いスコアを狙いたかったり、大学院から<strong>各セクションの最低スコア</strong>をクリアするよう求められていたりしますよね。</p>
+    <p>それなのに、限られた時間がどうしても得意なものに偏ってしまう。その結果、いつまで経ってもスコアが伸びず、本当に伸ばすべき弱点から目を背けてしまっているんです。</p>
+    <p>その背景にあるのが、真面目な方ほど持ちやすい<strong>「全部頑張らないといけない」という思い込み</strong>です。</p>
+
+    <h3>スコアアップには2つの段階がある</h3>
+    <p>ここで大事なことをお伝えします。IELTSのスコアアップには、大きく2つの段階があります。</p>
+    <p><strong>● 基礎力をつける段階</strong><br>IELTS対策というより、英語の基礎力、つまり単語、文法のルール、ライティングの書き方のルールなどを学ぶステージです。オーバーオール5.5〜6.0を目指す方は、IELTS対策よりもまず一般的な英語の基礎力を上げる必要があります。</p>
+    <p><strong>● 戦略的にスコアを取りに行く段階</strong><br>このスコアをクリアした先は、IELTSに特化した対策が必要です。ある程度ある基礎力を磨きつつ、IELTSの問題に慣れながら戦略的に進めていきます。</p>
+    <p>もし4技能それぞれで平均的に6.0が取れているなら、最低限の中学文法や語彙のレベルはあると見なしていい状態です。</p>
+    <p>この段階で考えるべきなのは、単語量をもっと増やすことや、問題をひたすら解くことではありません。</p>
+    <p>必要なのは、<strong>次の段階に進むために、何をやめて、何に集中するか</strong>という考え方なんです。</p>
+
+    <h2>「優先順位マトリックス」の作り方</h2>
+    <p>何に集中するかを決めるために使うのが、<strong>2つの軸</strong>です。</p>
+
+    <h3>軸①：緊急度</h3>
+    <p>セクションごとに求められているスコアがあり、<strong>そのスコアに一度も達したことのない技能</strong>は、緊急度が高いと判断できます。</p>
+    <p>例えば、大学院の出願で全技能6.5以上が必要なのに、スピーキングだけ5.5以上を取ったことがない場合。この場合は、スピーキングの緊急度が高いということになります。</p>
+
+    <h3>軸②：現在のスコアと目標スコアの差</h3>
+    <p>もう1つの軸は、<strong>現在のスコアと目標スコアの差</strong>です。差が大きければ大きいほど、伸びしろがあると考えます。</p>
+    <p>各セクションの目標スコアから現在のスコアを差し引いて、差が大きいもの・小さいものに分けていきましょう。</p>
+
+    <h3>2つの軸をマトリックスに当てはめる</h3>
+    <p>この2つの軸を組み合わせると、4技能を次のように分類できます。上から順に優先度が高くなります。</p>
+    <ol>
+      <li><strong>緊急度が高い × スコアの差が大きい</strong> → 最優先で取り組む</li>
+      <li><strong>緊急度が高い × スコアの差が小さい</strong></li>
+      <li><strong>緊急度が低い × スコアの差が大きい</strong></li>
+      <li><strong>緊急度が低い × スコアの差が小さい</strong> → 思い切って後回し、もしくは対策を一旦やめる</li>
+    </ol>
+    <p>ここで重要なのは、<strong>優先度が低いもの（緊急度が低く、差も小さいもの）は思い切って後回しにする</strong>ことです。</p>
+    <p>「いや、全部やらないと不安…」と思いますよね。でも、ちょっと考えてみてください。</p>
+    <p>すでに目標スコアに達している技能や、緊急度が低い技能に時間をかけることは、<strong>本当に伸ばすべき技能から時間を奪っている</strong>んです。</p>
+
+    <h3>具体例：時間配分はこう変わる</h3>
+    <p>例えば、目標がすべて6.5で、現在のスコアが次のような方がいたとします。</p>
+    <ul>
+      <li>リーディング：7.0（目標6.5）</li>
+      <li>リスニング：6.5（目標6.5）</li>
+      <li>ライティング：5.5（目標6.5）</li>
+      <li>スピーキング：5.5（目標6.5）</li>
+    </ul>
+    <p><strong>全部やろうとする人</strong>は、現在のスコアがそれぞれ違うのに、各技能に週2時間ずつ、均等に時間を使ってしまいます。その結果、本当に伸ばさなければいけない技能に時間を割けず、スコアが伸びません。</p>
+    <p><strong>優先度を決めた人</strong>の時間配分は、こうなります。</p>
+    <ul>
+      <li>リーディング・リスニング：すでに目標達成。<strong>維持</strong>を目標に、それぞれ週30分程度</li>
+      <li>ライティング・スピーキング：それぞれ<strong>週3.5時間</strong></li>
+    </ul>
+    <p>このように優先度を明確にして、自分の弱点や課題に集中的に時間を投下する。それによって、本当に必要なところの対策を進めることができます。</p>
+    <p><strong>これが「やめること」の本質です。</strong></p>
+
+    <h2>「やらないことリスト」を作る</h2>
+    <p>4技能の優先度が決まったら、もっと具体的に<strong>やらないこと</strong>を決めていきます。</p>
+    <p>やらないことリストは、限られた学習時間を最も効果的な一点に集中させるための土台づくりです。ここでは3つの例をご紹介します。</p>
+
+    <h3>① 優先度の低い技能に時間をかける</h3>
+    <p>すでに目標を達成している技能は、まず<strong>今のスコアを維持すること</strong>を目標にします。</p>
+    <p>特に各技能の最低スコアが決まっている場合、必要なのは得意な技能を伸ばすことではなく、<strong>苦手な技能を伸ばすこと</strong>です。</p>
+    <p>得意な学習って楽しいし、安心できますよね。それ自体は悪いことではありませんが、優先度は高くありません。</p>
+    <p>勇気を持って、<strong>優先度が低いものは最低限の学習に収める</strong>という意識を持ちましょう。</p>
+
+    <h3>② 新しい教材や参考書に次々と手を出す</h3>
+    <p>最近はIELTSの参考書や単語集も増えて、「この参考書がいい」という情報がたくさん入ってきますよね。</p>
+    <p>その結果、「何を信じていいか分からない」「使ってみたけど、どう使えばいいか分からない」「使い切れない」という方が本当に多いんです。私もその一人でした。</p>
+    <p>でも、必要なものはそれほど多くありませんし、自分がこなせる量も限られています。基本的には、<strong>公式問題集・単語集・文法書</strong>があれば問題ありません。</p>
+    <p>教材を増やすと、どの教材も中途半端になり、「次はこれをやらなきゃ」という目的のない焦りが生まれて、どんどん自分にプレッシャーがかかっていきます。</p>
+    <p>しかも、どの教材がいいか選んだり、使い方に迷ったりしている時間は、とてももったいない。その時間を学習に回せるんです。</p>
+
+    <h3>③ 完璧主義な学習姿勢</h3>
+    <p>これまでも何度もお伝えしてきましたが、<strong>完璧主義は、言語習得と本当に相性の悪い考え方</strong>です。なぜなら、完璧はいつまでも訪れないからです。</p>
+    <p>例えば、模試を受けて準備が整ってから本番を受けようとする方がいますが、学習が進んでいるなら「一旦受けてみる」というマインドセットがとても重要です。</p>
+    <p>受験だけでなく、普段の学習でも「これができたら次に進む」というハードルが高すぎる方は少なくありません。</p>
+    <p><strong>「100%できてから次に進む」という考え方は、学習のプロセスそのものを長引かせ、結果としていつまでたってもスコアが伸びない悪循環を生んでしまいます。</strong></p>
+    <p>目標スコアが高いほど、右肩上がりでスコアが伸び続ける人は本当に少ないです。スコアが上がらなくても、それを失敗ではなく<strong>改善のためのデータ</strong>と捉えて、淡々とやるべきことを進めていきましょう。</p>
+    <p>実際、私のコーチングでは、スピーキングの回答を録音して送っていただいていますが、<strong>必ず「一発録り」でお願いしています</strong>。</p>
+    <p>仕事ができる真面目な方ほど、完璧主義になりやすいんですよね。でも限られた時間で学習を進めるうえでは、それが妨げになってしまいます。</p>
+    <p><strong>100点のアウトプットを出すより、70%で出し切って、振り返る。</strong>このサイクルを回していきましょう。</p>
+
+    <h2>忙しい社会人が学習を続けるコツは「波を作らない」こと</h2>
+    <p>ここからは、忙しい社会人の方が実際にどう時間を使って学習を進めるかについてお話しします。</p>
+    <p>私が受講生さんにお伝えしたり、カリキュラムを作ったりするときに意識しているのは、<strong>「波を作らない」</strong>ということです。</p>
+
+    <h3>三日坊主だった私が気づいたこと</h3>
+    <p>私はもともと継続するのが本当に苦手で、計画を立てては三日坊主、三日も続かないこともたくさんありました。</p>
+    <p>新しい習慣を取り入れようとしても重い腰が上がらず、挫折して自分に絶望する。そんなことを何百回も経験してきたんです。</p>
+    <p>そこで気づいたのが、<strong>学習をしたりしなかったりする「波」そのものが、自分にとって苦痛になっていた</strong>ということでした。</p>
+    <p>波は、こんなときに起きます。</p>
+    <ul>
+      <li>今週は仕事が忙しくて、全く勉強できなかった</li>
+      <li>来週は時間があるから巻き返せそう</li>
+      <li>でも、また忙しくなって途切れる</li>
+    </ul>
+    <p>人は一度止まったものをもう一度オンにするのに、想像以上にエネルギーが必要です。</p>
+    <p>だからこそ、何かをやると決めたときは、<strong>続けることを前提に予定を組む</strong>。少しずつでいいので続けることが大切なんです。</p>
+
+    <h3>既存の習慣とセットにする</h3>
+    <p>続けるために特におすすめなのが、<strong>すでにある習慣と学習をセットにする</strong>ことです。</p>
+    <p>「続いている習慣なんてない」と思うかもしれませんが、例えば通勤も立派な習慣です。</p>
+    <ul>
+      <li>通勤や移動で歩いている時間に、シャドーイングをする・単語を覚える</li>
+      <li>朝のコーヒーを淹れて、待っている時間に単語帳を開く</li>
+      <li>寝る前に、単語帳を開く・その日の復習や音読をする</li>
+    </ul>
+    <p>そもそも30分の学習が続かない人にとって、3時間はかなりハードルが高いですよね。</p>
+    <p>だからこそ、無意識にやっている毎日の習慣に組み合わせて学習時間を確保していきましょう。細く長く続けるために、ハードルはとにかく低くして始めます。</p>
+    <p><strong>完璧を目指さない。少しでも進める。やらない日を作らない。</strong>これがポイントです。</p>
+
+    <h2>おわりに｜「やらないことを決める勇気」を持とう</h2>
+    <p>今回は、時間がない社会人の方が、仕事とIELTSの学習を両立するうえで大事なことをお話ししてきました。</p>
+    <p>今日のキーワードは、<strong>「やらないことを決める勇気」</strong>です。</p>
+    <p>1つ目は、<strong>優先順位マトリックスで、取り組む技能を決めること。</strong>4技能すべてを同時に対策する必要はありません。現在地と目標を明確にして、緊急度が高く、目標との差が最も大きい技能から始めましょう。</p>
+    <p>2つ目は、<strong>やらないことリストを作ること。</strong>優先度の低い技能に時間をかける、新しい参考書に次々と手を出す、完璧主義な学習姿勢。この3つは思い切って手放しましょう。</p>
+    <p>3つ目は、<strong>波を作らない学習をすること。</strong>すでにあるルーティーンに学習を組み込んで、やらない日を作らないようにスケジュールを組みましょう。</p>
+    <p>完璧は目指さない。でも、決めたことはコツコツ続ける。これが、あなたのスコアアップにつながっていきます。</p>
+    <p>これまで私のIELTSコーチングを受講された方の<strong>ほぼ9割が社会人</strong>で、働きながら、あるいは子育てをしながら対策を進めてこられました。</p>
+    <p>時間がない中で目標を達成しようとすると、優先度の考え方や学習時間の確保は、皆さん共通して悩まれるところです。</p>
+    <p>でも、やり方次第で皆さん目標を達成されていますし、優先度を明確にすることで、やるべきことに集中できる環境を自分で作り出すことができます。</p>
+    <p>このnoteが、あなたの限られた時間を本当に必要なところへ向けるきっかけになれば、こんなに嬉しいことはありません。</p>
+
+    <h2>IELTSの学習に関する無料動画講座について</h2>
+    <p>これから海外留学や海外移住を目指す方、特にIELTSのスコアがまだ目標に届いていない方に向けて、4技能別の学習ステップを解説した無料の動画講座をお配りしています。</p>
+    <p>メールアドレスをご登録いただくことで受け取れますので、ぜひご活用ください。</p>
+    <p data-slot="course"><span class="ph">【無料動画講座の登録ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【無料動画講座の登録ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
