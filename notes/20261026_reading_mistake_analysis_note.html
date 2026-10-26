@@ -1,0 +1,321 @@
+<title>間違い分析ノート note原稿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1 class="page">間違い分析ノート｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書きはそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを入れる</h2></div>
+      <p class="hint">入れたURLは下の本文に自動で差し込まれます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" placeholder="https://youtu.be/...">
+      </div>
+      <div>
+        <label for="course">無料動画講座の登録ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルをコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。</p>
+      <div class="row title-opt"><span class="text">【保存版】IELTS間違い分析ノートでリーディングの弱点を克服する方法</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags">#IELTS #IELTSリーディング #IELTS対策 #英語学習 #復習方法 #勉強法 #イギリス留学 #大学院留学</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>「リーディングの問題をたくさん解いているのに、6.0からなかなか伸びない…」</p>
+    <p>そんなことで悩んでいませんか？</p>
+    <p>もしかすると、その原因は<strong>復習のやり方</strong>にあるかもしれません。</p>
+    <p>以前、リーディングが<strong>1ヶ月で4.0から6.0に伸びた受講生さん</strong>のお話をしました。そのとき学習の軸に置いたのは、語彙力と<strong>間違い分析</strong>の2つでした。</p>
+    <p>このnoteでは、その間違い分析のやり方を詳しくお伝えします。<strong>私のコーチングの受講生さん全員にお伝えしている方法</strong>です。</p>
+    <p>間違えた問題を1問たりとも無駄にせず、次の1問の正解につなげる。最後まで読んでいただければ、なぜ今までの復習ではスコアが上がらなかったのか、どうすればリーディングのスコアを上げられるのかが、はっきり見えてくるはずです。</p>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>本題に入る前に、皆さんの普段のリーディングの復習法について、少し耳の痛い話をさせてください。</p>
+    <p>もしあなたがリーディングの復習で、<strong>答え合わせをして解答を確認しているだけ</strong>なら、残念ながらそれではスコアは上がりません。</p>
+    <p>IELTSのリーディングは、単語の意味が分かればいいというほど甘いものではありません。たった60分で長文を3つ読み、しかも合計40問を解き切らなければいけない。</p>
+    <p>ものすごく戦略性が問われるテストなんです。ネイティブスピーカーでさえ、戦略なしでは解き終えられません。だからこそ、私たちには<strong>戦略がとても重要</strong>なんです。</p>
+
+    <h2>「正解の理由」と「間違えた理由」は別物</h2>
+    <p>特に多いのが、問題を解いたあとに「なるほどね」と<strong>解答の場所だけを理解して終わってしまう</strong>パターンです。</p>
+    <p>でも、ちょっと考えてみてください。</p>
+    <p>解答が書かれている場所が分かったとしても、<strong>なぜ自分が間違えたのか</strong>を理解していますか？</p>
+    <p>実は、<strong>正解の理由を知ることと、自分が間違えた理由を理解することは、全く別物</strong>なんです。</p>
+
+    <h3>リーディングの本質は「根拠を見つけること」</h3>
+    <p>IELTSのリーディングで少しでも高い点数を取るために、一番重要なことは何でしょうか。</p>
+    <p>語彙力や文法力も、もちろん大切です。でも、本質的に求められているのは、<strong>本文の中から解答の根拠となる部分を正確に見つけ出すスキル</strong>なんです。</p>
+    <p>どんなに単語を知っていても、どんなに速く読めても、「ここが答えの根拠だ」という判断を間違えてしまえば、正解にはたどり着けません。</p>
+    <p>ここが問題の核心です。</p>
+    <p><strong>あなたは、根拠を意識して問題を解いていますか？</strong></p>
+    <p>IELTSのリーディングは、なんとなくで解答できるようには作られていません。必ず本文に明確な根拠があります。</p>
+    <p>そして、間違えるときにも明確な理由があるんです。その理由を知らないまま次の問題を解いても、また同じ間違いを繰り返すだけです。</p>
+
+    <h2>間違い分析の3ステップ</h2>
+    <p>ここからは、具体的な復習方法をお話しします。</p>
+
+    <h3>ステップ1：解答の根拠に線を引きながら解く</h3>
+    <p>普段、問題を解くときに、なんとなくで答えを選んでいませんか？</p>
+    <p>今日から必ずしてほしいのが、<strong>答えを選ぶときに、根拠となる本文に必ず線を引く</strong>ことです。</p>
+    <p>線を引くことには、3つのメリットがあります。</p>
+    <p><strong>① 自分の思考プロセスが見えるようになる</strong><br>後から見ても、なぜその解答を選んだのかが明確になります。</p>
+    <p><strong>② 「なんとなくの解答」を防げる</strong><br>線を引けないということは、根拠が曖昧だということ。それに自分で気づけるようになります。</p>
+    <p><strong>③ 復習の質が劇的に上がる</strong><br>正解の根拠と比べることで、間違えた原因の分析が深まります。</p>
+
+    <h3>ステップ2：答え合わせをする</h3>
+    <p>次に答え合わせをして、どの問題が合っていて、どの問題が間違っていたかを確認します。</p>
+    <p>公式問題集には解説がありませんが、解説付きの教材や参考書をお持ちの方は、それを使って正解の該当箇所がどこにあるかを確認していきましょう。</p>
+
+    <h3>ステップ3：正解の根拠に「別の色」で線を引く</h3>
+    <p>間違えた問題は、正解の根拠が本文のどこにあるかを探します。</p>
+    <p>見つけたら、<strong>ステップ1とは別の色のペン</strong>で線を引きましょう。例えば、ステップ1では黒ペン、ステップ3では青ペンを使います。</p>
+
+    <h2>最も重要なのは「線がずれた理由」の分析</h2>
+    <p>ここからが、最も重要なポイントです。</p>
+    <p>ステップ1とステップ3で線を引いた箇所を比べて、<strong>2つが一致しなかった理由</strong>を分析していきます。</p>
+    <p>自分にこう問いかけてみてください。</p>
+    <ul>
+      <li>私はなぜ、この<strong>黒線</strong>の部分が根拠だと思ったのか？</li>
+      <li>なぜ、<strong>青線</strong>の部分だと見抜けなかったのか？</li>
+    </ul>
+    <p>理由はいろいろありますが、よくある典型パターンを3つご紹介します。</p>
+
+    <h3>パターン1：キーワードに飛びついてしまう</h3>
+    <p>設問のキーワードが本文の近くに出てくると、深く考えずにそこを解答にしてしまうケースです。</p>
+    <p><strong>解決法：</strong>キーワードがあるからといって飛びつかず、その部分が本当に設問への答えになっているか、文章全体の意味を正確に取りましょう。</p>
+
+    <h3>パターン2：パラフレーズ（言い換え）に気づけない</h3>
+    <p>例えば、<strong>main cause</strong> と <strong>primary driver</strong>。この言い換えに気づけないのは、語彙不足が原因です。</p>
+    <p><strong>解決法：</strong>類義語や言い換えられている単語、意味が取れなかった単語をリストにして覚えていきましょう。</p>
+
+    <h3>パターン3：Not Given の定義が曖昧</h3>
+    <p>True / False / Not Given の問題で、なんとなく本文と矛盾している気がして False を選んでしまうケースです。</p>
+    <p><strong>解決法：</strong>True・False・Not Given の違いをはっきりさせたうえで、本文にその記述が本当にないかを厳密にチェックしましょう。</p>
+
+    <h3>原因を細かく分けて、毎回解決策を実行する</h3>
+    <p>典型パターンを3つお伝えしましたが、もちろん原因はこれだけではありません。</p>
+    <ul>
+      <li>問題タイプについての理解が間違っていた</li>
+      <li>問題文の意味や語彙が分からなかった</li>
+      <li>文章の構造が分からなかった</li>
+      <li>指示代名詞が何を指しているか分からなかった</li>
+    </ul>
+    <p>このように、文章の意味が取れなくなる理由はさまざまです。</p>
+    <p>こうした<strong>細かい間違い分析をして、毎回解決策を考えて実行する</strong>こと。それによって、同じような問題や語彙、文構造が出てきたときに、きちんと読めるようになっていきます。</p>
+
+    <h2>毎日の学習への取り入れ方</h2>
+    <p>ここからは、この間違い分析を日々の学習にどう取り入れるかをお話しします。</p>
+    <p>リーディングは、<strong>1つのパッセージにつき1時間〜1時間半</strong>かけて、問題を解いて復習まで行います（かかる時間は人によって異なります）。</p>
+    <ol>
+      <li>根拠に線を引きながら問題を解く</li>
+      <li>答え合わせをして、正誤を確認する</li>
+      <li>間違えた問題の正解の根拠を自分で探し、別の色で線を引く（10〜15分、人によってはもっとかかることもあります）</li>
+      <li>なぜ間違えたのかを分析し、<strong>ノートに書く</strong></li>
+    </ol>
+    <p>なんとなく雑にパッセージをどんどん解いていくよりも、<strong>1つのパッセージから徹底的に学ぶ</strong>ほうが、確実にリーディングの本質的な力が身についていきます。</p>
+
+    <h3>分析ノートは「定期的に振り返る」</h3>
+    <p>間違い分析ノートは、作って終わりではありません。<strong>定期的に振り返る</strong>ようにしましょう。</p>
+    <p>例えば週末に分析ノートを見返して、今週多かった間違いのパターンを把握し、それに対する対策ができたかを考えます。</p>
+    <p>振り返りは、<strong>試験の直前</strong>にも効果的です。自分が間違えやすいパターンを確認しておくことが、同じミスを繰り返さないことにつながります。試験の直前まで見直してから、本番に臨んでください。</p>
+
+    <h2>おわりに｜1問の間違いを、次の1問の正解に</h2>
+    <p>今回は、IELTSリーディングの本質は「根拠を探すこと」だということ、そして間違えた問題を次の学びに活かすための間違い分析の方法をお話ししてきました。</p>
+    <p>もう一度、流れをおさらいしましょう。</p>
+    <ol>
+      <li>問題を解くときは、根拠となる本文に<strong>必ず線を引く</strong></li>
+      <li><strong>答え合わせ</strong>をする</li>
+      <li>間違えた問題の正解の根拠に、<strong>別の色で線を引く</strong></li>
+      <li>ステップ1と3の線が<strong>なぜ一致しなかったのか</strong>を分析して、ノートに書く</li>
+      <li>分析ノートを<strong>定期的に振り返り</strong>、自分の間違いの傾向と、それに対する行動が取れたかを見直す</li>
+    </ol>
+    <p>この方法は、私のコーチングの受講生さん全員にお伝えしている内容です。実際にこの方法で学習を進めた方は、<strong>1ヶ月でリーディングが4.0から6.0に上がっています</strong>。</p>
+    <p>リーディングのスコアを短期間で伸ばしたい方、これまでなんとなく復習をしていたという方に、ぜひ取り入れていただきたい方法です。</p>
+    <p><strong>なんとなく解く復習から、根拠で解く復習へ。</strong></p>
+    <p>このnoteが、あなたのリーディングのスコアアップにつながれば、こんなに嬉しいことはありません。</p>
+
+    <h2>IELTSの学習に関する無料動画講座について</h2>
+    <p>これから海外留学や海外移住を目指す方、特にIELTSのスコアがまだ目標に届いていない方に向けて、4技能別の学習ステップをまとめた無料の動画講座をお配りしています。</p>
+    <p>メールアドレスをご登録いただくことで受け取れますので、ぜひご活用ください。</p>
+    <p data-slot="course"><span class="ph">【無料動画講座の登録ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【無料動画講座の登録ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
