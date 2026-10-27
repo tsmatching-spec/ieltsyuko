@@ -320,6 +320,57 @@ sm.sheet_properties.tabColor="1F3864"
 sm.page_setup.orientation="landscape"; sm.sheet_properties.pageSetUpPr.fitToPage=True; sm.page_setup.fitToWidth=1; sm.page_setup.fitToHeight=0
 sm.freeze_panes="A5"
 
+# ---------- 使い方 ----------
+hw = wb.create_sheet("使い方", 0)
+hw.sheet_view.showGridLines = False
+hw.column_dimensions["A"].width = 3
+hw.column_dimensions["B"].width = 100
+hw.merge_cells("A1:B1"); hw["A1"] = "IELTSリーディング 間違い分析シート ― 使い方"
+hw["A1"].font=F(bold=True,size=16,color="FFFFFF"); hw["A1"].fill=fill(NAVY); hw["A1"].alignment=CENTER
+hw.row_dimensions[1].height=36
+sections = [
+ ("■ はじめに：必ずコピーしてから使ってください", [
+   "このファイルは配布用の原本です。直接書き込まず、必ずご自身用のコピーを作成してから使ってください。",
+   "・Googleスプレッドシートの場合：メニューの「ファイル」→「コピーを作成」→ 名前を付けて自分のドライブに保存",
+   "・Excelの場合：「ファイル」→「名前を付けて保存」で別名のファイルとして保存",
+   "・ファイル名の例：「（お名前）_リーディング間違い分析シート」",
+ ], "FFF2CC"),
+ ("■ シートの構成", [
+   "・使い方 ………… このページです",
+   "・テスト一覧 …… 各テストの結果が自動でまとまります（入力不要）",
+   "・記入例 ………… 記入の見本です。まずはこのシートで完成イメージを確認してください",
+   "・テスト1〜5 …… 1回のテストにつき1シートを使って記入します",
+   "・選択肢マスタ … プルダウンの元データです（編集しないでください）",
+ ], None),
+ ("■ 記入の手順", [
+   "① 問題を解いたら、空いている「テスト」シートを開き、テスト名・解いた日・分析日・解答時間を入力する",
+   "② 答え合わせをして、40問すべての「正解/不正解」をプルダウンで選ぶ（設問タイプも選ぶ）",
+   "③ 不正解の問題について「大カテゴリー」「詳細理由」をプルダウンで選び、「具体的に間違いが起きた箇所」「同じミスを繰り返さないために」を書く",
+   "④ 表の下の円グラフ・集計表で、何で間違えたのかの割合を確認する（自動で更新されます）",
+   "⑤ 一番下の「振り返りと今後の対策」に、間違えた傾向・これから対策すること・今後意識すること・次回の問題を解く日を書く",
+   "※ 入力するのは黄色のセルだけです。白いセル（自動計算部分）は消したり書き換えたりしないでください。",
+   "※ テストが5回分を超えたら「テスト5」シートをコピーして使ってください。",
+ ], None),
+ ("■ 外部転用禁止", [
+   "本シートは受講生ご本人の学習用としてのみご利用いただけます。",
+   "・本シートおよびその内容（構成・項目・分析カテゴリー等）の無断での転載、複製、再配布、販売を禁止します。",
+   "・第三者への共有・譲渡、SNSやブログ等への掲載、他の講座・教材への転用はご遠慮ください。",
+   "・上記に違反する行為が確認された場合、利用を停止させていただくことがあります。",
+ ], "FDE2E2"),
+]
+r = 3
+for head, lines, bg in sections:
+    c = hw.cell(row=r, column=2, value=head); c.font=F(bold=True,size=13,color=NAVY)
+    c.border = Border(bottom=Side(style="medium", color=NAVY)); r += 1
+    for ln in lines:
+        c = hw.cell(row=r, column=2, value=ln); c.font=F(size=11); c.alignment=LEFT
+        if bg: c.fill = fill(bg)
+        hw.row_dimensions[r].height = 22 if len(ln) < 48 else 36; r += 1
+    r += 1
+hw.sheet_properties.tabColor = "C00000"
+hw.page_setup.orientation="portrait"; hw.sheet_properties.pageSetUpPr.fitToPage=True
+hw.page_setup.fitToWidth=1; hw.page_setup.fitToHeight=0
+
 # move master to end
 wb.move_sheet("選択肢マスタ", offset=len(wb.sheetnames))
 wb.active = 0
