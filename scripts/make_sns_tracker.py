@@ -3,7 +3,7 @@ import calendar
 from datetime import date, timedelta
 
 from openpyxl import Workbook
-from openpyxl.formatting.rule import CellIsRule
+from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 
 OUT = "sns_tracking/SNS記録シート.xlsx"
@@ -105,7 +105,7 @@ for y, m in MONTHS:
     st.column_dimensions["E"].width = 12
     st.conditional_formatting.add(
         f"E{first}:E{lastrow}",
-        CellIsRule(operator="equal", formula=[f"MAX($E${first}:$E${lastrow})"], fill=PatternFill("solid", fgColor="FFE08A")),
+        FormulaRule(formula=[f'AND(E{first}<>"",E{first}=MAX($E${first}:$E${lastrow}))'], fill=PatternFill("solid", fgColor="FFE08A")),
     )
     st.freeze_panes = "A5"
 
