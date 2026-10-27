@@ -3,7 +3,7 @@ import calendar
 from datetime import date, timedelta
 
 from openpyxl import Workbook
-from openpyxl.formatting.rule import FormulaRule
+from openpyxl.formatting.rule import CellIsRule, FormulaRule
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 
@@ -38,26 +38,29 @@ wb = Workbook()
 # --- LINE登録数（毎日） ---
 ws = wb.active
 ws.title = "LINE登録数"
-header(ws, 1, ["日付", "曜日", "LINE登録数", "累計", "📝 その日の投稿内容", "投稿先", "メモ"], HEAD_FILL)
+header(ws, 1, ["日付", "曜日", "友だち登録数", "ブロック数", "増減", "有効友だち数", "累計友だち追加数",
+                "📝 その日の投稿内容", "投稿先", "メモ"], HEAD_FILL)
 end = date(*MONTHS[-1], calendar.monthrange(*MONTHS[-1])[1])
 d, r = START, 2
 while d <= end:
     ws.cell(row=r, column=1, value=d).number_format = "yyyy/mm/dd"
     ws.cell(row=r, column=2, value=WD[d.weekday()])
-    ws.cell(row=r, column=4, value=f"=IF(C{r}=\"\",\"\",SUM($C$2:C{r}))")
-    for col in range(1, 8):
+    ws.cell(row=r, column=5, value=f'=IF(C{r}="","",C{r}-N(D{r}))').number_format = "+0;-0;0"
+    for col in range(1, 11):
         c = ws.cell(row=r, column=col)
         c.border = BORDER
-        c.alignment = WRAP if col in (5, 7) else CENTER
+        c.alignment = WRAP if col in (8, 10) else CENTER
         if d.weekday() >= 5:
             c.fill = WEEKEND_FILL
     d += timedelta(days=1)
     r += 1
 last = r - 1
-for col, w in zip("ABCDEFG", [12, 6, 12, 10, 50, 14, 30]):
+for col, w in zip("ABCDEFGHIJ", [12, 6, 13, 11, 8, 13, 17, 75, 17, 30]):
     ws.column_dimensions[col].width = w
+ws.conditional_formatting.add(f"E2:E{last}", CellIsRule(operator="greaterThan", formula=["0"], font=Font(bold=True, color="0A8A3A")))
+ws.conditional_formatting.add(f"E2:E{last}", CellIsRule(operator="lessThan", formula=["0"], font=Font(bold=True, color="C0392B")))
 ws.freeze_panes = "A2"
-ws.auto_filter.ref = f"A1:G{last}"
+ws.auto_filter.ref = f"A1:J{last}"
 
 # --- 月別まとめ ---
 sm = wb.create_sheet("月別まとめ")
