@@ -1,6 +1,4 @@
-"""切り出したストーリーズ画像を月別シートに順番に貼り付け、投稿日・内容メモを記入する。"""
-from datetime import date
-
+"""切り出したストーリーズ画像を月別シートの各日の欄に横に並べて貼り、内容メモを記入する。"""
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image
 from openpyxl.drawing.spreadsheet_drawing import AnchorMarker, OneCellAnchor
@@ -11,7 +9,9 @@ BOOK = "sns_tracking/SNS記録シート.xlsx"
 SHEET = "10月ストーリーズ"
 IMG_DIR = "sns_tracking/stories/2026-10"
 FIRST_ROW = 5
-IMG_HEIGHT = 260  # px（行の高さ220pt≒293pxに余白付きで収まるサイズ）
+ROWS_PER_DAY = 3
+SLOT_COL = 6  # F列から横に並べる
+IMG_HEIGHT = 255  # px（行の高さ210pt=280pxに余白付きで収まるサイズ）
 PAD = 8  # px（セルの左上からの余白）
 
 # (日, その日の何枚目か, 内容メモ) を投稿順に。画像は IMG_DIR/10-DD_NN.png
@@ -26,14 +26,13 @@ STORIES = [
 
 wb = load_workbook(BOOK)
 ws = wb[SHEET]
-ws.column_dimensions["C"].width = 24
-for n, (day, seq, memo) in enumerate(STORIES):
-    row = FIRST_ROW + n
-    ws.cell(row=row, column=2, value=date(2026, 10, day))
-    ws.cell(row=row, column=4, value=memo)
+for day, seq, memo in STORIES:
+    row = FIRST_ROW + (day - 1) * ROWS_PER_DAY  # その日のスクショ行（下が内容、閲覧数）
+    col = SLOT_COL + seq - 1
+    ws.cell(row=row + 1, column=col, value=memo)
     img = Image(f"{IMG_DIR}/10-{day:02d}_{seq:02d}.png")
     img.width, img.height = round(img.width * IMG_HEIGHT / img.height), IMG_HEIGHT
-    marker = AnchorMarker(col=2, colOff=pixels_to_EMU(PAD), row=row - 1, rowOff=pixels_to_EMU(PAD))
+    marker = AnchorMarker(col=col - 1, colOff=pixels_to_EMU(PAD), row=row - 1, rowOff=pixels_to_EMU(PAD))
     img.anchor = OneCellAnchor(_from=marker, ext=XDRPositiveSize2D(pixels_to_EMU(img.width), pixels_to_EMU(img.height)))
     ws.add_image(img)
 wb.save(BOOK)
