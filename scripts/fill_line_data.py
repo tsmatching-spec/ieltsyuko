@@ -33,8 +33,8 @@ for day, seq, memo in ns["STORIES"]:
     by_day.setdefault(day, []).append(memo)
 for day, memos in by_day.items():
     r = row_of(date(2026, 10, day))
-    ws.cell(row=r, column=8, value="\n".join(f"{i}. {m}" for i, m in enumerate(memos, 1)))
-    ws.cell(row=r, column=9, value=f"ストーリーズ{len(memos)}本")
+    ws.cell(row=r, column=13, value="\n".join(f"{i}. {m}" for i, m in enumerate(memos, 1)))
+    ws.cell(row=r, column=14, value=f"ストーリーズ{len(memos)}本")
     lines = sum(math.ceil((len(m) + 3) / 36) for m in memos)  # 1行に全角36字ほど
     ws.row_dimensions[r].height = 15 * lines + 4
 
