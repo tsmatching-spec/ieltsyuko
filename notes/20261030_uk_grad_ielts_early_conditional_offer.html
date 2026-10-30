@@ -1,0 +1,345 @@
+<title>IELTSを早く終わらせる理由 note原稿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1 class="page">IELTSを早く終わらせる理由｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書きはそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを確認する</h2></div>
+      <p class="hint">YouTubeのURLは入力済みです。講座のURLを入れると、本文の最後に自動で差し込まれます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" value="https://youtu.be/NzRh_m5b7mw" placeholder="https://youtu.be/...">
+      </div>
+      <div>
+        <label for="course">無料動画講座の登録ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルを選んでコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。1つ目は動画と同じタイトルです。</p>
+      <div class="row title-opt"><span class="text">イギリス大学院留学｜IELTSを早く終わらせないと後悔する理由【条件付きオファーの落とし穴】</span><button type="button" data-copy-text>コピー</button></div>
+      <div class="row title-opt"><span class="text">【イギリス大学院】条件付きオファーで後悔した私が伝えたい、IELTS・出願・留学準備の理想スケジュール</span><button type="button" data-copy-text>コピー</button></div>
+      <div class="row title-opt"><span class="text">留学後のキャリアは準備期間で決まる｜IELTSは6月までに終わらせるべき理由</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags">#IELTS #イギリス留学 #イギリス大学院 #大学院留学 #条件付きオファー #留学準備 #パーソナルステートメント #海外就職</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>イギリスの大学院への進学を目指していて、「IELTSはいつまでに終わらせればいいんだろう？」「出願や留学準備は、いつから何をすればいいの？」と迷っていませんか？</p>
+    <p>正直にお話しすると、私はイギリスの大学院に進学したとき、<strong>最初は条件付きオファー</strong>をもらっていました。出願の時点で、IELTSのスコアが足りていなかったんです。</p>
+    <p>実はこれを、今でもすごく後悔しています。結果として、留学準備がかなりバタバタしたまま大学院生活が始まってしまいました。<strong>「もっと早くIELTSを終わらせておけばよかった」</strong>という気持ちがあるんです。</p>
+    <p>このnoteでは、私の失敗談も含めて、イギリスの大学院に9月入学を目指す方に絶対に知っておいてほしい<strong>IELTSの受験スケジュールと、出願・留学準備の理想的な流れ</strong>をお伝えします。</p>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>最初に、いちばんお伝えしたいことをお話しします。</p>
+    <p><strong>留学がスタートするまでに、どれだけ準備できているか。留学が終わった後のキャリアも、正直、留学準備の時点でほぼ決まっています。</strong></p>
+    <p>だからこそ、IELTSをできるだけ早く終わらせて、出願後すぐに気持ちを留学準備に切り替えることが大切なんです。そうすることで、自分が描いているキャリアや留学生活の実現につながります。</p>
+    <p>同じ後悔をしてほしくないので、ここからは理想のスケジュールを具体的にお話ししていきます。</p>
+
+    <h2>9月入学を目指す人の理想スケジュール</h2>
+    <p>まずは全体像です。9月入学の場合、<strong>入学する前の年</strong>から、次のような流れで進めるのが理想です。</p>
+    <ul>
+      <li><strong>1月〜6月：</strong>IELTSのスコアメイク</li>
+      <li><strong>7月〜8月：</strong>出願準備</li>
+      <li><strong>9月末〜10月頃：</strong>出願窓口のオープンに合わせて出願</li>
+      <li><strong>年内〜年明け：</strong>結果が出る</li>
+      <li><strong>出願後〜渡英まで：</strong>留学準備（学びとキャリアの準備）</li>
+    </ul>
+    <p>出願が終わった時点で、留学準備に移るというスケジュールです。</p>
+
+    <h3>このスケジュール通りに進む人は、実は少ない</h3>
+    <p>ただ、このスケジュールで進んでいる人はかなり少ないんです。<strong>目標スコアが高ければ高いほど、想像以上にスコアメイクに時間がかかっている</strong>方がほとんどです。私もその一人でした。</p>
+    <p>1月〜6月にスコアを取るつもりでも、結局8月、9月までかかってしまう。そこまでで達成できなければ、出願時期を遅らせたり、進学するギリギリまでIELTSを受け続けたりする人もいます。</p>
+    <p>私もまさにそのパターンでした。そして、<strong>これが大きな落とし穴</strong>なんです。</p>
+
+    <h2>なぜIELTSは6月までに終わらせるべきなのか</h2>
+    <p>IELTSは、思った以上に学習期間が長くなったり、ダラダラ学習しているうちにモチベーションが落ちてしまったりすることがよくあります。</p>
+    <p>2年、3年かかる方もいれば、半年や3ヶ月ほどで達成される方もいます。</p>
+    <p>この違いは、もともとの英語力はもちろんですが、<strong>結果にコミットするための戦略を決めているか</strong>、そして<strong>それに対する行動目標が明確に決まっているか</strong>という違いです。</p>
+    <p>ただ、共通して言えることがあります。それは、<strong>皆さん1回で目標を達成されてはいない</strong>ということです。何度も受験して、スコアが伸び悩む経験をされています。</p>
+    <p>目安としては、次の期間を見込んで対策を進めていく必要があります。</p>
+    <ul>
+      <li>オーバーオールを<strong>0.5上げたい方：最低3ヶ月</strong></li>
+      <li>オーバーオールを<strong>1.0以上上げたい方：最低6ヶ月</strong></li>
+    </ul>
+
+    <h2>1月〜6月：IELTSのスコアメイク</h2>
+
+    <h3>1月：現状把握と学習習慣づくり</h3>
+    <p>1月から本格的に対策を始める方は、まず<strong>4技能の現状把握</strong>をしましょう。そして、弱点の特定と学習習慣の確立をしていきます。</p>
+    <p>この時点でまだ初受験が終わっていない方は、<strong>今すぐ受験予約</strong>をしてください。</p>
+
+    <h3>2月〜3月：結果をもとに戦略を行動に移す</h3>
+    <p>初受験が終わったら、その結果をもとに戦略を行動に移していきます。</p>
+    <p>達成しなければいけない目標も、対策すべき順番も、人によって異なります。まずは4技能のうち<strong>何から優先して対策するか</strong>を決めて、具体的な学習法や毎日のルーティーンを決めていきましょう。</p>
+
+    <h3>2月〜6月：1ヶ月半〜2ヶ月のペースで受験する</h3>
+    <p>この期間は、<strong>1ヶ月半〜2ヶ月に1回のペース</strong>で受験することをおすすめします。</p>
+    <p>人が習慣を作るには、だいたい2ヶ月ほどかかると言われています。学習習慣がなかった人が習慣を身につけるのにも、やり方を変えて変化を感じるまでにも、それくらいの時間がかかるんです。</p>
+    <p>9月入学の場合、前の年の9月末〜10月に出願することになります。<strong>1月〜6月でスコアメイクが終わっていれば、何の気兼ねもなく出願準備に進めます。</strong></p>
+
+    <h2>7月〜8月：出願準備</h2>
+    <p>多くの方が見落としているポイントなのですが、イギリスの大学院への出願準備は、<strong>書類を集めることではありません</strong>。</p>
+    <p>出願に必要なものは、主に次のとおりです。</p>
+    <ul>
+      <li><strong>パーソナルステートメント（志望動機書）</strong>：学校ごとに用意する</li>
+      <li><strong>CV（履歴書）</strong></li>
+      <li><strong>推薦状</strong>：学校によって1〜2通</li>
+      <li>学部時代の<strong>成績証明書・卒業証明書</strong></li>
+      <li><strong>IELTSのスコア</strong></li>
+    </ul>
+    <p>この中で一番時間をかけなければいけないのが、<strong>パーソナルステートメントとCV</strong>です。</p>
+
+    <h3>パーソナルステートメントに時間がかかる理由</h3>
+    <p>特にパーソナルステートメントは、<strong>他の候補者と差をつけるために、あなたをアピールする一番重要な書類</strong>です。</p>
+    <p>これまでの経験だけでなく、なぜその学校で学びたいのか、そこで何を達成して、どんな将来を描いているのか。大学院だけでなく、<strong>そのコースを選んだ理由と、それをどう活かすか</strong>を説明できないと書けないものなんです。</p>
+    <p>すでにアイデアがある方もいるかもしれません。でも、それを決められた語数にまとめたり、決められた質問に答える形式に変えたりするのには、少し時間がかかります。</p>
+    <p>この期間にぜひやってほしいのは、次のようなことです。</p>
+    <ul>
+      <li>これまでの職務経験を書き出してみる</li>
+      <li>志望校の卒業生に話を聞いたり、留学フェアでコースについて詳しく聞いたりする（ネットワーキング）</li>
+      <li>次のキャリアをどうするか考えてみる</li>
+    </ul>
+    <p>大学院に行く目的は、多くの方にとってキャリアアップや、その先に叶えたいことがあるからだと思います。どんな未来を描くのか、そのために今からできることは何なのかを、改めて考えてみてください。</p>
+    <p>これらを考えたうえでパーソナルステートメントを書くと、<strong>あなたの良さが伝わる、あなたにしか語れないオリジナルの志望動機書</strong>が完成します。</p>
+
+    <h2>9月末〜10月：出願</h2>
+    <p>9月末〜10月に出願がスタートします。ここで出願できる準備が整っていれば、本当に理想です。</p>
+    <p>なぜなら、イギリスの大学院の多くは<strong>ローリングアドミッション制度、いわゆる先着順</strong>だからです。</p>
+    <p>もちろん出願条件をすべて満たしていることが前提ですが、他の候補者と差をつけるには、<strong>やはり早く出したほうが行きたいところに行ける</strong>んです。</p>
+    <p>早く出願するメリットは、ほかにもあります。</p>
+    <ul>
+      <li>合格通知が早く出る</li>
+      <li>奨学金に応募したい方も、余裕を持って締め切りに間に合う</li>
+      <li>オファーをもらっておくと次のことを考えやすくなり、心に余裕を持って留学準備に進める</li>
+    </ul>
+
+    <h2>出願後〜渡英まで：学びとキャリアの準備期間</h2>
+    <p>出願が終わってから渡英するまでが、留学の準備期間です。<strong>約1年かけて留学準備ができるのは、本当に理想的</strong>です。ここでは、学びとキャリアに集中しましょう。</p>
+    <p>私がいちばん後悔しているのが、ここなんです。</p>
+    <p>イギリスの大学院は1年制のコースが多く、本当にあっという間に過ぎていきます。コースが始まったと思ったらすぐに修士論文に取りかかり、気づけば春。そこから修士論文だけのプロジェクトが3ヶ月続く、ということもよくあります。</p>
+    <p>だからこそ、IELTSをとにかく早く達成して出願を終え、<strong>10月頃には気持ちを留学準備に切り替える</strong>。それが、自分の描くキャリアや留学生活の実現につながるんです。</p>
+
+    <h3>専門分野を「英語で」学び始める</h3>
+    <p>まず取り組みたいのが、<strong>専門分野の深い学習</strong>です。</p>
+    <p>大学時代と専攻を変える方は、日本語でも英語でもいいので、導入になるような専門書を読んだり、<strong>論文の読み方</strong>を学んだりしておきましょう。</p>
+    <p>ここからは「英語を学習する」のではなく、<strong>「英語で学習する」</strong>フェーズに入ります。ご自身の経験に合わせて、興味のある本や動画などから知識をインプットすることに焦点を当てていきましょう。</p>
+    <p>イギリスの大学院では、基礎から学ぶというより、いきなり専門的な内容から入ることが多いです。日本語で専門用語を理解していても、<strong>それを英語で理解できないと、授業には全くついていけません</strong>。日本語で知識を深めるのもいいですが、英語で専門用語を理解しておくことも重要です。</p>
+    <p>導入の本を読んだあとは、<strong>専攻分野のリーディングリスト</strong>を早めに手に入れましょう。ほとんどの学校がリーディングリストを用意しているので、進学するコースが決まり次第、コースリーダーにお願いしてもらいましょう。</p>
+    <p>英語で学ぶ基礎がしっかりできていれば、大学院での学びは何倍も充実したものになります。</p>
+
+    <h3>修了後のキャリアを、留学前に決めておく</h3>
+    <p>そして同時に大切なのが、<strong>大学院修了後のキャリアに向けた準備</strong>です。</p>
+    <p>1年間の修士課程が終わったら、あなたは何をしますか？イギリスで就職、日本で就職、インターンシップ、あるいは別の国で就職。いろいろ考えている方も多いと思います。</p>
+    <p>これがまだ決まっていない方は、<strong>留学する前に必ず決めておきましょう</strong>。どれくらい計画を立てて、すでに行動を起こしているかによって、修了後のキャリアは本当に変わってきます。</p>
+    <p><strong>● イギリスで就職したいなら</strong><br>在学中のネットワーキングの計画を立てる、ビザの要件を確認する、LinkedInのプロフィールを作る、入学前から現地の就職市場を調べる、といった行動が必要です。</p>
+    <p><strong>● 日本で就職したいなら</strong><br>どの業界・職種で、大学院での学びをどう活かすのかを考えましょう。帰国後の就職活動のスケジュールや、在学中にできる準備も調べておくと、計画が立てやすくなります。</p>
+    <p>周りを見ていると、イギリスで現地就職した人は、入学時からかなり戦略的に動いていて、履修科目やスケジュールをすべてコントロールしていました。2学期目に差しかかる頃には内定をもらっていた人や、インターンシップでの活躍が認められてそのまま採用された人もいました。</p>
+    <p>特にイギリスでの現地就職を考えている方は、<strong>入学してすぐに就職活動が始まる</strong>イメージです。入学後にどう動くかを考える時間はなかなかないので、日本で留学準備をしている間にスケジュールを決めておきましょう。</p>
+
+    <h3>私の後悔：迷っていた時間がもったいなかった</h3>
+    <p>私はイギリスの大学院在学中、2つの選択肢を持ってキャリアを考えていました。1つは<strong>現地の語学学校に就職すること</strong>、もう1つは<strong>IELTSのコーチングで独立すること</strong>です。</p>
+    <p>結局、私はIELTSのコーチングで独立する道を選びました。在学中に学びを深めていく中で、選択肢が定まっていったようなイメージです。</p>
+    <p>でも、私は大学院に進学するとき、<strong>修了後にどうなりたいかが明確に決まっていたわけではありませんでした</strong>。2つのどちらにするかで迷っていた時間が、本当にもったいなかったと思っています。</p>
+    <p>今振り返ると、最初からIELTSのコーチとして独立すると決めていれば、同じ分野の人とのネットワーキングも、現地でIELTSを教える経験も、もっと積めたはずなんです。</p>
+    <p>皆さんには、同じ後悔をしてほしくありません。<strong>入学前から修了後のキャリアを見据えて、大学院での1年をどう過ごすか、戦略的に考えてください。</strong></p>
+
+    <h2>おわりに｜IELTSは、早く終わらせるほど未来の選択肢が広がる</h2>
+    <p>今回は、イギリスの大学院に9月入学を目指す方に向けて、理想のスケジュールをお伝えしてきました。</p>
+    <ol>
+      <li><strong>1月〜6月：</strong>IELTSのスコアメイクを終わらせる</li>
+      <li><strong>7月〜8月：</strong>パーソナルステートメントとCVを中心に出願準備をする</li>
+      <li><strong>9月末〜10月：</strong>早めに出願する</li>
+      <li><strong>出願後〜渡英まで：</strong>専門分野を英語で学び、修了後のキャリアを決めて、必要な行動をスケジュールに落とし込む</li>
+    </ol>
+    <p>私は、<strong>IELTSのスコアをもっと早く取ればよかった</strong>と心から後悔しています。もっと早く留学準備に取りかかれたし、キャリアの選択ももっと早くできたはずだからです。</p>
+    <p>IELTSのスコアを取るのは、やはり苦労するものです。でも、それは<strong>スタートラインにすぎません</strong>。</p>
+    <p>ただ、IELTSに十分な時間を使って英語への自信をつけ、大学が求める基準に到達すること自体は、継続する習慣や自分への自信につながる、とても大切な成功体験でもあります。</p>
+    <p>イギリスの大学院進学を目指す方は、<strong>とにかく早くスコアを取ること</strong>を目指して、これから対策を進めていきましょう。</p>
+    <p>このnoteが、あなたが後悔しない留学準備のきっかけになれば、こんなに嬉しいことはありません。</p>
+
+    <h2>IELTSの学習に関する無料動画講座について</h2>
+    <p>これから海外留学や海外移住を目指す方、特にIELTSのスコアがまだ目標に届いていない方に向けて、4技能別の学習ステップをまとめた無料の動画講座をお配りしています。</p>
+    <p>メールアドレスをご登録いただくことで受け取れますので、ぜひご活用ください。</p>
+    <p data-slot="course"><span class="ph">【無料動画講座の登録ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【無料動画講座の登録ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
