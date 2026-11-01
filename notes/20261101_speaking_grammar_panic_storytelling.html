@@ -1,0 +1,398 @@
+<title>スピーキングの文法パニック note原稿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <style>
+    article blockquote { margin: 0 0 1.1em; padding: 12px 16px; border-left: 3px solid var(--line); background: var(--bg); border-radius: 0 6px 6px 0; }
+    article blockquote p { margin: 0 0 0.5em; }
+    article blockquote p:last-child { margin-bottom: 0; }
+  </style>
+  <header>
+    <h1 class="page">スピーキングの文法パニック｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書き・引用はそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを確認する</h2></div>
+      <p class="hint">YouTubeのURLは入力済みです。講座のURLを入れると、本文の最後に自動で差し込まれます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" value="https://youtu.be/yHzRQJ81vtA" placeholder="https://youtu.be/...">
+      </div>
+      <div>
+        <label for="course">無料動画講座の登録ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルをコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。</p>
+      <div class="row title-opt"><span class="text">IELTSスピーキング│文法パニックを脱却!時制を自然に使える3ステップ</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags">#IELTS #IELTSスピーキング #IELTS対策 #英語学習 #スピーキング #英文法 #ストーリーテリング #イギリス留学</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>IELTSのスピーキングで高得点を狙うために、「複雑な時制を使いこなさなきゃ」と、文法のことばかりで必死になっていませんか？</p>
+    <p>「過去形を使ったから、次は現在完了」「あ、未来形も使わなきゃ」と頭でっかちになって、考えているうちに何を話すかを忘れてしまい、途中で頭が真っ白に…。</p>
+    <p>そんな経験、ありませんか？</p>
+    <p>実はそれ、<strong>あなたのスコアを下げてしまっている原因</strong>なんです。</p>
+    <p>このnoteでは、難しい文法のことは一旦忘れて、<strong>ただ「物語を話す」ことに意識を向けるだけで、驚くほど自然に文法の幅をアピールできる方法</strong>をお伝えします。</p>
+    <p>文法を考えすぎて話し方が不自然になっていると感じている方に、ぜひ読んでいただきたい内容です。</p>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>スピーキングテストの真っ最中に、頭の中が文法ルールでごちゃごちゃになって、言葉に詰まってしまう。</p>
+    <p>これは、本当に多くのIELTS受験者さんが陥りやすい<strong>「文法パニック」</strong>です。</p>
+    <p>そして、このパニックがあなたのスコアに<strong>二重のダメージ</strong>を与えていること、ご存知でしたか？</p>
+
+    <h2>「文法パニック」がスコアを下げる2つの理由</h2>
+
+    <h3>① 流暢さが下がってしまう</h3>
+    <p>文法を気にしながら話すと、不自然な「間」ができてしまいます。</p>
+    <p>それまで止まらずに順調に話せていたのに、突然文法をアピールすることに気を取られて変な間が生まれる。すると、その瞬間<strong>流暢さのレベルが下がったように見えてしまう</strong>んです。</p>
+
+    <h3>② 文法の幅をアピールできなくなる</h3>
+    <p>もう1つは、もっと深刻な悪循環です。</p>
+    <p>失敗を怖がるあまり、無意識に<strong>使い慣れた現在形・過去形・未来形ばかりに頼ってしまう</strong>。その結果、文法知識の幅が限られている、複雑な文が使えない、と判断されてしまいます。</p>
+    <p>必死に文法を意識しているのに、意識すればするほど文法の評価が上がらない。すごく悔しいし、もったいないですよね。</p>
+    <p>でも、安心してください。</p>
+    <p>この問題を解決するのは、さらに難しい文法をインプットすることではありません。もっとシンプルで自然なアプローチがあるんです。</p>
+    <p>それが、<strong>ストーリーテリング（物語を語ること）</strong>です。</p>
+
+    <h2>ストーリーテリングとは何か</h2>
+    <p>ストーリーテリングと聞くと、特別な話術や、エンターテイメントのような大げさな話し方を想像する方もいるかもしれません。</p>
+    <p>でも、ここでお伝えするストーリーテリングは、そんな難しいものではないんです。</p>
+    <p>考えてみてください。友達に「この前すごく面白いことがあってさ」と何かを話すとき、「よし、過去形を使おう」「過去完了形を使おう」なんて考えませんよね。</p>
+    <p>そのときの状況や気持ち、それまでどうだったか、その後どうなったかを、順番に自然に話しているはずです。</p>
+    <p><strong>この自然な会話の流れにこそ、IELTSが求める文法の豊かさが、すでに全部含まれている</strong>んです。</p>
+
+    <h3>例：「あなたが学んだスキル」を物語で話すと</h3>
+    <p>例えば、Part 2で<strong>「あなたが学んだスキルについて話してください」</strong>という問題が出たとします。学んだスキルが料理だとすると、物語にするとこうなります。</p>
+    <ul>
+      <li>子どもの頃、私は料理が全くできなかった。</li>
+      <li>ただ、母がいつもおいしい料理を作っているのを見ていた。</li>
+      <li>大学に入って一人暮らしを始めたとき、初めて料理の必要性を実感した。</li>
+      <li>それから毎週末、YouTubeでレシピを見ながら練習してきた。</li>
+      <li>今では友達を招いて夕食会を開くこともある。</li>
+      <li>将来は自分の子どもにも料理を教えたいと思っている。</li>
+    </ul>
+    <p>これを英語にすると、例えばこのように表現できます。</p>
+    <blockquote>
+      <p>When I was a child, I couldn't cook at all.（過去形）</p>
+      <p>But I was always watching my mother cook delicious meals.（過去進行形）</p>
+      <p>When I started living alone at university, I realised for the first time that I needed to cook.（過去形）</p>
+      <p>Since then, I have been practising every weekend with recipes on YouTube.（現在完了進行形）</p>
+      <p>Now I sometimes invite my friends over for dinner.（現在形）</p>
+      <p>In the future, I would like to teach my own children how to cook.（未来を表す表現）</p>
+    </blockquote>
+    <p>文法のことは一切考えていないのに、ストーリーを語るだけで、過去形、過去進行形、現在完了進行形、現在形、そして未来を表す表現まで、これだけの時制が自然に使われています。</p>
+    <p>つまりストーリーテリングとは、<strong>文法を意識的に披露するのではなく、自然に使わざるを得ない状況を作り出すこと</strong>なんです。これが、あなたのスピーキングを変える最も強力な戦略です。</p>
+
+    <h2>物語を話すだけで時制の幅が広がる3つの理由</h2>
+    <p>では、なぜ物語を話すだけで、あれほど意識しても使えなかった時制が使えるようになるのでしょうか。理由は3つあります。</p>
+
+    <h3>理由① 物語には「時の流れ」が組み込まれているから</h3>
+    <p>どんな物語にも、たいてい過去の出来事があり、それが今の自分にどう影響しているかという視点があり、ときには未来への希望や計画につながっていますよね。</p>
+    <p>この<strong>「過去→現在→未来」の流れに沿って話すだけ</strong>で、意識しなくても、過去形・現在形・現在完了形・未来形などを自然に織り交ぜられるようになるんです。</p>
+    <p>例えば、楽しかった旅行について話してみましょう。</p>
+    <ul>
+      <li>去年、京都に行った。</li>
+      <li>それ以来、日本の歴史にすごく興味を持つようになった。</li>
+      <li>今では、週末に歴史の本を読むのが趣味。</li>
+      <li>来年は、また別の歴史的な街を訪れてみるつもり。</li>
+    </ul>
+    <blockquote>
+      <p>I went to Kyoto last year.（過去形）</p>
+      <p>Since then, I have become really interested in Japanese history.（現在完了形）</p>
+      <p>Now, reading history books is my hobby at the weekends.（現在形）</p>
+      <p>Next year, I'm going to visit another historic city.（未来形）</p>
+    </blockquote>
+    <p>このように、物語を語ること自体が、<strong>時制のバリエーションを見せるための完璧な設計図</strong>になっています。</p>
+
+    <h3>理由② 脳への負担がグッと軽くなるから</h3>
+    <p>文法のルールを1つずつ考えながら文を組み立てるのは、例えるなら<strong>知らない言語の文法書を読みながら会話をする</strong>ようなものです。とても疲れますし、話し方が不自然になるのも無理はありません。</p>
+    <p>でも、意識が「自分に起きた出来事を人に話す」ことに向いていれば、脳は「思い出す」という、より自然な作業に集中できます。</p>
+    <p>今の英語レベルによって、すぐにできるかどうかは変わります。でも、<strong>スピーキングが5.5〜6.0でなかなか伸びない方は、あえて「何を話すか」に集中してみましょう</strong>。</p>
+    <p>情景やそのときの感情を思い出しながら話すと、言葉が理屈ではなく感覚として、すっと口から出やすくなります。</p>
+    <p>その結果、流暢さが上がりますし、沈黙があったとしても、それは「言葉選び」の沈黙ではなく「何を話すか」を考えている沈黙に変わります。採点官にも、<strong>英語をコミュニケーションのツールとして使えている</strong>という印象を与えられるんです。</p>
+
+    <h3>理由③ 話そのものが面白くなるから</h3>
+    <p>これはIELTSの評価基準とは少し別の話ですが、私はIELTSのスピーキング対策には、その後の生活で活きる部分があると感じています。</p>
+    <p>クラスメイトや日常で出会う人と話すとき、「今日何があったか」「最近どうしてる？」と、基本的にエピソードを話していますよね。最近何があって、どう感じて、今どうなっていて、これからどうするつもりか。</p>
+    <p>この話を面白くするために、そのとき感じたことを少し大げさに表現したり、表情をつけたり、相手が言った言葉を真似して伝えたり。<strong>そんなクリエイティブさを、試験で出してもいい</strong>んです。</p>
+
+    <h2>Part 2で使えるストーリーテリングの3ステップ</h2>
+    <p>ここからは、具体的にどうやってストーリーテリングをするのかを、3つのステップでお話しします。</p>
+    <p>Part 2では、1分間の準備時間と2分間のスピーチが求められます。評価基準を意識したスピーチは、次のシンプルな3ステップで作れます。</p>
+    <ol>
+      <li><strong>導入：</strong>過去のセットアップをする（いつ・どこで）</li>
+      <li><strong>本題：</strong>出来事を展開する（何が起きたのか）</li>
+      <li><strong>まとめ：</strong>現在・未来へのつながりを話す（今どう思うのか）</li>
+    </ol>
+    <p>今回使う問題は、<strong>「長い時間待たなければならなかった経験」</strong>です。ストーリーテリングがある場合とない場合の回答を比べてみましょう。</p>
+
+    <h3>ストーリーテリングがない回答例</h3>
+    <blockquote>
+      <p>I had to wait for a long time at the airport. It was three years ago. My flight was delayed. I waited for five hours. The weather was bad. The airline staff made announcements. Other passengers were frustrated. I felt tired and disappointed. It was a bad experience. I don't like waiting. Waiting is difficult for me. Now I try to be more patient. I prepare better for my trips. I think patience is important.</p>
+    </blockquote>
+    <p>いかがですか？質問にはちゃんと答えていますし、情報もそれなりに含まれています。</p>
+    <p>でも、よく見てみると、<strong>ほとんどが単純な過去形</strong>です。まるでチェックリストを読んでいるようで、会話というより事実を報告するレポートのようになっていますよね。</p>
+    <p>そして何より問題なのが、<strong>時制の幅がかなり限られている</strong>こと。「この人は基本的に過去形しか使っていないな」と思われても仕方ありません。どんなに正確な英語を話していても、これでは高得点を取るのは難しいのが現状です。</p>
+
+    <h3>ステップ1：導入（過去のセットアップ）</h3>
+    <p>では、同じトピックにストーリーテリングを取り入れてみましょう。まずは導入です。</p>
+    <blockquote>
+      <p>It was three summers ago. I was supposed to fly from Tokyo to Sapporo for my university friend's wedding ceremony. I was travelling alone, and I was really excited about the trip.</p>
+    </blockquote>
+    <p>ここまで聞いただけでも、全然違いますよね。</p>
+    <p>単に「空港で待った」ではなく、<strong>「3年前の夏」「友人の結婚式」「ワクワクしていた」</strong>という具体的な情報が加わるだけで、話にグッとリアリティが出て、聞き手はあなたの物語に引き込まれていきます。</p>
+
+    <h3>ステップ2：本題（出来事の展開）</h3>
+    <p>次に、物語のメインとなる出来事を、時系列で話していきます。</p>
+    <blockquote>
+      <p>I had arrived at the airport two hours early, just as the airline recommended. Everything was going smoothly until I saw the departure board. My flight was delayed. At first, it was only for thirty minutes, so I wasn't too worried. I was just reading a book in the departure lounge. However, another hour passed, and then another. The airline staff kept announcing further delays due to bad weather at the destination. While I was waiting, I could see many other passengers getting frustrated and anxious.</p>
+    </blockquote>
+    <p>注目してほしいのは、最初の <strong>had arrived（過去完了形）</strong>です。メインの出来事よりも、さらに前の時点のことを話しています。</p>
+    <p>また、待ち時間の様子を <strong>was reading（過去進行形）</strong>で表すことで、そのときのライブ感、生き生きとした感じが伝わります。</p>
+    <p>特に文法のことを考えていないのに、物語を語るだけで、自然にこれだけの時制の幅がアピールできるんです。</p>
+
+    <h3>ステップ3：まとめ（現在・未来へのつながり）</h3>
+    <p>最後に、どう感じたか、そしてその経験が今の自分にどうつながっているかを話します。ここは、現在形・現在完了形だけでなく、未来形も自然に盛り込めるところです。</p>
+    <blockquote>
+      <p>Eventually, after waiting for almost five hours, my flight was cancelled. I felt so exhausted and disappointed. However, that experience has taught me a valuable lesson. Now I always prepare for unexpected situations when I travel. It's important to be patient and flexible. Actually, because of that incident, I've become much better at managing my stress in difficult situations. If I face a similar problem in the future, I think I will be able to handle it more calmly.</p>
+    </blockquote>
+    <p><strong>現在完了形</strong>（has taught / I've become）で過去の経験と今をつなぎ、<strong>現在形</strong>（I always prepare / It's important）で今の習慣や考えを述べ、<strong>未来形</strong>（I will be able to）でこれからの展望を示しています。</p>
+
+    <h3>2つの回答を比べると一目瞭然</h3>
+    <p>ストーリーなしの回答は、情報は伝えているものの、単調な過去形の繰り返しで、報告書を読んでいるかのようでした。</p>
+    <p>一方で、3ステップを使ったストーリーテリングは、聞き手を引き込む内容になっています。</p>
+    <p>そして何より、<strong>意識的に文法を入れようとしたわけではなく、物語を時系列に沿って話すだけで、自然に時制が豊かになっている</strong>んです。</p>
+
+    <h2>ストーリーテリングの練習法3つ</h2>
+    <p>最後に、「やり方は分かったけど、どう練習したらいいの？」という方に向けて、具体的な練習法をお話しします。</p>
+    <p>IELTSのトピックだけでなく、今日あった出来事や今週あった出来事をトピックにしても全く問題ありません。そのときに意識してほしいことが3つあります。</p>
+
+    <h3>① 事実に縛られず、物語を創作する</h3>
+    <p>普段の出来事を話すときも、私たちは事実をベースに、自分の感情を入れたり、主観で話を進めたりしていますよね。</p>
+    <p>実際、人に話すときは、あったことを100%そのまま伝えているわけではありません。少し話を盛ったり、話さないほうがいいところは自然に引き算したりしています。</p>
+    <p>これは良いことでも悪いことでもなく、とても自然なことです。そしてIELTSのスピーキング対策では、むしろ<strong>必要なスキル</strong>になってきます。</p>
+    <p>例えば、<strong>Describe a gift you gave someone.</strong> というトピックが出たとします。</p>
+    <p>贈ったのが、自分にとってはただの普通のペンだったとしても、エピソードを加えることで、豊かな感情表現ができます。</p>
+    <p>「それは私がヨーロッパ旅行中に見つけた特別な万年筆で、作家になるという彼女の夢をずっと応援していたから贈った」</p>
+    <p><strong>事実はあなたの話の「種」にすぎません。その種から、どれだけ魅力的な物語の木を育てられるかは、あなた次第です。</strong></p>
+
+    <h3>② 日常の出来事を「過去・現在・未来」で話す癖をつける</h3>
+    <p>これは、机に向かって勉強しているだけでは身につかないスキルです。</p>
+    <p>私もスピーキングで8.0を取ったときは、<strong>シャワーを浴びながら、その日にあったことを独り言で話す</strong>ようにしていました。例えば、こんな感じです。</p>
+    <blockquote>
+      <p>Today I tried a new recipe for dinner. I found it on the internet yesterday. I had never cooked with some of the spices before. It was a bit challenging, but it turned out to be delicious. I think cooking is a great way to relax. I've always wanted to be good at cooking. Tomorrow I'm going to try another new recipe.</p>
+    </blockquote>
+    <p>話のつながりは完璧でなくて大丈夫です。大事なのは、どんな些細なことでも、<strong>過去の経緯・現在の感想・未来の予定を意識的につなげて話す</strong>こと。これを続けることで、ストーリーの型が自然に体に身についていきます。</p>
+
+    <h3>③ 「鉄板ネタ」を準備しておく</h3>
+    <p>皆さんは、自己紹介をするときに話す「鉄板ネタ」はありますか？</p>
+    <p>イギリスの大学院では、最初の授業で自己紹介を求められることがとても多かったのですが、私には自分の経歴を簡潔に話す鉄板ネタがありました。</p>
+    <p>日本語でも英語でも、私たちは場面や相手によって、いつも話していることやパターンがありますよね。それを<strong>英語でもできるようにしておく</strong>んです。</p>
+    <p>自分の経験、自分が感じたこと、自分が好きなもの、自分が行った場所。これはIELTSだけでなく、その先でも使えるスキルになります。</p>
+    <p><strong>人・場所・物・出来事</strong>、それぞれのテーマで応用しやすい鉄板ネタを準備しておけば、本番でどんなお題が出ても慌てずに対応できます。</p>
+    <p>例えば「忘れられない旅行」の話ができれば、「楽しかった経験」「新しい場所を訪れたとき」など、複数のお題に対応できますよね。</p>
+    <p>導入・本題・まとめの流れに当てはめて、何度も練習して、時系列で、自分の感情を入れて話せるようになっていきましょう。普段からこの練習ができていれば、お題に合わせて少しアレンジするだけで、質の高いスピーチができるようになります。</p>
+
+    <h2>おわりに｜文法は「守るルール」ではなく「物語を彩るツール」</h2>
+    <p>今回は、IELTSスピーキングの練習法として、ストーリーテリングについてお話ししてきました。ポイントをおさらいしましょう。</p>
+    <ul>
+      <li>多くの受験者が陥る<strong>「文法パニック」</strong>は、流暢さと文法の幅、両方の評価を下げてしまう悪循環</li>
+      <li>解決策は、文法ルールを頭に詰め込むことではなく、<strong>自分の経験を物語として語ること</strong>に集中すること</li>
+      <li>物語には<strong>過去・現在・未来という自然な時の流れ</strong>があり、それに乗るだけで、過去完了形・過去進行形・現在完了形・未来形など、さまざまな時制を使いたくなる</li>
+    </ul>
+    <p>今日からぜひ、<strong>今日あったことを3ステップで英語で話してみてください</strong>。</p>
+    <ol>
+      <li><strong>導入：</strong>いつ、どこで</li>
+      <li><strong>本題：</strong>何が起きたのか</li>
+      <li><strong>まとめ：</strong>今どう思うのか</li>
+    </ol>
+    <p>いきなり英語で話すのが難しければ、まずは日本語で文章を書いてみて、それをもとに話してみる。話すときに迷った単語や表現があれば調べてみる。これを繰り返してみてください。</p>
+    <p><strong>文法を「守らなければいけないルール」ではなく、「物語を豊かに彩るためのツール」と考えること。</strong></p>
+    <p>この意識の転換こそが、スピーキングのレベルを上げる、一番確実で、より楽しい方法です。</p>
+    <p>このnoteが、あなたのスピーキングのスコアアップにつながれば、こんなに嬉しいことはありません。</p>
+
+    <h2>IELTSの学習に関する無料動画講座について</h2>
+    <p>これから海外留学や海外移住を目指す方、特にIELTSのスコアがまだ目標に届いていない方に向けて、スピーキングを含めた4技能別の学習ステップをまとめた無料の動画講座をお配りしています。</p>
+    <p>メールアドレスをご登録いただくことで受け取れますので、ぜひご活用ください。</p>
+    <p data-slot="course"><span class="ph">【無料動画講座の登録ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【無料動画講座の登録ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
