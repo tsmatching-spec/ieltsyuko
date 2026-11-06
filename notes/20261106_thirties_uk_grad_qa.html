@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>30代の大学院留学Q&amp;A note原稿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1 class="page">30代の大学院留学Q&amp;A｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書きはそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを入れる</h2></div>
+      <p class="hint">入れたURLは下の本文に自動で差し込まれます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" placeholder="https://youtu.be/...">
+      </div>
+      <div>
+        <label for="course">無料動画講座の登録ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルを選んでコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。</p>
+      <div class="row title-opt"><span class="text">30代でイギリス大学院留学は遅い？よくある不安6つに、30代で留学した私が本音で答えます</span><button type="button" data-copy-text>コピー</button></div>
+      <div class="row title-opt"><span class="text">【30代の留学】年齢・奨学金・パートナー・帰国後のキャリア｜イギリス大学院に進学した私のリアル</span><button type="button" data-copy-text>コピー</button></div>
+      <div class="row title-opt"><span class="text">イギリスのパブから本音トーク｜30代で大学院留学してよかったこと、迷ったこと</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags">#イギリス留学 #イギリス大学院 #大学院留学 #社会人留学 #30代 #30代の挑戦 #奨学金 #キャリアチェンジ</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>「30代で今さら留学なんて、遅いかな…」<br>「奨学金って、30代でも取れるの？」<br>「帰国後の就職で不利にならない？」</p>
+    <p>イギリスの大学院進学を考えている30代の方から、こんな質問をよくいただきます。</p>
+    <p>私自身も、社会人を経験してから30代でイギリスの大学院に進学した一人です。</p>
+    <p>このnoteでは、受講生さんやイギリス大学院に興味がある方からよくいただく<strong>「30代の留学」にまつわる6つの質問</strong>に、私の経験をもとに本音でお答えします。</p>
+    <p>動画は、朝のイギリスのパブから撮影しました。実はイギリスのパブ、朝からコーヒーが飲めるんです。コーヒーを片手に、ゆるっとお話ししています。</p>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>こういったトーク形式の動画を撮るのは、実は1年ぶりくらいです。</p>
+    <p>去年、ハムステッド・ヒースの公園から自分のキャリアについてお話ししたのですが、それ以来、イギリスの大学院や30代での大学院進学をテーマにした動画にたくさんの反響をいただきました。</p>
+    <p>30代で社会人留学を目指している方は、想像以上に多いんだなと感じています。</p>
+    <p>そこで今回は、30代の留学の不安について、よくいただく質問にお答えする形でまとめました。</p>
+
+    <h2>Q1. 30代で「今さら留学」という迷いや周囲の反対はありましたか？どう決断しましたか？</h2>
+    <p>年齢を理由に大学院留学を迷っている方は、多いのではないでしょうか。</p>
+
+    <h3>反対というより「なぜ今？」という声</h3>
+    <p>私の場合、周囲から反対されたというよりは、<strong>「なぜ今？」「その先にやりたいことはあるの？」</strong>といった、少し懐疑的な意見がありました。</p>
+    <p>「意味がない」と言う人もいましたが、ありがたいことに、留学そのものに反対されることは特にありませんでした。</p>
+
+    <h3>やりたいことが明確だったから、あとは行動するだけだった</h3>
+    <p>決断できたのは、<strong>自分のやりたいことが、ある程度明確にあった</strong>からです。あとは行動に移すのみ、という形で決めました。</p>
+    <p>大きなきっかけがあったわけではありません。ただ、英語教育を学ぼうと決めてから、教育実習で経験したことが、「大学院で学びたい」という気持ちを強くしてくれました。</p>
+    <p>行動を決めてから実際に留学するまでには、<strong>2年ほど</strong>かかりました。その時間をかけて準備していく中で、本当に自分がやりたいことが見えてきて、「やっぱり大学院に行こう」という気持ちが改めて固まったんです。</p>
+
+    <h3>イギリスでは年齢を気にすることがほとんどなかった</h3>
+    <p>実際、30代で留学する人はたくさんいます。</p>
+    <p>学校で年齢を聞かれたのも、正直1〜2回あったかどうか。<strong>自分の年齢を意識することは、むしろ日本にいるときより少なかった</strong>ですし、年齢で人をジャッジするようなことも全くありませんでした。</p>
+    <p>自分が気にしているほど、気にする必要はなかったなと感じています。</p>
+
+    <h2>Q2. 30代で留学してよかったことは？</h2>
+    <p>20代で留学していてもよかったとは思います。そのうえで、30代で留学してよかったと思うことは、<strong>自分が勉強したい分野でのキャリアを少しでも積んでから行けた</strong>ことです。</p>
+
+    <h3>実践と理論を行き来できた</h3>
+    <p>私が取っていたのは1年制のコースで、<strong>その分野での学位や、専門性を持って働いた経験があること</strong>が入学の条件でした。</p>
+    <p>それに加えて、教育は理論だけでなく、実践もとても重要な分野です。実践をある程度経験したうえで、そこで生まれた疑問を解決するために理論を学び、また実践する。<strong>この流れを作れたのは、本当によかった</strong>と思っています。</p>
+    <p>なので、「30代だから」というよりは、<strong>社会人を経験しておいたこと</strong>がとてもよかったんです。</p>
+
+    <h3>社会人経験で、メンタルが強くなっていた</h3>
+    <p>知識や経験だけではありません。社会人を経験すると、理不尽なことってたくさん経験しますよね。</p>
+    <p>そのおかげで、いい意味で<strong>期待しすぎない</strong>というマインドセットがありました。留学中ももちろんトラブルはたくさんありましたが、「まあ、そういうこともあるか」と受け止められて、どんどんメンタルも強くなっていったと感じています。</p>
+
+    <h2>Q3. 奨学金は30代でも獲得できますか？</h2>
+    <p>結論から言うと、<strong>私は奨学金を取っておらず、自費留学</strong>でした。</p>
+    <p>今は円安もありますし、イギリスの大学の授業料自体もかなり上がっています。生活費も含めると、私が留学したときと比べて<strong>2倍以上</strong>になっているように感じます。</p>
+    <p>なので、現実問題として「奨学金がないと留学は厳しい」という方も多いと思います。</p>
+    <p>でも、<strong>30代で奨学金を獲得している人は、私の周りにもいます</strong>。男性・女性を問わず、社会人を経て30代で奨学金を受けている人もいます。</p>
+    <p>もちろん応募する奨学金の種類にもよりますが、30代で全額給付の奨学金を得てイギリスの大学院に行く方もいれば、返済型の奨学金を利用する方もいます。私の周りを見ている限り、<strong>年齢が理由でダメ、ということは感じていません</strong>。</p>
+
+    <h2>Q4. パートナーがいる場合、遠距離と帯同のどちらを選びましたか？</h2>
+    <p>少しプライベートな話になります。</p>
+    <p>私は留学をすると決めたとき、今の夫とお付き合いをしていました。どうしてもイギリスの大学院に行きたかったので、遠距離になるのかどうかを話し合い、結果として<strong>留学前に結婚</strong>することになりました。</p>
+
+    <h3>コロナ禍で、日本からオンライン受講</h3>
+    <p>私はコロナ禍に留学した、少しレアなケースです。オンラインで授業を受けなければいけない状況になり、<strong>最初の2学期分（半年ほど）は、日本から夫と一緒に暮らしながら</strong>イギリスの授業を受けていました。</p>
+    <p>それでも、どうしてもイギリスに行きたかったので、<strong>1年間休学</strong>をして、最後の1学期分だけイギリスに渡りました。そのときは半年ほど離れて暮らす、遠距離という形でした。</p>
+    <p>そして、修士論文の提出日に夫が日本からイギリスに来て合流し、一緒の生活が始まりました。</p>
+    <p>なぜこの形を選んだかというと、<strong>それが2人にとってベストだと話し合って決めた</strong>から、というくらいです。</p>
+
+    <h3>短期間でも、海外で一緒に過ごす経験はおすすめ</h3>
+    <p>今はグラデュエートビザなど、ビザの関係でパートナーが一緒に来られるかどうかにかなり制限がかかっているのが現実だと思います。</p>
+    <p>それでも、<strong>短期間でもパートナーと海外で一緒に過ごす経験</strong>は、個人的にとても刺激的でしたし、いろいろな困難を乗り越えるきっかけにもなりました。検討している方には、とてもいい選択だと思います。</p>
+
+    <h2>Q5. 帰国後の就職・転職で、30代の留学は不利でしたか？有利でしたか？</h2>
+    <p>私自身は、ほかの記事や動画でもお伝えしているとおり、就職活動や転職活動をしたわけではありません。なので、ここは周りの30代で留学した人たちの話をもとにお答えします。</p>
+
+    <h3>「大学院で何を学んだか」が評価されている</h3>
+    <p>同じ時期に留学して、グラデュエートビザでイギリスに残ってから帰国した方などの話を聞くと、皆さん口をそろえて言うのは、<strong>「大学院で何を学んだか」を面接で評価してもらえた</strong>ということです。</p>
+    <p>現地で就職した方からは、大学院での学びが面接官との共通点になったり、面接官と同じ大学の出身で話が広がるきっかけになったり、という話も聞きました。</p>
+    <p>皆さん、<strong>大学院留学をきちんと評価してくれるところに就職されている</strong>という印象です。</p>
+
+    <h3>30代の最大の武器は「専門性」</h3>
+    <p>冒頭でもお話ししたとおり、30代の方は社会人経験がある程度あるので、<strong>すでに専門性を持っている</strong>んですよね。</p>
+    <p>例えばイギリスで就職する場合、英語力はある意味「あって当然」です（日系企業だとそうでないこともあると思いますが）。やはり一番大事なのは専門性です。</p>
+    <p>その人にしかないスキルが、その会社に求められていることとマッチすれば、かなりの確率で就職につながっている方が多いと感じます。</p>
+    <p><strong>英語以外の専門性、経験、つながりをどれだけ持っているか。</strong>これが大きな武器になると考えています。</p>
+
+    <h2>Q6. 留学前のキャリアと、その後のキャリアをどうつなげましたか？</h2>
+    <p>私の場合は、取り組む分野はもう決まっていて、自分の中である程度選択肢を絞り込んでいました。</p>
+
+    <h3>英語講師から、IELTSコーチとして独立するまで</h3>
+    <p>留学前も英語講師として働いていました。ただ、学校や塾で教えていると、英語に興味がある人ばかりではなく、受験に必要だから勉強しているという人も多いですよね。</p>
+    <p>もちろん科目の1つとして捉えるべき部分もあると思います。でも私は、<strong>楽しんで勉強したい人や、目的を持って英語を学んでいる人をサポートしたい</strong>という気持ちが強くなっていきました。特に、私自身が社会人を経て留学したので、そういう方たちの力になりたいと思ったんです。</p>
+    <p>そこで、講師経験の中で感じたことや自分の強みを活かして、どんな働き方ができるかを模索しながら、少しずつ細く活動を続けてきました。その結果が、<strong>今のIELTSコーチとしての独立</strong>につながっています。</p>
+
+    <h3>どんな選択肢でも、前職×大学院の学びが活きる</h3>
+    <p>私はかなり特殊なケースだと思います。周りを見ると、現地就職、日本に帰って就職、別の国でのキャリアなど、本当にいろいろな道があります。</p>
+    <p>ただ、繰り返しになりますが、<strong>30代だからこその強みは、やはり専門性</strong>です。</p>
+    <p>多少英語に自信がなかったとしても、周りの人を見ていると、過去の経験や職務経歴を完全に活かした就職をされています。</p>
+    <p>大学院で専攻を変えたり、今までやったことのない分野に切り替えたりする方は、そこから新しいキャリアをスタートすることになります。それでも、<strong>前職での経験とイギリスの大学院での学びを掛け合わせて就職されている方が多い</strong>印象です。</p>
+    <p>どんな選択肢でも可能性を広げていけるのが、大学院の強みだと思います。</p>
+
+    <h2>おわりに｜30代の留学は「遅い」のではなく「強みがある」</h2>
+    <p>今回は、30代の留学についてよくいただく質問にお答えしてきました。</p>
+    <ul>
+      <li><strong>年齢：</strong>イギリスでは年齢を意識することはほとんどなかった。決め手は「やりたいことが明確かどうか」</li>
+      <li><strong>よかったこと：</strong>社会人経験があったから、実践と理論を行き来できた。メンタルも強くなっていた</li>
+      <li><strong>奨学金：</strong>私は自費留学。でも30代で奨学金を得ている人は周りにもいる</li>
+      <li><strong>パートナー：</strong>2人で話し合って決めるのが一番。短期間でも海外で一緒に過ごす経験はおすすめ</li>
+      <li><strong>帰国後のキャリア：</strong>30代の武器は、英語以外の専門性・経験・つながり</li>
+    </ul>
+    <p>30代の留学は、決して「遅い」わけではありません。社会人として積み重ねてきた経験こそが、大学院での学びも、その後のキャリアも支えてくれる<strong>強み</strong>になります。</p>
+    <p>私もその一人として、30代で留学を目指す方を応援しています。「こんなことも聞きたい」「この話をもっと詳しく知りたい」ということがあれば、ぜひコメントで教えてください。</p>
+    <p>このnoteが、30代で留学に挑戦しようか迷っているあなたの背中を、少しでも押せたら嬉しいです。</p>
+
+    <h2>IELTSの学習に関する無料動画講座について</h2>
+    <p>これから海外留学や海外移住を目指す方、特にIELTSのスコアがまだ目標に届いていない方に向けて、4技能別の学習ステップをまとめた無料の動画講座をお配りしています。</p>
+    <p>メールアドレスをご登録いただくことで受け取れますので、ぜひご活用ください。</p>
+    <p data-slot="course"><span class="ph">【無料動画講座の登録ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【無料動画講座の登録ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
