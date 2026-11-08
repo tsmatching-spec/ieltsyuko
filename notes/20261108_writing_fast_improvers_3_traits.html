@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>ライティングが伸びる人の3つの特徴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1 class="page">ライティングが伸びる人の3つの特徴｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書きはそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを入れる</h2></div>
+      <p class="hint">入れたURLは下の本文に自動で差し込まれます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" placeholder="https://youtu.be/...">
+      </div>
+      <div>
+        <label for="course">1週間のお試しコーチングの詳細ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルをコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。</p>
+      <div class="row title-opt"><span class="text">【IELTS添削700件で判明】ライティングで短期間にスコアが伸びる人の3つの特徴</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags">#IELTS #IELTSライティング #IELTS対策 #英語学習 #添削 #英作文 #勉強法 #イギリス留学</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>IELTSのライティングで添削を受けたあと、それを<strong>復習</strong>していますか？<br>自分のミスのパターンを<strong>リスト</strong>にしていますか？</p>
+    <p>もしまだなら、ぜひ今日から始めてみてください。</p>
+    <p>正直に言うと、同じように学習していても、<strong>2〜3ヶ月で5.5から7.0に伸びる人</strong>もいれば、<strong>半年かけても6.0から抜け出せない人</strong>もいます。</p>
+    <p>この差は、才能ではありません。<strong>学習の質とアプローチの違い</strong>です。</p>
+    <p>このnoteでは、私がこれまで<strong>700件以上</strong>のライティングを添削してきて気づいた、<strong>短期間でスコアが伸びやすい人の3つの特徴</strong>をお伝えします。</p>
+    <p>ライティングのスコアがなかなか伸びないという方は、読み終えるころにはきっと、学習の質とアプローチが変わっているはずです。</p>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>ライティングのスコアが伸びない原因は、人によってさまざまです。</p>
+    <p>でも、たくさんの添削をしてきて感じるのは、<strong>「能力が足りない」のではなく、ただ「知らないだけ」「やり方がずれているだけ」でスコアが伸びていないケースがとても多い</strong>ということです。</p>
+    <p>では、短期間でスコアが伸びる人は何が違うのか。3つの特徴を順番に見ていきましょう。</p>
+
+    <h2>特徴1：リーディングが7.0以上で安定している</h2>
+    <p>1つ目の特徴は、<strong>リーディングのスコアが7.0以上で安定している</strong>人です。</p>
+    <p>これは日本人の学習者さんにとても多いケースで、リーディングは7.0、あるいは7.5以上で安定しているのに、ライティングは5.5や6.0からなかなか変わらない、という方がたくさんいらっしゃいます。</p>
+
+    <h3>文法と語彙の土台は、すでにある</h3>
+    <p>なぜこのタイプが伸びやすいのか。それは、<strong>文法力や語彙力の基礎がすでにしっかりある</strong>からです。</p>
+    <p>リーディングで7.0以上が安定して取れるということは、複雑な文構造も理解できて、語彙レベルも比較的高く、書き言葉で使われるアカデミックな語彙の知識も十分にある状態です。</p>
+    <p>では、何が足りないのか。</p>
+    <p>それは、<strong>評価基準に沿った書き方と、アカデミックライティングの基礎知識</strong>です。</p>
+
+    <h3>足りないのは「評価基準に沿った書き方」の知識</h3>
+    <p>例えば、Task 2の評価基準には <strong>Task Response（課題への回答）</strong>という項目があります。この「課題への回答」が具体的に何を指しているのかを理解しておく必要があります。</p>
+    <p>また、<strong>Coherence and Cohesion（一貫性とまとまり）</strong>という項目もあります。「一貫性」とは何か、「まとまり」とは具体的に何を指すのか。ここを具体的に理解できていないと、論理展開の意味が分からなかったり、まとまりの意味が抽象的なまま学習を進めることになってしまいます。</p>
+    <p>ほかにも、パラグラフ構成のルールや、機械的にならないつなぎ言葉の使い方など、<strong>評価基準に沿った書き方</strong>があります。</p>
+    <p>逆に言うと、<strong>こうしたルールをただ知らないだけでスコアが伸びていない</strong>ケースが多いんです。</p>
+
+    <h3>受講生さんの例：2ヶ月で5.5→6.5</h3>
+    <p>私のコーチングの受講生さんにも、リーディングは7.5以上取れるのに、ライティングは5.5で止まっているという方がいました。</p>
+    <p>その方の文章を見ると、文法のミスはほとんどなく、語彙レベルも十分。ただ、評価基準で見ると、<strong>Task Response と Coherence and Cohesion で大きく減点されていた</strong>んです。</p>
+    <ul>
+      <li>イントロダクションで、課題への回答がそもそも書けていない</li>
+      <li>ボディパラグラフの1文目（トピックセンテンス）で、課題への回答が直接書かれていない</li>
+      <li>ボディパラグラフを読み進めると話がどんどん広がってしまい、一貫性がなくなっている</li>
+    </ul>
+    <p>こうしたアカデミックライティングの基礎を学んだだけで、この方は<strong>2ヶ月で5.5から6.5を達成</strong>されました。</p>
+
+    <h3>学び直しではなく「新しくルールを学ぶ」</h3>
+    <p>このタイプの方に必要なのは、学び直しではなく、<strong>ルールを新しく学ぶこと</strong>です。すでにある知識を正しい「型」に当てはめていくだけで、スコアが一気に上がっていきます。</p>
+    <p>もしあなたが、リーディングは7.0以上で安定しているのにライティングだけ伸びないと悩んでいるなら、落ち込む必要は全くありません。</p>
+    <p>足りないのは<strong>書く能力ではなく、書き方の知識</strong>である可能性が高いです。逆に言えば、この知識さえ学べば、短期間でスコアが伸びる可能性がとても高いんです。</p>
+    <p>リーディングが得意な方は、もともと論理的な思考や情報整理が得意な方が多く、ライティングの型を理解するのもとても速いです。だからこそ、<strong>書き方さえ学べば、短期間でスコアアップします</strong>。</p>
+
+    <h2>特徴2：復習ベースで学習ができる</h2>
+    <p>2つ目の特徴は、<strong>復習ベースで学習ができる</strong>人です。これが一番重要かもしれません。</p>
+    <p>ライティング学習で一番大事なのは、新しいエッセイをどんどん書くことではありません。<strong>自分の課題を見つけて、それを解決し続けること</strong>です。</p>
+    <p>もちろん練習量も大事です。でも、それ以上に大事なのは、<strong>添削を受けたあとに何をするか</strong>。スコアが伸びる人は、フィードバックを受けたあとの復習にとても時間をかけています。</p>
+
+    <h3>フィードバックを受けたあとの3ステップ</h3>
+    <p><strong>① フィードバックを理解する</strong><br>なぜそこが修正されているのか。評価基準のどこに影響してスコアが下がっているのか。正しい表現は何なのか。</p>
+    <p><strong>② パターンを見つける</strong><br>今回のミスは、ほかのエッセイでもしていなかったか。自分の癖なのか、それとも一度だけのたまたまのミスなのかを観察します。</p>
+    <p><strong>③ 次のエッセイの目標を決めて実践する</strong><br>「次のエッセイではこのポイントに絞って書く」という明確な目標を立てて、同じタイプの問題や新しい問題で実践します。</p>
+
+    <h3>受講生さんの例：There is / There are の多用</h3>
+    <p>ある受講生さんは、存在を表す <strong>There is / There are 構文</strong>を多用していることが分かりました。</p>
+    <p>そこでまず、この構文をどんな場面で使うのかを文法書で確認してもらいました。すると、過去のエッセイでも同じ表現を何度も繰り返していたことに気づいたんです。</p>
+    <p>その後、正しい使い方を学び、意見を主張するときはほかの名詞を主語に置いたり、主語を明確にしたりして、<strong>読み手に意見が伝わりやすい表現</strong>を探すようになりました。</p>
+    <p>その結果、繰り返しが徐々に減り、むしろ<strong>語彙の幅をアピールできる</strong>ようになっていきました。これが、復習ベースの学習です。</p>
+
+    <h3>伸びないときは「読んで終わり」になっている</h3>
+    <p>逆に、スコアが伸びないときは、フィードバックを読んで終わり。また次のエッセイに進んで、同じミスを繰り返す。しかも、同じミスを繰り返していることに自分で気づかないんです。実は、私もそうでした。</p>
+    <p>ライティングは、<strong>課題を見つける → 解決策を考える → 実行する</strong>。このサイクルをどんどん回していくものです。このサイクルを回せる人が、短期間でスコアを上げられる人です。</p>
+    <p>フィードバックを復習して、ミスのパターンをリストにする。それだけでも、学習効率はグッと上がります。</p>
+
+    <h2>特徴3：同じミスを繰り返さない</h2>
+    <p>3つ目の特徴は、<strong>同じミスを繰り返さない</strong>人です。これは2つ目の特徴と深く関係しています。</p>
+    <p>復習をする人の中でも、「この人は絶対に早く伸びるな」と感じるのは、<strong>フィードバックを抽象化できる人</strong>です。具体的に見ていきましょう。</p>
+
+    <h3>例1：However の使い方</h3>
+    <p>「この文での However の使い方が不適切です。前後の文が対比関係になっていません」というフィードバックを受けたとします。</p>
+    <p><strong>表面的な理解：</strong>However は使わないようにしよう。<br>→ その結果、次のエッセイで Although を間違った場所で使ってしまう。</p>
+    <p><strong>抽象化した理解：</strong>接続詞を使うときは、前後の論理関係を明確にする必要がある。However、Although、While などの対比を表す言葉は、本当に対比があるときだけ使う。<br>→ その結果、<strong>すべての接続詞を使う前に論理関係を確認する習慣</strong>がつく。</p>
+
+    <h3>例2：People's lives</h3>
+    <p>「People's life ではなく People's lives が正しいです」というフィードバックを受けたとします。</p>
+    <p><strong>表面的な理解：</strong>life は複数形にする。</p>
+    <p><strong>抽象化した理解：</strong>複数の人について話すとき、その人たちが持つものも複数形になることが多い。<strong>people's lives、children's futures、students' goals</strong> のようにパターンとして理解する。</p>
+    <p>このように、<strong>1つのミスから複数の学びを得る</strong>んです。スコアが伸びる人は、個別のミスを「このタイプのミス」として一般化しています。</p>
+
+    <h3>ミスを分類して「見直しリスト」を作る</h3>
+    <p>受講生さんの中で印象的だったのは、<strong>エクセルで自分のミスを分類していた方</strong>です。</p>
+    <p>4つの評価基準に合わせて、どんなミスをしてきたのかを抽象化して整理し、さらに<strong>見直しリスト</strong>を作っていました。新しいエッセイを書く前にこのチェックリストを確認することで、同じミスを防げるようになったんです。</p>
+
+    <h3>同じミスを3回したら、定着していないサイン</h3>
+    <p>大切なのは、<strong>ミスから学ぶ力</strong>です。</p>
+    <p>最初からミスのない文章を求めてはいけません。それが最初からできれば、IELTSを何度も受験しませんよね。ミスに気づいて、それを次にどう活かすか。ここが大切なんです。</p>
+    <p>同じミスを3回繰り返しているなら、それはフィードバックが定着していないサインです。もし同じミスを何度も繰り返しているなら、次の3つを実践してみてください。</p>
+    <ol>
+      <li>そのミスを<strong>なぜしたのか</strong>を深く理解する</li>
+      <li>同じパターンのミスをしていないか、<strong>過去のエッセイを振り返る</strong></li>
+      <li>そのミスを防ぐための<strong>自分ルール</strong>を作る</li>
+    </ol>
+
+    <h2>おわりに｜3つの特徴は「才能」ではなく「学習習慣」</h2>
+    <p>今回は、700件以上の添削経験から見えてきた、ライティングのスコアが短期間で上がる人の3つの特徴をお話ししてきました。</p>
+    <p>1つ目は、<strong>リーディングが7.0以上で安定している人。</strong>文法力・語彙力は、ライティング7.0以上を狙ううえで十分にあります。多くの場合、評価基準に沿った書き方を学ぶことがスコアアップの鍵になります。</p>
+    <p>2つ目は、<strong>復習ベースの学習ができている人。</strong>新しいエッセイを書くよりも、フィードバックを丁寧に復習する。課題を見つけて、解決策を考えて、実行する。このサイクルが回っている人はスコアが上がりやすいです。</p>
+    <p>3つ目は、<strong>同じミスを繰り返さない人。</strong>フィードバックを抽象化・一般化して、ミスをしないための自分ルールと見直しリストを作りましょう。</p>
+    <p>この3つは、<strong>才能ではなく学習習慣</strong>です。今日から実践できることもたくさんあったと思います。</p>
+    <ul>
+      <li>フィードバックをちゃんと読めていますか？</li>
+      <li>復習に時間をかけていますか？</li>
+      <li>同じミスを何度も繰り返していませんか？</li>
+    </ul>
+    <p>この3つを意識するだけで、あなたも短期間でスコアアップできる可能性がぐっと高まります。</p>
+    <p>このnoteが、あなたのライティングの学習を見直すきっかけになれば、こんなに嬉しいことはありません。</p>
+
+    <h2>1週間のお試しコーチングのご案内</h2>
+    <p>私のコーチングでは、単に添削するだけでなく、<strong>その課題がきちんと解決できるまで、個別の解説や再提出を必ず行っています</strong>。</p>
+    <p>「添削サービスを受けたことがない」「学習のプロセスを一緒に見てほしい」という方は、<strong>1週間のお試しコーチング</strong>から添削を受けていただけます。ぜひ詳細をご覧ください。</p>
+    <p data-slot="course"><span class="ph">【お試しコーチングの詳細ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【お試しコーチングの詳細ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
