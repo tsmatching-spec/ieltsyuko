@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>テンプレートがスコアを下げる理由</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* Layout: a narrow control column of numbered paste steps above a note-width article preview */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6862;
+  --line: #dde2de;
+  --accent: #1f7a5c;
+  --accent-ink: #ffffff;
+  --soft: #e7f1ec;
+  --mark: #fff3c4;
+  --font-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+    --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --surface: #1c2320; --fg: #e6ece8; --muted: #9aa8a0; --line: #2f3a35;
+  --accent: #5cc39b; --accent-ink: #0f1a15; --soft: #20332b; --mark: #4a4220; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1.page { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.35; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; transform: translateY(4px); }
+.step h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=url] { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+input[type=url]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.row .text { flex: 1 1 260px; min-width: 0; }
+button { font: inherit; font-weight: 700; font-size: 0.88rem; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.primary { background: var(--accent); color: var(--accent-ink); padding: 11px 18px; font-size: 0.95rem; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.done { background: var(--soft); color: var(--accent); border-color: var(--soft); }
+.title-opt { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.tags { font-size: 0.9rem; word-break: break-all; }
+.status { font-size: 0.85rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+.preview-label { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 -16px; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 22px; font-size: 16px; line-height: 1.95; min-width: 0; overflow-wrap: anywhere; }
+article > :first-child { margin-top: 0; }
+article h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; margin: 2.2em 0 0.8em; text-wrap: balance; }
+article h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; margin: 1.8em 0 0.6em; }
+article p { margin: 0 0 1.1em; }
+article ul, article ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+article li { margin-bottom: 0.3em; }
+article .ph { background: var(--mark); padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <style>
+    article blockquote { margin: 0 0 1.1em; padding: 12px 16px; border-left: 3px solid var(--line); background: var(--bg); border-radius: 0 6px 6px 0; }
+    article blockquote p { margin: 0 0 0.5em; }
+    article blockquote p:last-child { margin-bottom: 0; }
+  </style>
+  <header>
+    <h1 class="page">テンプレートがスコアを下げる理由｜note貼り付け用</h1>
+    <p class="lead">上から順にコピーして、noteの編集画面に貼り付けてください。見出し・太字・箇条書き・引用はそのまま反映されます。</p>
+  </header>
+
+  <section class="steps">
+    <div class="step">
+      <div class="step-head"><span class="num">1</span><h2>URLを入れる</h2></div>
+      <p class="hint">入れたURLは下の本文に自動で差し込まれます。</p>
+      <div>
+        <label for="yt">YouTube動画のURL</label>
+        <input type="url" id="yt" placeholder="https://youtu.be/...">
+      </div>
+      <div>
+        <label for="course">無料動画講座の登録ページのURL</label>
+        <input type="url" id="course" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">2</span><h2>タイトルを選んでコピー</h2></div>
+      <p class="hint">noteの「記事タイトル」欄に貼り付けます。</p>
+      <div class="row title-opt"><span class="text">IELTSライティング｜テンプレートを覚えてもスコアが上がらない3つの理由と、代わりに準備すべきこと</span><button type="button" data-copy-text>コピー</button></div>
+      <div class="row title-opt"><span class="text">【添削700件以上で見えた】IELTSライティングはテンプレートより「思考の順番」で伸びる</span><button type="button" data-copy-text>コピー</button></div>
+      <div class="row title-opt"><span class="text">そのテンプレート、逆効果かも？IELTS試験官が本当に見ているもの</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">3</span><h2>本文をコピー</h2></div>
+      <p class="hint">noteの本文欄に貼り付けたら、次の2つだけ確認してください。<br>・YouTubeのURLが埋め込みにならない場合は、URLの行を一度消して、空の行にURLだけを貼り直す<br>・「はじめに」の上で「＋」→「目次」を選ぶと目次が入ります</p>
+      <div class="row"><button type="button" class="primary" id="copyBody">本文をまとめてコピー</button></div>
+      <p class="status" id="bodyStatus" role="status"></p>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><span class="num">4</span><h2>ハッシュタグをコピー</h2></div>
+      <p class="hint">公開設定の「ハッシュタグ」欄に貼り付けます。</p>
+      <div class="row"><span class="text tags">#IELTS #IELTSライティング #IELTS対策 #英語学習 #英作文 #テンプレート #勉強法 #イギリス留学</span><button type="button" data-copy-text>コピー</button></div>
+    </div>
+  </section>
+
+  <p class="preview-label">本文プレビュー</p>
+  <article id="body">
+    <p>こんにちは、IELTSコーチの西野ゆうこです。</p>
+    <p>「テンプレートを一生懸命覚えて使っているのに、ライティングのスコアがなかなか上がらない…」</p>
+    <p>そう感じたことはありませんか？</p>
+    <p>もしかすると、スコアが上がらない原因は、<strong>テンプレートの使い方</strong>にあるかもしれません。</p>
+    <p>私はこれまで700件以上のライティングを添削してきましたが、その中でも特に多い相談が、「テンプレートがほしい」「テンプレートを覚えたのにスコアが上がらない」というものです。</p>
+    <p>このnoteでは、IELTSライティングのテンプレートについて、次の3つをお伝えします。</p>
+    <ol>
+      <li>なぜテンプレートがスコアを下げてしまうのか</li>
+      <li>IELTSの試験官が本当に見ているものは何か</li>
+      <li>テンプレートに頼らずに書くために、何を準備すればいいのか</li>
+    </ol>
+    <p>動画で見たい方はこちらからご視聴ください👇</p>
+    <p data-slot="yt"><span class="ph">【YouTubeのURLをここに貼る】</span></p>
+
+    <h2>はじめに</h2>
+    <p>最初にお伝えしておきたいのは、<strong>テンプレートそのものが悪いわけではない</strong>ということです。</p>
+    <p>問題なのは、<strong>テンプレートに頼りすぎて、自分で考えずに書く癖がついてしまうこと</strong>なんです。</p>
+    <p>ここから、その理由を順番にお話ししていきます。</p>
+
+    <h2>テンプレートがスコアを下げてしまう3つの理由</h2>
+
+    <h3>理由1：暗記した文章だと見抜かれやすい</h3>
+    <p>例えば、こんな書き出しを見たことはありませんか？</p>
+    <blockquote><p>In today's modern society, there is a growing debate about whether…</p></blockquote>
+    <p>一見それっぽい書き出しですが、これは<strong>どんなトピックにも使えてしまう文章</strong>です。</p>
+    <p>つまり、問題文にきちんと答えているというより、用意してきた文章をそこに置いているだけになってしまっています。</p>
+    <p>IELTSでは、課題への回答はもちろん、自然な語彙の使い方や、文脈に合った表現が評価されます。便利なフレーズを貼りつけるだけでは、語彙のアピールにならないうえに、課題への回答としても弱くなってしまうんです。</p>
+
+    <h3>理由2：自分の考えとつながらない</h3>
+    <p>テンプレートは、どんなレベルの人でも、どんな問題でも使えるように作られています。</p>
+    <p>でも、特にTask 2で必要なのは、<strong>その問題に対してあなたがどう考えているか</strong>を示すことですよね。</p>
+    <p>例えば、こう書いたとします。</p>
+    <blockquote><p>In my opinion, this has both advantages and disadvantages.</p></blockquote>
+    <p>これだけでは、何も伝わりません。何がadvantageで、何がdisadvantageなのか。なぜそう言えるのか。この説明がなければ、回答として成り立っていないんです。</p>
+    <p><strong>テンプレートは「形」は作ってくれますが、「中身」は作ってくれません。</strong></p>
+
+    <h3>理由3：論理の流れが機械的になりやすい</h3>
+    <p>よく見るのが、<strong>Firstly, Secondly, Furthermore, In conclusion</strong> といった形です。形だけ見ると、まとまっているように見えますよね。</p>
+    <p>でも、試験官が見ているのは<strong>つなぎ言葉の数ではありません</strong>。本当に見ているのは、<strong>あなたの考えの流れが自然かどうか</strong>です。</p>
+    <p>つなぎ言葉があるから評価が高くなるのではなく、主張・理由・具体例の流れが無理なく自然につながっているか。ここが大切なんです。</p>
+
+    <h2>IELTSの試験官が本当に見ているもの</h2>
+    <p>ここで大事なのは、<strong>テンプレートを使っていると分かったら即減点、というわけではない</strong>ということです。</p>
+    <p>試験官は「テンプレートを使っているかどうか」で採点しているわけではありません。見ているのは、結果としてその答案が次のようになっているかです。</p>
+    <ul>
+      <li>課題にきちんと答えているか</li>
+      <li>論理的にまとまっているか</li>
+      <li>自然な語彙を使えているか</li>
+    </ul>
+
+    <h3>バンド6で止まる人と、バンド7の違い</h3>
+    <p>特にTask 2のバンド7で求められているのは、<strong>主張を示し、それを掘り下げて支えていること</strong>です。</p>
+    <p>逆に、これまで見てきた答案の中で、バンド6で止まりやすい人には傾向があります。<strong>主張はあるけれど、どちらかというと一般論で、深掘りが足りない</strong>んです。</p>
+    <p>テンプレートの本当の問題は、表現そのものよりも、<strong>自分の考えを掘り下げられなくなること</strong>なんです。</p>
+
+    <h2>テンプレートの代わりに準備すべきこと</h2>
+    <p>では、テンプレートを使わないなら、代わりに何を準備すればいいのでしょうか。</p>
+
+    <h3>① 文章のテンプレートではなく「思考の順番」を持つ</h3>
+    <p>準備すべきなのは、<strong>文章のテンプレートではなく、思考の順番</strong>です。</p>
+    <p>Task 2の問題を見たら、書き始める前に、まずこの3つを決めましょう。</p>
+    <ol>
+      <li><strong>立場</strong>：課題への回答になる、自分の考え</li>
+      <li><strong>理由</strong>：なぜそう考えるのか</li>
+      <li><strong>具体例</strong>：自分の主張を裏付ける例</li>
+    </ol>
+    <p>いきなり英語で書こうとすると、言葉選びに意識が向いてしまい、何を書くかに意識が向きにくくなります。その場合は、<strong>日本語でもいいので、この流れを必ず先に決めましょう</strong>。</p>
+    <p>本番で必要なのは、使い回せる一文ではなく、<strong>崩れにくい、どんな問題にも使える思考の型</strong>です。</p>
+
+    <h3>② 表現を増やすより、1つの主張を深く説明する</h3>
+    <p>テンプレートに頼る人ほど、「もっと使えるフレーズを覚えなきゃ」と考えがちです。</p>
+    <p>でも、本当にスコアを分けるのは、難しい言い回しの量ではありません。</p>
+    <p>例えば、<strong>Public transport is beneficial.</strong> だけでは一般論ですよね。</p>
+    <p>ここから、</p>
+    <ul>
+      <li><strong>なぜ</strong>利益があるのか</li>
+      <li><strong>誰にとって</strong>利益があるのか</li>
+      <li><strong>その結果、何が起きる</strong>のか</li>
+    </ul>
+    <p>まで言えると、同じアイデアでも評価は変わります。</p>
+    <p>つまり、高得点に近づく練習は、<strong>1つの主張を軸に、それを深掘りしていく練習</strong>なんです。</p>
+
+    <h2>実際の問題で比べてみよう</h2>
+    <p>例えば、こんな問題で考えてみましょう。</p>
+    <blockquote><p><strong>Governments should spend money on railways rather than roads. To what extent do you agree or disagree?</strong></p></blockquote>
+
+    <h3>イントロダクション</h3>
+    <p><strong>❌ テンプレート寄りのイントロ</strong></p>
+    <blockquote><p>In today's modern society, there is a growing debate about whether governments should spend money on railways or roads. In my opinion, I agree with this statement to a certain extent.</p></blockquote>
+    <p>英語として大きく間違っているわけではありません。問題は、<strong>このトピックでなくても成り立ってしまう</strong>ことです。つまり、この問題に対する答えが、まだほとんど入っていない状態なんです。</p>
+    <p><strong>⭕ 立場と理由が見えるイントロ</strong></p>
+    <blockquote><p>While road maintenance remains necessary, I partly agree that governments should prioritise railways, because rail systems can move large numbers of people more efficiently and with less environmental damage.</p></blockquote>
+    <p>こうすると、<strong>立場</strong>が見えて、しかも<strong>理由</strong>まで見えてきます。このあとの段落で何を書くかも、自然に決まってきますよね。</p>
+
+    <h3>ボディパラグラフ</h3>
+    <p><strong>❌ テンプレート寄りのボディ</strong></p>
+    <blockquote><p>Firstly, railways are good for society. Secondly, they are also better for the environment.</p></blockquote>
+    <p>これでは、まだ一般論です。</p>
+    <p><strong>⭕ 1つの主張を深く説明したボディ</strong></p>
+    <blockquote><p>Railways are often a more efficient long-term investment because they can transport far more people than private cars using the same amount of urban space. In large cities, expanding rail services can reduce congestion, shorten commuting times and lower emissions per passenger.</p></blockquote>
+    <p>ここでは、<strong>主張</strong>があり、<strong>理由</strong>があり、それが<strong>具体的に説明</strong>されています。これが、「1つの主張を深く説明する」ということです。</p>
+
+    <h2>おわりに｜準備すべきなのは、使い回せる英文ではなく「思考の順番」</h2>
+    <p>IELTSライティングでは、Task 1・Task 2のどちらでも、テンプレートを使うことがいつも悪いわけではありません。</p>
+    <p>ただ、テンプレートに頼りすぎると、減点されるリスクは上がります。そして一番の問題は、<strong>テンプレートに頼ることで、自分で考えることをやめてしまう</strong>ことです。</p>
+    <p>特にTask 2で本当に評価されるのは、覚えた文章を書くことではなく、<strong>その問題に対して自分の立場をはっきり示し、理由と具体例で読み手を説得する文章</strong>を書くことです。</p>
+    <ul>
+      <li>テンプレートは「形」を作るが、「中身」は作らない</li>
+      <li>試験官が見ているのは、つなぎ言葉の数ではなく、考えの流れ</li>
+      <li>書く前に「立場 → 理由 → 具体例」を決める</li>
+      <li>表現を増やすより、1つの主張を深く説明する</li>
+    </ul>
+    <p>これから準備すべきなのは、使い回せる英文ではなく、<strong>書く前の思考の順番</strong>です。特に6.5、7.0以上を目指す方には、これが必須条件になってきます。</p>
+    <p>このnoteが、あなたのライティングを見直すきっかけになれば、こんなに嬉しいことはありません。</p>
+
+    <h2>IELTSの学習に関する無料動画講座について</h2>
+    <p>これから海外留学や海外移住を目指す方、特にIELTSのスコアがまだ目標に届いていない方に向けて、4技能別の学習ステップをまとめた無料の動画講座をお配りしています。</p>
+    <p>メールアドレスをご登録いただくことで受け取れますので、ぜひご活用ください。</p>
+    <p data-slot="course"><span class="ph">【無料動画講座の登録ページのURLをここに貼る】</span></p>
+    <p>それでは、また次の記事でお会いしましょう！</p>
+  </article>
+</div>
+
+<script>
+(function () {
+  var slots = {
+    yt: { input: document.getElementById('yt'), el: document.querySelector('[data-slot="yt"]'), ph: '【YouTubeのURLをここに貼る】' },
+    course: { input: document.getElementById('course'), el: document.querySelector('[data-slot="course"]'), ph: '【無料動画講座の登録ページのURLをここに貼る】' }
+  };
+  function render(key) {
+    var s = slots[key], v = s.input.value.trim();
+    s.el.textContent = '';
+    if (v) {
+      var a = document.createElement('a'); a.href = v; a.textContent = v; a.target = '_blank'; a.rel = 'noopener';
+      s.el.appendChild(a);
+    } else {
+      var sp = document.createElement('span'); sp.className = 'ph'; sp.textContent = s.ph; s.el.appendChild(sp);
+    }
+  }
+  Object.keys(slots).forEach(function (k) {
+    try { var saved = localStorage.getItem('note-url-' + k); if (saved) slots[k].input.value = saved; } catch (e) {}
+    render(k);
+    slots[k].input.addEventListener('input', function () {
+      try { localStorage.setItem('note-url-' + k, slots[k].input.value); } catch (e) {}
+      render(k);
+    });
+  });
+
+  function flash(btn, label) {
+    var orig = btn.dataset.orig || btn.textContent; btn.dataset.orig = orig;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = orig; btn.classList.remove('done'); }, 1800);
+  }
+  function selectNode(node) {
+    var r = document.createRange(); r.selectNodeContents(node);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.parentElement.querySelector('.text');
+      var text = src.textContent.trim();
+      var p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject();
+      p.then(function () { flash(btn, 'コピーしました'); }, function () {
+        selectNode(src);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        flash(btn, ok ? 'コピーしました' : '選択しました。コピーしてください');
+      });
+    });
+  });
+
+  // Clean HTML for note: only headings, paragraphs, lists, bold, links and line breaks
+  function cleanHTML() {
+    var clone = document.getElementById('body').cloneNode(true);
+    clone.querySelectorAll('.ph').forEach(function (el) { el.replaceWith(document.createTextNode(el.textContent)); });
+    clone.querySelectorAll('[data-slot]').forEach(function (el) { el.removeAttribute('data-slot'); });
+    clone.querySelectorAll('a').forEach(function (a) { a.removeAttribute('target'); a.removeAttribute('rel'); });
+    return clone.innerHTML.replace(/\n\s*/g, '');
+  }
+  function plainText() {
+    var out = [];
+    document.getElementById('body').querySelectorAll('h2,h3,p,li').forEach(function (el) {
+      var t = el.innerText.trim();
+      if (el.tagName === 'LI') t = '・' + t;
+      out.push(t);
+    });
+    return out.join('\n\n');
+  }
+
+  var bodyBtn = document.getElementById('copyBody');
+  var status = document.getElementById('bodyStatus');
+  bodyBtn.addEventListener('click', function () {
+    var html = cleanHTML(), text = plainText();
+    var done = function () { flash(bodyBtn, 'コピーしました'); status.textContent = 'noteの本文欄をクリックして貼り付けてください。'; };
+    var fallback = function () {
+      selectNode(document.getElementById('body'));
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      if (ok) { done(); window.getSelection().removeAllRanges(); }
+      else { status.textContent = '自動コピーできなかったので本文を選択しました。そのままコピー（長押し→コピー）してください。'; }
+    };
+    try {
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' })
+        });
+        navigator.clipboard.write([item]).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
