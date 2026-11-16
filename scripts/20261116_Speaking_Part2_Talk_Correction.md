@@ -159,6 +159,12 @@ and explain how you felt about it.
   > ..., because I **had never spoken** in front of so many people before.
   > （それまで大勢の前で話したことが一度もなかったので。）
 
+**💡 語彙アピールポイント①：`take a back seat`（一歩引いて、控えめな役に回る）**
+- せっかく `take the lead`（主導権を握る）という良い表現を使っているので、その**反対の表現**を自分側に使うと、語彙の幅が一気にアピールできます。
+  > So I let Shun **take the lead** and **took a back seat** myself.
+  > （なのでシュンに主導権を任せて、私は一歩引いた役に回りました。）
+- 「車の後部座席に座る＝運転はしない」というイメージのイディオムです。`take the lead` ⇔ `take a back seat` を**ペアで使う**と、試験官に「表現をコントロールできている」と伝わり、Lexical Resource の評価につながります。
+
 ▶ 再生
 
 ---
@@ -185,6 +191,12 @@ and explain how you felt about it.
 - ③ 過去完了形を足すなら（STOP 1 の伏線を回収）：
   > I guess that was because they **had** already **heard** from several other teams that day.
   > （たぶん、その日すでにいくつものチームの話を聞いていたからだと思います。）
+
+**💡 語彙アピールポイント②：`fall flat`（盛り上がらずに終わる・不発に終わる）**
+- `they didn't ask many questions` は事実を説明しているだけです。その前に「**Q&Aがどんな雰囲気だったか**」をイディオムで一言入れると、描写が生き生きします。
+  > After the presentation, we had a Q&A session, but it **fell a bit flat** — they didn't ask many questions.
+  > （プレゼンの後に質疑応答がありましたが、ちょっと盛り上がりに欠けて、あまり質問が出ませんでした。）
+- `fall flat` は、ジョークやイベント、スピーチなどが「期待したほどウケない・盛り上がらない」ときに使う表現です。`a bit` をつけるとやわらかくなり、新入社員を責めすぎない言い方になります。
 
 ▶ 再生
 
@@ -307,6 +319,14 @@ and explain how you felt about it.
 - `I had never spoken in front of so many people before.`（それまで大勢の前で話したことがなかった）
 - `They had already heard from several other teams.`（すでに他のチームの話を聞いていた）
 
+### 💡 語彙アピールポイント（Lexical Resource）
+| STOP | 元の表現 | アピール表現 | 意味 |
+|---|---|---|---|
+| 3 | `I let Shun take the lead` | `... and took a back seat myself` | 一歩引いて控えめな役に回る（`take the lead` の反対） |
+| 4 | `they didn't ask many questions` | `it fell a bit flat` | 盛り上がらずに終わる・不発に終わる |
+
+→ どちらも「そのままでも通じる文」に**一言足すだけ**で使えるのがポイントです。Part 2 では、こういう**イディオムを1〜2個**入れておくと、Lexical Resource で7.0以上を狙うアピールになります。
+
 ### 意味が通じない・誤解される箇所まとめ
 | STOP | 元の表現 | 聞こえ方 | 修正 |
 |---|---|---|---|
@@ -321,7 +341,7 @@ and explain how you felt about it.
 
 ## 【修正後の回答（モデルアンサー）】約290語・2分
 
-（テロップ：🃏＝カードの項目、➕＝カード外のストーリー、下線＝過去完了形）
+（テロップ：🃏＝カードの項目、➕＝カード外のストーリー、下線＝過去完了形、**太字＝語彙アピール**）
 ※「半年前」などの事実は例です。ご自身の状況に合わせて変えてください。
 
 > 🃏 I'd like to talk about a time when I explained my job to a group of new employees. As part of their training programme, they were given the opportunity to learn about different teams in the company. ➕ Before they came to us, they <u>had already visited</u> a few other teams.
@@ -330,9 +350,9 @@ and explain how you felt about it.
 >
 > 🃏 In the talk, we explained what each team does on a daily basis, how the two teams work together, and what kind of skills are useful for the job.
 >
-> 🃏 Honestly, I wasn't particularly keen on giving a presentation, because I <u>had never spoken</u> in front of so many people before. So I let Shun take the lead, and I mainly supported him.
+> 🃏 Honestly, I wasn't particularly keen on giving a presentation, because I <u>had never spoken</u> in front of so many people before. So I let Shun take the lead and **took a back seat** myself, mainly supporting him.
 >
-> ➕ After the presentation, we had a Q&A session, but they didn't ask many questions. I guess that was because they <u>had already heard</u> from several other teams that day. Still, I think they should have asked more, because opportunities to talk with people from other teams are quite limited.
+> ➕ After the presentation, we had a Q&A session, but it **fell a bit flat** — they didn't ask many questions. I guess that was because they <u>had already heard</u> from several other teams that day. Still, I think they should have asked more, because opportunities to talk with people from other teams are quite limited.
 >
 > ➕ At the same time, I felt a little jealous of them, because I realised that I <u>hadn't been given</u> the same opportunity when I transferred. If I <u>had had</u> a session like that, I could have settled in much more quickly. That's why I believe the company should extend the same opportunity to employees who transfer from other departments as well.
 
@@ -348,5 +368,7 @@ and explain how you felt about it.
 伸ばしどころは **①2分間**。カード外の話は十分なので、次は **カードの「何について話したか」を必ず入れる**こと。そして「**その時点で、すでに〜していた**」という背景を過去完了形で足していけば、自然と2分間に届きます。
 
 過去完了形は「前のストーリー」を話すための時制です。②と③はセットで練習してみてくださいね。
+
+最後に語彙。`take the lead` ⇔ **`take a back seat`**、そして **`fall flat`**。今の文に一言足すだけで使えるので、ぜひ次の練習で入れてみてください。
 
 それでは、また次回！IELTSゆうこでした。
