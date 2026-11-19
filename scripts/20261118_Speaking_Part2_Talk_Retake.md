@@ -340,6 +340,91 @@ and explain how you felt about it.
 
 ---
 
+## 【ご本人の振り返りにコメント】
+
+撮り直しのあとに、ご本人から振り返りをもらっています。
+
+（テロップ：ご本人の振り返り）
+```
+できたこと：
+  比較的今回は修正箇所が少なかったので、チャンクのつながりも意識できました。
+課題に感じたこと：
+  仮定法について、文法の知識がかなり危ういので復習します。
+気づき：
+  タラレバで内容を話すのは割と無理せずアイデアも思いつきそうなので、
+  仮定法の汎用性が高いと思いました！
+```
+
+ひとつずつコメントしていきます。
+
+### ① 「チャンクのつながりを意識できた」── 音声にもはっきり出ています
+
+**これは本当にその通りです。** 今回の回答では、文と文が「理由」「結果」でしっかりつながっています。
+
+| チャンク | つながり方 |
+|---|---|
+| `I let Shun take the lead` → `and took a back seat` | 対になる表現でつながっている |
+| `it felt a bit flat` → `because they didn't ask many questions` | 印象 → 理由 |
+| `they should have asked more questions` → `because opportunities ~ are quite limited` | 意見 → 理由 |
+| `If I had had a session like that,` → `I could have settled in much more quickly` | もしも → その結果 |
+
+- 前回は冠詞や前置詞の修正が多く、**「正しく言うこと」に頭が使われていた**状態でした。
+- 今回は細かいミスが減ったぶん、**「どうつなげるか」に頭を使う余裕**が生まれています。これが、ご本人の言う「チャンクのつながりを意識できた」の正体です。
+- 「細かいミスを減らす → つながりに意識を回せる → Fluency and Coherence が上がる」。この順番で伸びているのは、とても良い成長の仕方です。
+
+### ② 「仮定法の文法がかなり危うい」── 実は、今回の文は正しく言えています
+
+まず安心してほしいのは、今回の
+> `If I had had a session like that, I could have settled in much more quickly.`
+
+は、**文法的に完璧な仮定法過去完了**です。
+
+ただ、「危うい」と感じているなら、**どこでつまずきやすいか**を整理しておくと、本番でも自信を持って使えます。
+
+**仮定法の2つの形**
+| | 形 | 意味 | 例 |
+|---|---|---|---|
+| 仮定法過去 | `If + 過去形, would / could + 動詞の原形` | **今** の事実と違うこと | `If I had more time, I would study abroad.`（今時間があれば、留学するのに） |
+| 仮定法過去完了 | `If + had + 過去分詞, would / could + have + 過去分詞` | **過去** の事実と違うこと | `If I had had a session like that, I could have settled in more quickly.`（あのとき機会があれば、もっと早く慣れられたのに） |
+
+**つまずきやすいポイント**
+| ❌ よくある間違い | ✅ 正しい形 | ポイント |
+|---|---|---|
+| `If I would have had ~` | `If I had had ~` | `if` の側には `would` を入れない |
+| `If I had have ~` | `If I had had ~` | 1つ目の `had` は助動詞、2つ目の `had` は `have` の過去分詞。`had had` で正しい |
+| `I could settled in ~` | `I could have settled in ~` | 結果の側は `could + have + 過去分詞` |
+| `If I have had ~` | `If I had had ~` | 現在完了形ではなく、過去完了形 |
+
+**一歩進んだ形：過去の「もしも」が、今に影響している場合（混合仮定法）**
+> If I had had a session like that, I **would be** more confident in my job **now**.
+> （あのときあのような機会があったら、今ごろもっと仕事に自信を持てていたと思います。）
+- `if` の側は **過去**（仮定法過去完了）、結果の側は **今**（仮定法過去）、という組み合わせです。
+- 最後に `now` をつけると、「過去の話」から「今の自分」に話をつなげられます。
+
+### ③ 「タラレバは汎用性が高い」── その気づきは、Part 2 の強力な武器になります
+
+**これは、とても良い気づきです。** 仮定法の「タラレバ」には、Part 2 で使うと **一石三鳥** の効果があります。
+
+| 効果 | 理由 |
+|---|---|
+| ② カード外のストーリーが自然に増える | 「もしあのとき〜だったら」は、カードに書かれていない話そのもの |
+| ③ 過去完了形が自然に入る | 仮定法過去完了の `If I had + 過去分詞` に、過去完了形が含まれている |
+| ① 2分間に届きやすくなる | 「もしも」の話は1〜2文足すだけで、10〜15秒伸ばせる |
+
+**どのトピックでも使える「タラレバ」の型**
+| 型 | 意味 | 例 |
+|---|---|---|
+| `If I had known ~, I would have ~` | もし〜を知っていたら、〜したのに（後悔） | `If I had known how useful it was, I would have prepared more.` |
+| `If it hadn't been for ~, I wouldn't have ~` | もし〜がなかったら、〜しなかった（感謝） | `If it hadn't been for Shun, I wouldn't have got through the presentation.` |
+| `Looking back, if I had ~, I could have ~` | 今思えば、〜していたら、〜できたのに（振り返り） | `Looking back, if I had prepared more, I could have taken the lead myself.` |
+| `I wish I had ~` | 〜していればよかった | `I wish I had asked more questions when I was new.` |
+
+**使うときの注意**
+- 1つの回答に **1〜2回** までにしましょう。何度も使うと、型にはめている印象になります。
+- 一番使いやすいのは、カードの最後の **`explain how you felt`（どう感じたか）** の部分です。「どう感じたか」→「**もし〜だったら**」とつなげると、自然に話を広げられます。
+
+---
+
 ## 【エンディング】
 
 今日の2回目の添削、いかがでしたか？
@@ -352,5 +437,9 @@ and explain how you felt about it.
 もう1つ大事なのが、STOP 7 の `employees from other departments`。**直すときに、意味を支えている言葉まで削らない**こと。`who transfer` があるかないかで、主張がまったく変わってしまいます。
 
 新しい語彙は **`walk them through`** と **`thrown in at the deep end`**。どちらも今回のストーリーにぴったりなので、次の練習でぜひ入れてみてくださいね。
+
+最後に、ご本人の振り返りについて。
+「**チャンクのつながりを意識できた**」は、音声にもはっきり出ていました。細かいミスが減ったぶん、つながりに頭を使えるようになったのは、大きな成長です。
+そして「**タラレバは汎用性が高い**」という気づき。これは本当にその通りで、②カード外のストーリー、③過去完了形、①2分間の3つを一度に伸ばせる武器になります。仮定法は今回の文で正しく使えているので、自信を持って、まずは「**どう感じたか → もし〜だったら**」の流れで使ってみてくださいね。
 
 それでは、また次回！IELTSゆうこでした。
