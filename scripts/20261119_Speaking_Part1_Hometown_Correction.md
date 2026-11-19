@@ -206,7 +206,7 @@ C 現在完了形と現在完了進行形を、両方使う
   > When I was little, I often played **there** with my friends.
 
 **修正案**
-> **When I was little,** I often played in the parks with my friends. **On top of that,** there are **plenty of** educational and entertainment facilities, **such as libraries and sports centres**, so **teenagers** have places to go too.
+> **When I was little,** I often played **there** with my friends. **On top of that,** there are **plenty of** educational and entertainment facilities, **such as libraries and sports centres**, so **teenagers** have places to go too.
 > （小さい頃は、よく友達と公園で遊んでいました。それに加えて、図書館やスポーツセンターなど、教育施設や娯楽施設もたくさんあるので、10代の子たちにも行く場所があります。）
 > ※「図書館やスポーツセンター」は例です。実際にある施設に合わせてください。
 
@@ -397,7 +397,7 @@ C 現在完了形と現在完了進行形を、両方使う
 ### 意味が通じない・誤解される箇所まとめ
 | STOP | 元の表現 | 聞こえ方 | 修正 |
 |---|---|---|---|
-| 4 | `When I was playing outside, I often went to the parks` | ❌「外で遊んでいたときに公園に行った」と話が回っている | `When I was little, I often played in the parks` |
+| 4 | `When I was playing outside, I often went to the parks` | ❌「外で遊んでいたときに公園に行った」と話が回っている | `When I was little, I often played there` |
 | 3 | `children have opportunities ~` | ⚠️ `young people`（若者）の質問に「子ども」で答えている | `Yes, I'd say so, but it's more family-friendly ~` |
 | 5 | `there are more restaurants serve ~` | ⚠️ 動詞が2つ並んで文が壊れている | `restaurants that serve ~` |
 | 7 | `I've eaten fast food.` | ⚠️「食べたことがある」？ どのくらいかが伝わらない | `I've been eating a lot more fast food than I'd like.` |
