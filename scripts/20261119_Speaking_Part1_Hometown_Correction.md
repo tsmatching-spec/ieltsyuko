@@ -8,6 +8,10 @@ check_points:
   - ② 現在完了形 or 現在完了進行形を最低1回入れる
   - ③ 「I」で始める文ばかりにせず、話の流れに合わせてつなぎ語を入れる
   - ④ LとRの発音を区別する
+additional_check_points:
+  - A 同じ語彙は繰り返さないように言い換える、もしくは代名詞を使う
+  - B 過去の話につなげて過去進行形を使う（使える場面を課題の中で1回つくる）
+  - C 現在完了形と現在完了進行形を両方使う
 ---
 
 # 【Speaking Part 1 実際の添削】住んでいる場所 ── 4つの意識ポイントは達成できた？
@@ -48,6 +52,17 @@ check_points:
 先に言っておくと、今回は **前回までに学んだ表現を自分のものにしている** のがとても印象的です。`I've always enjoyed`、`take a stroll`、`What I like most is ~` と、レベルの高い表現が自然に出てきています。
 
 一方で、**質問の読み違い**が1か所と、前回と同じパターンの **「現在完了形の惜しい使い方」** が出ています。音源を止めながら見ていきましょう。
+
+そして今回は、次の3つについてもフィードバックします。
+
+（テロップ：追加の3つのポイント）
+```
+A 同じ語彙は繰り返さない → 言い換える／代名詞を使う
+B 過去の話につなげて、過去進行形を使う
+C 現在完了形と現在完了進行形を、両方使う
+```
+
+各 STOP で関係するところに **🅰 🅱 🅲** の印をつけて解説し、最後にまとめて振り返ります。
 
 ---
 
@@ -115,6 +130,16 @@ check_points:
 - ③ つなぎ語：`That's why` でまとめると、Q1 がきれいに締まります。
 - ④ 音源で確認：**full of life**（L が3つ続く要注意フレーズ）、**families**（L）、**ideal**（L）、**really**（R → L）
 
+**🅱 過去進行形を使うなら、ここ！（今回の課題で用意した場面）**
+- 「週末の公園は家族でにぎわっている」は**一般論**です。ここに「**実際に先週末、〜していたら…**」という**過去の具体的なエピソード**をつなげると、話に説得力が出て、過去進行形も自然に使えます。
+  > **In fact, last weekend, while I was wandering around** my local park, I **saw** lots of families having picnics.
+  > （実際、先週末に近所の公園をぶらぶらしていたら、たくさんの家族がピクニックをしていました。）
+- 過去進行形は「**過去のある時点で、〜している最中だった**」という意味です。
+  - `while I was wandering around`（ぶらぶらしている**最中に**）＝ 背景 → **過去進行形**
+  - `I saw lots of families`（家族を**見た**）＝ その間に起きた出来事 → **過去形**
+- この「**背景は過去進行形、出来事は過去形**」の組み合わせが、過去進行形の一番使いやすい形です。
+- 🅰 `wandering around`（ぶらぶら歩き回る）を使うと、Q1 ですでに出ている `going for walks` / `take a stroll` とも重なりません。
+
 ▶ 再生
 
 ---
@@ -170,6 +195,15 @@ check_points:
 - `At the same time` は「**同時に**」「**その一方で**」という意味です。ここでは「公園がある。**それに加えて**、施設もある」という**追加**なので、`On top of that` / `Also` が合います。
 - `more educational and entertainment facilities` の `more` は、「何と比べて**もっと**？」となります。比べる相手がないので、`plenty of` / `a lot of` の方が自然です。
 - ここでも主語が `children` になっています。「若者」の質問なので、`young people` / `teenagers` を主語にすると、質問にきちんと答えていることが伝わります。
+
+**🅱 過去進行形のチェック**
+- `When I was playing outside` は、**過去進行形を使おうとしている**点は◎です。
+- ただ、過去進行形は「〜している**最中に**、…が起きた」という**背景**に使う形です。「外で遊んでいる最中に、公園に行った」では、背景と出来事の関係が成り立ちません。
+- さらに `often`（よく〜した）は**習慣**を表すので、ここは **過去形** `I often played ~` が正解です。過去進行形は STOP 2 の場面で使いましょう。
+
+**🅰 繰り返しのチェック**
+- `parks` は Q1 から数えて **4回目**、`outside` も STOP 3 に続いて **2回目** です。公園の話はすでに出ているので、`in the parks` は **`there`** で十分です。
+  > When I was little, I often played **there** with my friends.
 
 **修正案**
 > **When I was little,** I often played in the parks with my friends. **On top of that,** there are **plenty of** educational and entertainment facilities, **such as libraries and sports centres**, so **teenagers** have places to go too.
@@ -275,6 +309,12 @@ check_points:
 > **As a result,** ever since I started working, **I've been eating a lot more fast food than I'd like.**
 > （その結果、働き始めてからは、自分が思っている以上にファストフードを食べてしまっています。）
 
+**🅲 現在完了形と現在完了進行形のチェック**
+- `eat` は「食べる」という**動作**を表す動詞です。動作が「働き始めてから今も**続いている**」ことを言いたいときは、**現在完了進行形**（`have been + -ing`）がぴったりです。
+  - `I've eaten fast food.` → 食べた**ことがある**（経験）に聞こえやすい
+  - `I've been eating a lot of fast food.` → ずっと食べ**続けている**（継続）
+- これで、今回の回答に **現在完了進行形が1回** 入ります。
+
 **4ポイントチェック**
 - ② 現在完了進行形：⚠️ 形は入っているが、意味が不完全です。`I've been eating a lot more ~` にすれば ✅ になります。
 - ③ つなぎ語：`As a result,` で原因と結果をつなげます。
@@ -305,6 +345,13 @@ check_points:
 - 最後の `I can concentrate without being disturbed.` が、**YouTube の話の直後**に来ています。そのため「**YouTubeに集中できる**」と聞こえてしまいます。
 - 集中できるのは「**勉強**」の話ですよね。なので、この文は「勉強」の文のすぐ後ろに移動させましょう。
 - `I have studied in my room` は正しい文ですが、「中学から**今もずっと**続けている」ことを強調するなら、`I've been studying` の方がよりはっきり伝わります。
+
+**🅰 繰り返し・代名詞のチェック**
+- `my bedroom` の後に `my room` と言い換えているのは◎。さらに **`there`**（YouTube を見る場所）で受けられているのは、**代名詞の上手な使い方**です。
+- 修正案では、`in my room` も `there` にまとめています。
+
+**🅲 現在完了形と現在完了進行形のチェック**
+- `study` も `eat` と同じ**動作**の動詞なので、「中学から今も続けている」は **現在完了進行形** `I've been studying` が自然です。これで **現在完了進行形が2回目** になります。
 
 **修正案**
 > My favourite room is my bedroom, because I can relax and spend time on my own. **I've been studying there** since I was in middle school, **because** I can concentrate without being disturbed. **These days,** I also often watch YouTube videos there.
@@ -361,22 +408,101 @@ check_points:
 
 ---
 
+## 【追加FB】A・B・C の3つのポイント
+
+### 🅰 同じ語彙は繰り返さない（言い換え・代名詞）
+**判定：△ 上手な言い換えもあるが、「parks」が4回**
+
+**できていたところ**
+- `going for walks` → `take a stroll` 🆙 散歩を言い換えられています。
+- `my bedroom` → `my room` → **`there`**（YouTubeを見る場所）と、代名詞で受けられています。
+- `Nagoya, which is ~` と、関係代名詞で情報をつなげています。
+
+**繰り返しになっていた語彙**
+| 単語 | 回数 | 出てきた場所 | 言い換え・代名詞 |
+|---|---|---|---|
+| parks | **4回** | Q1 で2回、Q2 で2回 | Q2 では `all the green spaces I mentioned` / `there` |
+| many | 2回 | `many parks` / `many parks and green spaces` | `lots of` / `plenty of` |
+| outside | 2回 | `play outside` / `playing outside` | 2回目は削る |
+| children | 2回 | STOP 3 / STOP 4 | `kids` / `teenagers` |
+| healthy | 2回 | `healthy meals` / `healthy food` | `eat well` |
+
+**コツ：前の質問で話したことは `as I mentioned` / `I mentioned` で受ける**
+- Q1 で公園の話をしているので、Q2 でもう一度 `There are many parks` と言う必要はありません。
+  > **Thanks to all the green spaces I mentioned,** it's a great place for kids to play outside.
+  > （さっきお話しした緑地のおかげで、子どもが外で遊ぶにはとても良い場所です。）
+- 繰り返しが減るだけでなく、**Q1 と Q2 の答えがつながって**、会話らしくなります。
+
+---
+
+### 🅱 過去の話につなげて、過去進行形を使う
+**判定：△ 使おうとした1回（STOP 4）が、場面に合っていなかった**
+
+**過去進行形とは**
+- 「**過去のある時点で、〜している最中だった**」を表す形です（`was / were + -ing`）。
+- 一番使いやすいのは、**「〜していたら（背景）、…した（出来事）」** の組み合わせです。
+
+**今回の回答では**
+- `When I was playing outside, I often went to the parks`（STOP 4）は、「外で遊んでいる最中に、公園に行った」となり、背景と出来事の関係が成り立っていません。また `often`（習慣）とも合わないので、ここは過去形が正解です。
+
+**今回の課題で使える場面：Q1 の「週末の公園」（STOP 2）**
+> At weekends, they're full of life. **In fact, last weekend, while I was wandering around** my local park, I **saw** lots of families having picnics.
+> （週末はとても活気があるんです。実際、先週末に近所の公園をぶらぶらしていたら、たくさんの家族がピクニックをしていました。）
+
+| | 形 | 役割 |
+|---|---|---|
+| `while I was wandering around` | 過去進行形 | 背景（〜している最中に） |
+| `I saw lots of families` | 過去形 | その間に起きた出来事 |
+
+- **なぜここか**：「週末の公園はにぎやか」という一般論のすぐ後に、「**実際に先週末〜**」と過去の具体例をつなげると、話に説得力が出ます。Part 1 で「一般論 → 自分の具体的なエピソード」と展開できると、Fluency and Coherence の評価にもつながります。
+- 🅰 とセットで、`walks` / `stroll` と重ならない **`wandering around`** を使っています。
+
+---
+
+### 🅲 現在完了形と現在完了進行形を、両方使う
+**判定：現在完了形 ✅ ／ 現在完了進行形 ⚠️（まだ正しく使えていない）**
+
+**今回の回答で使われていた形**
+| STOP | 元の表現 | 形 | 判定 |
+|---|---|---|---|
+| 1 | `I've always enjoyed going for walks` | 現在完了形 | ✅ |
+| 8 | `I have studied in my room since ~` | 現在完了形 | ✅（進行形にするとさらに◎） |
+| 5 | `I've been hoping that ~` | 現在完了進行形 | ⚠️ 仮定の質問の答えとしてずれている |
+| 7 | `I've eaten fast food` | 現在完了形 | ⚠️「どのくらい」がなく、意味が不完全 |
+
+**使い分けのルール**
+| | 形 | 合う動詞 | 今回の例 |
+|---|---|---|---|
+| 現在完了形 | `have + 過去分詞` | `like` / `enjoy` / `live` / `know` など **気持ち・状態** の動詞 | `I've always enjoyed going for walks.`（ずっと好き） |
+| 現在完了進行形 | `have been + -ing` | `study` / `eat` / `work` / `play` など **動作** の動詞 | `I've been studying there since middle school.`（今も勉強を続けている） |
+
+- 「**ずっと〜な状態**」なら現在完了形、「**ずっと〜し続けている**」なら現在完了進行形、と覚えると使い分けやすいです。
+
+**修正後**
+- 現在完了形：`I've always enjoyed going for walks.`（Q1）
+- 現在完了進行形：`I've been eating a lot more fast food than I'd like.`（Q3）
+- 現在完了進行形：`I've been studying there since I was in middle school.`（Q4）
+
+→ **両方の形が、それぞれ正しい場面で** 入りました。
+
+---
+
 ## 【修正後の回答（モデルアンサー）】
 
-（テロップ：下線＝現在完了（進行）形、**太字＝つなぎ語**、【 】＝語彙アピール）
+（テロップ：下線＝現在完了（進行）形、〔 〕＝過去進行形、**太字＝つなぎ語**、【 】＝語彙アピール）
 ※施設名・「一番近い」などは例です。ご自身の状況に合わせてください。
 
 **Q1. What do you like most about the place where you live?**
-> What I like most is that there are lots of parks. <u>I've always enjoyed</u> going for walks, **so whenever** I 【take a stroll】 there, I can really 【chill out】. **At weekends,** the parks are 【full of life】, with lots of families enjoying themselves. **That's why** I think my hometown is an ideal place to live.
+> What I like most is that there are lots of parks. <u>I've always enjoyed</u>〈現在完了形〉 going for walks, **so whenever** I 【take a stroll】 there, I can really 【chill out】. **At weekends,** they're 【full of life】. **In fact,** last weekend, 〔while I was wandering around〕 my local park, I saw lots of families having picnics. **That's why** I think my hometown is an ideal place to live.
 
 **Q2. Is your neighbourhood suitable for young people?**
-> **Yes, I'd say so, but** it's probably more 【family-friendly】 than youth-friendly. There are lots of parks and 【green spaces】, **so** it's a great place for kids to play outside. **When I was little,** I often played in the parks with my friends. **On top of that,** there are plenty of educational and entertainment facilities, such as libraries and sports centres, **so** teenagers have places to go too.
+> **Yes, I'd say so, but** it's probably more 【family-friendly】 than youth-friendly. **Thanks to** all the 【green spaces】 I mentioned, it's a great place for kids to play outside. **When I was little,** I often played there with my friends. **On top of that,** there are plenty of educational and entertainment facilities, such as libraries and sports centres, **so** teenagers have places to go too.
 
 **Q3. If you could change one thing about your city, what would it be?**
-> **If I could change one thing,** I'd like there to be more restaurants that serve healthy meals. **Whenever** I want to eat healthily, places to choose from are 【few and far between】. **So** to have more options, I have to go all the way to Nagoya, which is the nearest major city. **As a result,** ever since I started working, <u>I've been eating</u> a lot more fast food than I'd like.
+> **If I could change one thing,** I'd like there to be more restaurants that serve healthy meals. **Whenever** I want to eat well, places to choose from are 【few and far between】. **So** to have more options, I have to go all the way to Nagoya, which is the nearest major city. **As a result,** ever since I started working, <u>I've been eating</u>〈現在完了進行形〉 a lot more fast food than I'd like.
 
 **Q4. What is your favourite room in your home?**
-> My favourite room is my bedroom, **because** I can relax and spend time on my own. <u>I've been studying</u> there since I was in middle school, **because** I can concentrate 【without being disturbed】. **These days,** I also often watch YouTube videos there.
+> My favourite room is my bedroom, **because** I can relax and spend time on my own. <u>I've been studying</u>〈現在完了進行形〉 there since I was in middle school, **because** I can concentrate 【without being disturbed】. **These days,** I also often watch YouTube videos there.
 
 ---
 
@@ -395,5 +521,13 @@ check_points:
 3つ目は、前回と同じパターンの **現在完了形**。`I've eaten fast food.` だけでは「どのくらい」が伝わりません。**`a lot` や `always` など、どのくらいを表す言葉とセット**で使ってくださいね。
 
 語彙は **`family-friendly`** と **`few and far between`**。どちらも「住んでいる場所」のトピックで何度も使えるので、ぜひ覚えておいてください。
+
+そして、追加の3つのポイントについて。
+
+🅰 **繰り返し**は、`parks` が4回。前の質問で話したことは **`as I mentioned`** や **`there`** で受けると、繰り返しが減って、答え同士もつながります。
+
+🅱 **過去進行形**は、「**〜していたら（過去進行形）、…した（過去形）**」の形で使います。一般論を言ったあとに「**実際に先週末〜**」と自分のエピソードをつなげると、自然に使えます。
+
+🅲 **現在完了形と現在完了進行形**は、「ずっと〜な**状態**」なら現在完了形、「ずっと〜し**続けている**」なら現在完了進行形。`enjoy` は現在完了形、`study` / `eat` は現在完了進行形、と動詞で使い分けてみてください。
 
 それでは、また次回！IELTSゆうこでした。
