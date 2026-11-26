@@ -12,7 +12,7 @@
 
 - 気持ち副詞（Comment Adverb）とは何か
 - 伝わりやすくなる **読み方のコツ**
-- Part 1・2 でそのまま使える **15の気持ち副詞** と例文
+- Part 1・2 でそのまま使える **50の気持ち副詞** と例文
 - 「feel」との **使い分け**
 - 使いすぎないための **注意点**
 
@@ -53,49 +53,104 @@
 
 ---
 
-## 15の気持ち副詞リスト
+## 50の気持ち副詞リスト
 
 大文字＝強く読む部分です。
 
-### うれしい・ありがたい
+### うれしい・ありがたい（8）
 
-| 気持ち副詞 | 意味 | 例文 |
-|---|---|---|
-| **FOR**tunately | 運よく | **Fortunately,** my office is only ten minutes from home, so I never have to rush. |
-| **LUCK**ily | ラッキーなことに | **Luckily,** I found a cheap flight, so I could visit my friend in Osaka. |
-| **THANK**fully | ありがたいことに | **Thankfully,** my colleagues helped me finish the project on time. |
+| No | 気持ち副詞 | 意味 | 例文 |
+|---|---|---|---|
+| 1 | **FOR**tunately | 運よく | **Fortunately,** my office is only ten minutes from home, so I never have to rush. |
+| 2 | **LUCK**ily | ラッキーなことに | **Luckily,** I found a cheap flight, so I could visit my friend in Osaka. |
+| 3 | **THANK**fully | ありがたいことに | **Thankfully,** my colleagues helped me finish the project on time. |
+| 4 | **HAP**pily | うれしいことに | **Happily,** my grandmother recovered quickly after her operation. |
+| 5 | **MER**cifully | 幸いにも（ひどくならずに済んで） | **Mercifully,** the queue at the airport was much shorter than I'd expected. |
+| 6 | con**VEN**iently | 都合のいいことに | **Conveniently,** there's a supermarket right next to my apartment. |
+| 7 | reas**SUR**ingly | 安心なことに | **Reassuringly,** the doctor said it was nothing serious. |
+| 8 | en**COUR**agingly | 心強いことに | **Encouragingly,** my listening score has gone up in every practice test this month. |
 
-### 残念・イライラ
+### 残念・悲しい（7）
 
-| 気持ち副詞 | 意味 | 例文 |
-|---|---|---|
-| un**FOR**tunately | あいにく | **Unfortunately,** I don't have much free time on weekdays. |
-| **SAD**ly | 残念なことに | **Sadly,** the café I used to go to closed down last year. |
-| an**NOY**ingly | 腹立たしいことに | **Annoyingly,** my phone battery died right in the middle of the trip. |
-| **FRUS**tratingly | もどかしいことに | **Frustratingly,** the shop had sold out of the shoes I wanted. |
+| No | 気持ち副詞 | 意味 | 例文 |
+|---|---|---|---|
+| 9 | un**FOR**tunately | あいにく | **Unfortunately,** I don't have much free time on weekdays. |
+| 10 | un**LUCK**ily | 運悪く | **Unluckily,** it rained on the only day we'd planned to go hiking. |
+| 11 | un**HAP**pily | 残念ながら | **Unhappily,** the project was cancelled before we could finish it. |
+| 12 | **SAD**ly | 残念なことに | **Sadly,** the café I used to go to closed down last year. |
+| 13 | re**GRET**tably | 悔やまれることに | **Regrettably,** I never learned to play a musical instrument as a child. |
+| 14 | disap**POINT**ingly | がっかりなことに | **Disappointingly,** the film wasn't as good as the reviews said. |
+| 15 | **TRAG**ically | 痛ましいことに | **Tragically,** the old theatre in my hometown was destroyed by a fire. |
 
-### 意外・おもしろい
+### イライラ・困った（6）
 
-| 気持ち副詞 | 意味 | 例文 |
-|---|---|---|
-| sur**PRIS**ingly | 意外なことに | **Surprisingly,** I enjoyed cooking much more than I expected. |
-| unsur**PRIS**ingly | 案の定 | **Unsurprisingly,** the beach was really crowded during the summer holidays. |
-| **IN**terestingly | 興味深いことに | **Interestingly,** most of my friends prefer reading on paper rather than on a screen. |
-| i**RON**ically | 皮肉なことに | **Ironically,** I've been spending more time on my phone since I downloaded an app to reduce my screen time. |
-| **FUN**nily enough | おもしろいことに | **Funnily enough,** I met my best friend because we were both late for class. |
+| No | 気持ち副詞 | 意味 | 例文 |
+|---|---|---|---|
+| 16 | an**NOY**ingly | 腹立たしいことに | **Annoyingly,** my phone battery died right in the middle of the trip. |
+| 17 | fru**STRA**tingly | もどかしいことに | **Frustratingly,** the shop had sold out of the shoes I wanted. |
+| 18 | **IR**ritatingly | イライラすることに | **Irritatingly,** my neighbours often play loud music late at night. |
+| 19 | incon**VEN**iently | 不便なことに | **Inconveniently,** the nearest station is a twenty-minute walk from my house. |
+| 20 | em**BAR**rassingly | 恥ずかしいことに | **Embarrassingly,** I called my new boss by the wrong name on my first day. |
+| 21 | **WOR**ryingly | 心配なことに | **Worryingly,** more and more young people spend hours on their phones every day. |
 
-### 自分の立場・本音
+### 意外・おもしろい（11）
 
-| 気持ち副詞 | 意味 | 例文 |
-|---|---|---|
-| **PER**sonally | 個人的には | **Personally,** I'd rather spend money on experiences than on things. |
-| ad**MIT**tedly | 確かに（認めると） | **Admittedly,** online shopping is convenient, but I still like going to real shops. |
-| **HOPE**fully | できれば・願わくは | **Hopefully,** I'll be able to travel abroad again next year. |
+| No | 気持ち副詞 | 意味 | 例文 |
+|---|---|---|---|
+| 22 | sur**PRIS**ingly | 意外なことに | **Surprisingly,** I enjoyed cooking much more than I expected. |
+| 23 | unsur**PRIS**ingly | 案の定 | **Unsurprisingly,** the beach was really crowded during the summer holidays. |
+| 24 | pre**DICT**ably | 予想どおり | **Predictably,** the trains were packed on the first day of the holidays. |
+| 25 | **IN**terestingly | 興味深いことに | **Interestingly,** most of my friends prefer reading on paper rather than on a screen. |
+| 26 | i**RON**ically | 皮肉なことに | **Ironically,** I've been spending more time on my phone since I downloaded an app to reduce my screen time. |
+| 27 | **FUN**nily enough | おもしろいことに | **Funnily enough,** I met my best friend because we were both late for class. |
+| 28 | **ODD**ly enough | 妙なことに | **Oddly enough,** I always sleep better the night before an exam. |
+| 29 | **STRANGE**ly enough | 不思議なことに | **Strangely enough,** I've never been to Kyoto, even though I live quite close to it. |
+| 30 | **CU**riously | 奇妙なことに | **Curiously,** the quietest café in town is right next to the busiest station. |
+| 31 | a**MAZ**ingly | 驚いたことに | **Amazingly,** my grandfather still goes jogging every morning at the age of 85. |
+| 32 | as**TON**ishingly | 驚くべきことに | **Astonishingly,** the little restaurant near my office has been open for over a hundred years. |
 
-> **ポイント**
-> - **Ironically** は、「予想と逆の結果になった」ときにだけ使います。ただ残念なだけのときは、Unfortunately を使いましょう。
-> - **Hopefully** は、これからのことへの願いに使います。過去のことには使いません。
-> - **Admittedly** は、「確かに〜だけど」と、相手の意見や反対の面を認めるときに使います。後ろに but が続くことが多い言葉です。
+### 当然・明らか（7）
+
+| No | 気持ち副詞 | 意味 | 例文 |
+|---|---|---|---|
+| 33 | **NAT**urally | 当然ながら | **Naturally,** I was nervous before my first job interview. |
+| 34 | **OB**viously | 言うまでもなく | **Obviously,** I can't go jogging when it's snowing heavily. |
+| 35 | **CLEAR**ly | 明らかに | **Clearly,** the city needs more parks for children to play in. |
+| 36 | under**STAND**ably | 無理もないことだが | **Understandably,** my parents were worried when I decided to study abroad. |
+| 37 | in**EV**itably | どうしても・必ず | **Inevitably,** the roads get really busy during the holiday season. |
+| 38 | un**DOUBT**edly | 間違いなく | **Undoubtedly,** smartphones have changed the way we communicate. |
+| 39 | ap**PAR**ently | 聞いた話では | **Apparently,** a new shopping centre is going to open near my house next year. |
+
+### 自分の立場・本音（7）
+
+| No | 気持ち副詞 | 意味 | 例文 |
+|---|---|---|---|
+| 40 | **PER**sonally | 個人的には | **Personally,** I'd rather spend money on experiences than on things. |
+| 41 | **HON**estly | 正直なところ | **Honestly,** I'm not a big fan of spicy food. |
+| 42 | **FRANK**ly | 率直に言うと | **Frankly,** I think people spend too much time on social media. |
+| 43 | **TRUTH**fully | 本当のことを言うと | **Truthfully,** I only started reading novels a couple of years ago. |
+| 44 | ad**MIT**tedly | 確かに（認めると） | **Admittedly,** online shopping is convenient, but I still like going to real shops. |
+| 45 | **HOPE**fully | できれば・願わくは | **Hopefully,** I'll be able to travel abroad again next year. |
+| 46 | i**DE**ally | 理想を言えば | **Ideally,** I'd like to live somewhere near the sea. |
+
+### 自分や人の行動の評価（4）
+
+| No | 気持ち副詞 | 意味 | 例文 |
+|---|---|---|---|
+| 47 | **WISE**ly | 賢明にも | **Wisely,** I booked the hotel months in advance, so it wasn't expensive. |
+| 48 | **SEN**sibly | 賢いことに | **Sensibly,** my parents taught me to save a little money every month. |
+| 49 | **FOOL**ishly | 愚かにも | **Foolishly,** I stayed up late the night before the exam. |
+| 50 | **STU**pidly | ばかなことに | **Stupidly,** I left my umbrella on the train. |
+
+> **ポイント：使い方を間違えやすい気持ち副詞**
+> - **Apparently** は「明らかに」ではなく、**「（人から聞いた話では）どうやら」** という意味です。
+> - **Ironically** は、**予想と逆の結果になった** ときだけ使います。ただ残念なだけのときは、Unfortunately を使いましょう。
+> - **Hopefully** は、**これからのこと** への願いに使います。過去のことには使いません。
+> - **Admittedly** は、「確かに〜だけど」と反対の面を認めるときに使い、後ろに **but** が続くことが多い言葉です。
+> - **Frankly** は、少し強く聞こえます。意見をはっきり言いたいときだけに使いましょう。
+> - **Tragically** は、事故や災害など **深刻な出来事** に使う言葉です。ちょっとした残念なことには Sadly を使います。
+> - **Foolishly / Stupidly** は、**自分の失敗** に使うのが安全です。他の人の行動に使うと、失礼に聞こえることがあります。
+> - **Frustratingly** は、イギリス英語では fru**STRA**tingly、アメリカ英語では **FRUS**tratingly と読むことが多い言葉です。どちらで読んでも問題ありません。
 
 ---
 
@@ -169,7 +224,7 @@
 | **Step 3　録音して確かめる** | 強く読む部分と、カンマのあとの一拍ができているか、録音して聞いてみる |
 
 > **ポイント**
-> 15個を一度に覚えようとしなくて大丈夫です。
+> 50個を一度に覚えようとしなくて大丈夫です。
 > **3つを確実に使えるようにして、慣れたら1つずつ増やす** のが近道です。
 
 ---
